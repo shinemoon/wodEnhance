@@ -128,12 +128,11 @@ TAB DETECT & INJECTION RELATED
 chrome.tabs.onActivated.addListener(async (activeInfo) => {
     const tabId = activeInfo.tabId;
     await handleTab()
-        .then((isAllowed) => {
-            if (isAllowed == false) {
-                console.log('not in')
+        .then((tabinfo) => {
+            if (tabinfo.isAllowed == false) {
                 return;
             }
-            console.log('in');
+            console.debug("Valid WoD:",tabinfo.url);
             openDatabase()
                 .then((db) => getSwitchState(db))
                 .then((state) => {
@@ -147,24 +146,16 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => {
 
 function injectLocalFileIntoCurrentPage(tid) {
     // Specify the path to the local CSS file within your extension folder
-    console.log(tid)
     //    const cssFile = '/assets/style.css';
     //   chrome.tabs.sendMessage(tid, { action: 'injectCSS', cssFile: cssFile});
-    chrome.scripting
-        .executeScript({
-            target: { tabId: tid },
-            files: ["/js/content_script.js"],
-        })
+    chrome.scripting.executeScript({ target: { tabId: tid }, files: ["/js/content_script.js"], })
         .then(() => {
-            console.log("Script injected on target ");
-        });
-        chrome.scripting
-            .insertCSS({
-                target: { tabId: tid },
-                files: ["/assets/css/wod.css"],
-            })
-            .then(() => console.log("CSS injected"));
-}
+            console.debug("Script injected on target ");
+            chrome.scripting.insertCSS({ target: { tabId: tid }, files: ["/assets/css/wod.css"] })
+        })
+        .then(() => console.debug("CSS injected"))
+        .finally(() => console.debug("All Injection Finished!"))
+};
 
 async function handleTab() {
     return new Promise((resolve) => {
@@ -174,7 +165,7 @@ async function handleTab() {
                 const url = activeTab.url;
                 // Now you can use the URL as needed
                 const isAllowed = isAllowedDomain(url);
-                resolve(isAllowed);
+                resolve({url:url, isAllowed:isAllowed});
             }
         });
     });
