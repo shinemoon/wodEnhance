@@ -19,7 +19,7 @@
     "128": "assets/icon_512.png"
   },
   "background": {
-    "service_worker": "service_worker.js"
+    "service_worker": "/js/service_worker.js"
   },
   "permissions": [
     "storage",
@@ -32,7 +32,7 @@
         "<all_urls>"
       ],
       "js": [
-        "content_script.js"
+        "/js/content_script.js"
       ]
     }
   ],

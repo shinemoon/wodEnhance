@@ -108,23 +108,21 @@ function setSwitchState(db, state) {
 
 // Listen for tab activation changes
 chrome.tabs.onActivated.addListener((activeInfo) => {
+    const tabId = activeInfo.tabId;
     openDatabase()
         .then((db) => getSwitchState(db))
         .then((state) => {
             if (state) {
-                injectLocalCSSIntoCurrentPage();
+                injectLocalCSSIntoCurrentPage(tabId);
             }
         })
         .finally(closeDatabase);
 });
 
-function injectLocalCSSIntoCurrentPage() {
+function injectLocalCSSIntoCurrentPage(tid) {
     // Specify the path to the local CSS file within your extension folder
+    console.log(tid)
     const cssFile = '/assets/style.css';
-    console.log(self.clients);
-    self.clients.matchAll().then((clients) => {
-        clients.forEach((client) => {
-            client.postMessage({ action: 'injectCSS', cssFile: cssFile });
-        });
-    });
+    chrome.tabs.sendMessage(tid, { action: 'injectCSS', cssFile: cssFile});
+
 }
