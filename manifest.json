@@ -24,19 +24,11 @@
   "permissions": [
     "storage",
     "unlimitedStorage",
+    "scripting",
+    "tabs",
     "activeTab"
   ],
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "/js/content_script.js"
-      ]
-    }
-  ],
   "host_permissions": [
-    "http://world-of-dungeons.org/"
+    "*://*.world-of-dungeons.org/*"
   ]
 }

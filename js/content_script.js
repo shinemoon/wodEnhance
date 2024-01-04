@@ -14,12 +14,6 @@
 //   }
 // });
 
-
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.action === 'injectCSS') {
-    // Handle the activation of the tab
-    console.log('Tab activated!');
-  }
-});
+console.log('WoDEnhancement Injection Start!');
 
 // You need to inject content_script.js into the pages where you want to apply the CSS.
