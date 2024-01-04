@@ -1,0 +1,10 @@
+{
+    "extName": {
+        "message": "WoD增强工具",
+        "description": "Extension Name"
+    },
+    "extDes": {
+        "message": "WoD增强工具打包",
+        "description": "Extension Description"
+    }
+}
