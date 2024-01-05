@@ -90,7 +90,7 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('message', (event) => {
     const { action, data } = event.data;
 
-    console.debug("Got Message: ",action);
+    console.debug("Got Message: ", action);
 
     if (action === 'getSwitchState') {
         openDatabase()
@@ -134,27 +134,58 @@ TAB DETECT & INJECTION RELATED
 //const tabId = activeInfo.tabId;
 chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
     //Only react after load done
-    if (changeInfo.status !== 'complete') {
-        return;
+    if (changeInfo.status === 'complete') {
+        //Firstly to check if the tabID had already injected by message
+        // To send one message to this tab.
+        await handleTab()
+            .then((tabinfo) => {
+                if (tabinfo.isAllowed == false) {
+                    return;
+                }
+                console.debug("Valid WoD:", tabinfo.url);
+                openDatabase()
+                    .then((db) => getSwitchState(db))
+                    .then((state) => {
+                        if (state) {
+                            injectLocalFileIntoCurrentPage(tabId, tabinfo.url);
+                        }
+                    })
+                    .finally(closeDatabase);
+            });
+    } else if (changeInfo.status === 'loading') {
+        //Firstly to check if the tabID had already injected by message
+        // To send one message to this tab.
+        await handleTab()
+            .then((tabinfo) => {
+                if (tabinfo.isAllowed == false) {
+                    return;
+                }
+                console.debug("Valid WoD:", tabinfo.url);
+                openDatabase()
+                    .then((db) => getSwitchState(db))
+                    .then((state) => {
+                        if (state) {
+                            injectLocalIDLEFileIntoCurrentPage(tabId, tabinfo.url);
+                        }
+                    })
+                    .finally(closeDatabase);
+            });
     }
-    //Firstly to check if the tabID had already injected by message
-    // To send one message to this tab.
-    await handleTab()
-        .then((tabinfo) => {
-            if (tabinfo.isAllowed == false) {
-                return;
-            }
-            console.debug("Valid WoD:", tabinfo.url);
-            openDatabase()
-                .then((db) => getSwitchState(db))
-                .then((state) => {
-                    if (state) {
-                        injectLocalFileIntoCurrentPage(tabId, tabinfo.url);
-                    }
-                })
-                .finally(closeDatabase);
-        });
 });
+
+function injectLocalIDLEFileIntoCurrentPage(tid, url) {
+    // Specify the path to the local CSS file within your extension folder
+    let cssfileurl = [];
+    let scriptfileurl = [];
+    // Baseline for common CSS & JS
+
+    cssfileurl.push("/assets/css/wodcss/empty.css");
+    chrome.scripting.insertCSS({ target: { tabId: tid }, files: cssfileurl })
+    console.debug("Script injected on target: ", cssfileurl)
+        .then(() => console.debug("CSS injected"))
+        .finally(() => console.debug("All Injection Finished!"))
+};
+
 
 function injectLocalFileIntoCurrentPage(tid, url) {
     // Specify the path to the local CSS file within your extension folder
