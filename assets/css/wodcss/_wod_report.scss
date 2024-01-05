@@ -16,7 +16,8 @@ body {
     div#showOff {
         position: fixed;
         bottom: 20px;
-        right: 20px;
+        right: 270px;
+        opacity: 0.8;
         background: #eee;
         border: 1px solid #aaa;
         color: white;
@@ -32,18 +33,29 @@ body {
         flex-wrap: nowrap;
         justify-content: center;
         cursor: pointer;
+
+        &:hover {
+            background: #d39c06;
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
+            border-radius: 23px;
+
+
+        }
     }
 }
 
 .content_block,
 table.content_table {
     &>*>tr.row0 {
-        background-color: #eee!important;
-        background: #eee!important;
+        background-color: #eee !important;
+        background: #eee !important;
 
     }
+
     &>*>tr.row1 {
-        background-color: #fff!important;
-        background: #fff!important;
+        background-color: #fff !important;
+        background: #fff !important;
     }
 }

@@ -13,7 +13,8 @@ div.rep_dungeon_description {
 body div#showOff {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 270px;
+  opacity: 0.8;
   background: #eee;
   border: 1px solid #aaa;
   color: white;
@@ -29,6 +30,13 @@ body div#showOff {
   flex-wrap: nowrap;
   justify-content: center;
   cursor: pointer;
+}
+body div#showOff:hover {
+  background: #d39c06;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  border-radius: 23px;
 }
 
 .content_block > * > tr.row0,

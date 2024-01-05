@@ -37,6 +37,17 @@ $rightPanelGadgets: "#gadgettable-right-gadgets ";
   }
 }
 
+
+/* 
+Body
+*/
+
+.page_bg_with_image {
+    //background: url(images/page/page-background.jpg) no-repeat scroll;
+    background: #c9c4c4!important;
+    background-color: #c9c4c4!important;
+}
+
 // Search
 .search_container {
   width: 100%;
@@ -59,7 +70,7 @@ div.tutorial {
   @include gadget-styles;
 
   #{$rightPanelGadgets} {
-    margin-top: 50px;
+    margin-top: 10px;
     font-size: 11px;
 
     &.gadget {

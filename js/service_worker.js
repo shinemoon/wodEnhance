@@ -77,15 +77,20 @@ LISTENER RELATED
 
 
 self.addEventListener('install', (event) => {
+    //Initializaton of DB during installation
     event.waitUntil(openDatabase().then(closeDatabase));
 });
 
+/*
 self.addEventListener('fetch', (event) => {
     // Handle fetch events if needed
 });
+*/
 
 self.addEventListener('message', (event) => {
     const { action, data } = event.data;
+
+    console.debug("Got Message: ",action);
 
     if (action === 'getSwitchState') {
         openDatabase()
@@ -128,10 +133,12 @@ TAB DETECT & INJECTION RELATED
 //chrome.tabs.onActivated.addListener(async (activeInfo) => {
 //const tabId = activeInfo.tabId;
 chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
-    //if (changeInfo.status === "complete") {
-    // console.log("Tab loaded:", tab.url);
-    // // Perform actions when the tab is loaded
-    //}
+    //Only react after load done
+    if (changeInfo.status !== 'complete') {
+        return;
+    }
+    //Firstly to check if the tabID had already injected by message
+    // To send one message to this tab.
     await handleTab()
         .then((tabinfo) => {
             if (tabinfo.isAllowed == false) {

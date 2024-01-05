@@ -1,3 +1,11 @@
+/* 
+Body
+*/
+.page_bg_with_image {
+  background: #c9c4c4 !important;
+  background-color: #c9c4c4 !important;
+}
+
 .search_container {
   width: 100%;
 }
@@ -25,7 +33,7 @@ div.tutorial img.tutorial {
   padding: 10px;
 }
 #gadgettable-right #gadgettable-right-gadgets, #gadgettable-right-gadgets #gadgettable-right-gadgets {
-  margin-top: 50px;
+  margin-top: 10px;
   font-size: 11px;
 }
 #gadgettable-right #gadgettable-right-gadgets.gadget, #gadgettable-right-gadgets #gadgettable-right-gadgets.gadget {
