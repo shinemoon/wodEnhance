@@ -1,0 +1,42 @@
+table.content_table {
+  width: 100%;
+  font-size: xx-small;
+}
+table.content_table > * > tr > th,
+table.content_table > * > tr > td {
+  border: 0 solid white;
+}
+table.content_table > * > tr.row0 {
+  background-color: #eee;
+  background: #eee;
+}
+table.content_table > * > tr.row1 {
+  background-color: #fff;
+  background: #fff;
+}
+table.content_table .header .clickable {
+  font-size: 10px;
+  border-left-width: 0 !important;
+  border-right-width: 0 !important;
+  border-top-width: 0 !important;
+  border-bottom-width: 0 !important;
+}
+
+input {
+  border: 1px solid grey !important;
+}
+
+.gadget_body p {
+  border-bottom: 1px dotted lightgrey !important;
+  font-size: 12px;
+  padding: 10px;
+  background: rgba(143, 184, 227, 0);
+}
+
+body {
+  font-family: "Microsoft Yahei" !important;
+}
+
+td .quotebody {
+  color: white;
+}/*# sourceMappingURL=nonWodForum.css.map */

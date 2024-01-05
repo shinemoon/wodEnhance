@@ -1,0 +1,70 @@
+.search_container {
+  width: 100%;
+}
+
+.search_short.texttoken {
+  width: 100%;
+  text-align: right;
+}
+
+div.tutorial {
+  max-width: 100% !important;
+  min-height: 100px !important;
+  font: 12px normal !important;
+  border: 1px dotted grey;
+  background-color: rgba(231, 213, 199, 0.1803921569);
+  color: #667;
+}
+div.tutorial img.tutorial {
+  display: none !important;
+}
+
+#gadgettable-right, #gadgettable-right-gadgets {
+  min-width: 200px;
+  text-align: left;
+  padding: 10px;
+}
+#gadgettable-right #gadgettable-right-gadgets, #gadgettable-right-gadgets #gadgettable-right-gadgets {
+  margin-top: 50px;
+  font-size: 11px;
+}
+#gadgettable-right #gadgettable-right-gadgets.gadget, #gadgettable-right-gadgets #gadgettable-right-gadgets.gadget {
+  margin-top: 0;
+}
+#gadgettable-right .button, #gadgettable-right-gadgets .button {
+  font-weight: lighter;
+  border: dotted grey;
+  background: rgba(200, 200, 100, 0.3);
+}
+#gadgettable-right #gadgetNextdungeonTime, #gadgettable-right-gadgets #gadgetNextdungeonTime {
+  background: yellow;
+}
+
+#gadgettable-center-gadgets .ticker {
+  text-align: center;
+  background: rgba(217, 167, 167, 0.1882352941);
+  font-family: Kaiti !important;
+  font-style: normal;
+}
+#gadgettable-center-gadgets .ticker:hover {
+  opacity: 0.9;
+}
+#gadgettable-center-gadgets .ticker .ticker_msg {
+  font-weight: normal !important;
+}
+#gadgettable-center-gadgets .ticker .ticker_label {
+  font-style: normal !important;
+}
+
+.hints.content {
+  opacity: 0.8;
+  font-size: 11px;
+}
+
+span {
+  color: black !important;
+}
+
+.table_bbcode span {
+  color: black !important;
+}/*# sourceMappingURL=wod.css.map */

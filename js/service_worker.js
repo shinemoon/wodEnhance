@@ -125,33 +125,62 @@ TAB DETECT & INJECTION RELATED
 */
 
 // Listen for tab activation changes
-chrome.tabs.onActivated.addListener(async (activeInfo) => {
-    const tabId = activeInfo.tabId;
+//chrome.tabs.onActivated.addListener(async (activeInfo) => {
+//const tabId = activeInfo.tabId;
+chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
+    //if (changeInfo.status === "complete") {
+    // console.log("Tab loaded:", tab.url);
+    // // Perform actions when the tab is loaded
+    //}
     await handleTab()
         .then((tabinfo) => {
             if (tabinfo.isAllowed == false) {
                 return;
             }
-            console.debug("Valid WoD:",tabinfo.url);
+            console.debug("Valid WoD:", tabinfo.url);
             openDatabase()
                 .then((db) => getSwitchState(db))
                 .then((state) => {
                     if (state) {
-                        injectLocalFileIntoCurrentPage(tabId);
+                        injectLocalFileIntoCurrentPage(tabId, tabinfo.url);
                     }
                 })
                 .finally(closeDatabase);
         });
 });
 
-function injectLocalFileIntoCurrentPage(tid) {
+function injectLocalFileIntoCurrentPage(tid, url) {
     // Specify the path to the local CSS file within your extension folder
-    //    const cssFile = '/assets/style.css';
-    //   chrome.tabs.sendMessage(tid, { action: 'injectCSS', cssFile: cssFile});
-    chrome.scripting.executeScript({ target: { tabId: tid }, files: ["/js/content_script.js"], })
+    let cssfileurl = [];
+    let scriptfileurl = [];
+    // Baseline for common CSS & JS
+
+    scriptfileurl.push("/js/jquery-3.7.1.min.js");
+    scriptfileurl.push("/js/wodjs/content_script.js");
+    cssfileurl.push("/assets/css/wodcss/wod.css");
+
+    // Page Handling differently
+    // TRADE
+    if (url.indexOf("trade.php") > 0) {
+        cssfileurl.push("/assets/css/wodcss/wodTrade.css");
+    };
+
+    // REPORT
+    if (url.indexOf("report") > 0) {
+        scriptfileurl.push("/js/wodjs/report.js");
+        cssfileurl.push("/assets/css/wodcss/wodReport.css");
+    };
+
+    // NON-FORUM
+    if (url.indexOf("viewtopic") < 0) {
+        cssfileurl.push("/assets/css/wodcss/nonWodForum.css");
+    };
+
+
+    chrome.scripting.executeScript({ target: { tabId: tid }, files: scriptfileurl, })
         .then(() => {
-            console.debug("Script injected on target ");
-            chrome.scripting.insertCSS({ target: { tabId: tid }, files: ["/assets/css/wod.css"] })
+            chrome.scripting.insertCSS({ target: { tabId: tid }, files: cssfileurl })
+            console.debug("Script injected on target: ", cssfileurl);
         })
         .then(() => console.debug("CSS injected"))
         .finally(() => console.debug("All Injection Finished!"))
@@ -165,13 +194,13 @@ async function handleTab() {
                 const url = activeTab.url;
                 // Now you can use the URL as needed
                 const isAllowed = isAllowedDomain(url);
-                resolve({url:url, isAllowed:isAllowed});
+                resolve({ url: url, isAllowed: isAllowed });
             }
         });
     });
 };
 
 function isAllowedDomain(url) {
-    const allowedHostPattern = /^https:\/\/.*\.world-of-dungeons\.org\/.*/;
+    const allowedHostPattern = /^http.*:\/\/.*\.world-of-dungeons\.org\/.*/;
     return allowedHostPattern.test(url);
 };

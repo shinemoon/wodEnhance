@@ -1,0 +1,27 @@
+// jQuery Styles Converted to SCSS
+.paginator_selected {
+  font-size: 11px;
+  color: #eee;
+}
+
+.paginator.clickable {
+  height: 16px;
+  font-size: 11px;
+  background: #a7d2eb;
+}
+
+.search_details {
+  font-size: 11px;
+}
+
+table.content_table {
+  > * > tr.header {
+    background-color: #e0e0e0;
+  }
+}
+
+.boardtext {
+  span {
+    color: black;
+  }
+}

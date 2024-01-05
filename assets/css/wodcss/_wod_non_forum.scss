@@ -1,0 +1,52 @@
+// Assuming the mixin is imported at the top layer
+
+// Styles
+table.content_table {
+  width: 100%;
+  font-size: xx-small;
+
+  > * > tr > th,
+  > * > tr > td {
+    border: 0 solid white;
+  }
+
+  > * > tr {
+    &.row0 {
+      background-color: #eee;
+      background: #eee;
+    }
+    &.row1 {
+      background-color: #fff;
+      background: #fff;
+    }
+  }
+
+  .header .clickable {
+    font-size: 10px;
+    border: {
+      left-width: 0 !important;
+      right-width: 0 !important;
+      top-width: 0 !important;
+      bottom-width: 0 !important;
+    }
+  }
+}
+
+input {
+  border: 1px solid grey !important;
+}
+
+.gadget_body p {
+  border-bottom: 1px dotted lightgrey !important;
+  font-size: 12px;
+  padding: 10px;
+  background: #8fb8e300;
+}
+
+body {
+  font-family: 'Microsoft Yahei' !important;
+}
+
+td .quotebody {
+  color: white;
+}

@@ -1,0 +1,43 @@
+p.rep_level_success,
+p.rep_level_description,
+div.rep_dungeon_description {
+  max-width: 100%;
+  font-size: 14px;
+  line-height: 1.8em;
+  color: lightblue;
+  background: #333;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+body div#showOff {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #eee;
+  border: 1px solid #aaa;
+  color: white;
+  font-style: bold;
+  background: #e4550e;
+  border-radius: 20px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.content_block > * > tr.row0,
+table.content_table > * > tr.row0 {
+  background-color: #eee !important;
+  background: #eee !important;
+}
+.content_block > * > tr.row1,
+table.content_table > * > tr.row1 {
+  background-color: #fff !important;
+  background: #fff !important;
+}/*# sourceMappingURL=wodReport.css.map */

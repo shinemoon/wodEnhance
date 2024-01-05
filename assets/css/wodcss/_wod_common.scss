@@ -1,0 +1,101 @@
+// Item Definition
+// Define Item
+$rightPanel: "#gadgettable-right ";
+$rightPanelGadgets: "#gadgettable-right-gadgets ";
+// Mixins
+@mixin tutorial-styles {
+  max-width: 100% !important;
+  min-height: 100px !important;
+  font: 12px normal !important;
+  border: 1px dotted grey;
+  background-color: #e7d5c72e;
+  color: #667;
+  img.tutorial {
+    display: none !important;
+  }
+}
+
+@mixin gadget-styles {
+  min-width: 200px;
+  text-align: left;
+  padding: 10px;
+}
+
+@mixin ticker-styles {
+  text-align: center;
+  background: #d9a7a730;
+  font-family: Kaiti !important;
+  font-style: normal;
+  &:hover {
+    opacity: 0.9;
+  }
+  .ticker_msg {
+    font-weight: normal !important;
+  }
+  .ticker_label {
+    font-style: normal !important;
+  }
+}
+
+// Search
+.search_container {
+  width: 100%;
+}
+
+.search_short.texttoken {
+  width: 100%;
+  text-align: right;
+}
+
+// Style
+// Tutorial
+div.tutorial {
+  @include tutorial-styles;
+}
+
+// Gadget
+// Right
+#{$rightPanel}, #{$rightPanelGadgets} {
+  @include gadget-styles;
+
+  #{$rightPanelGadgets} {
+    margin-top: 50px;
+    font-size: 11px;
+
+    &.gadget {
+      margin-top: 0;
+    }
+  }
+
+  .button {
+    font-weight: lighter;
+    border: dotted grey;
+    background: rgba(200, 200, 100, 0.3);
+  }
+
+  #gadgetNextdungeonTime {
+    background: yellow;
+  }
+}
+
+// Ticker
+#gadgettable-center-gadgets {
+  .ticker {
+    @include ticker-styles;
+  }
+}
+
+.hints.content {
+  opacity: 0.8;
+  font-size: 11px;
+}
+
+span {
+  color: black !important;
+}
+
+.table_bbcode {
+  span {
+    color: black !important;
+  }
+}
