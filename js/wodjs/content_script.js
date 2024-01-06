@@ -21,8 +21,14 @@ function replaceImageUrls() {
   });
 }
 
+function otherRefinement(){
+  //Remove the action of top tools
+  $('#gadgettable-top-gadgets .gadget_icon img').removeAttr('onmouseout').removeAttr("onmouseover");
+}
+
 replaceCssFile();
 replaceImageUrls();
+otherRefinement();
 
 
 // To replace the logo with Avator

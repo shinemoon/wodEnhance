@@ -27,32 +27,76 @@ div.tutorial img.tutorial {
   display: none !important;
 }
 
-#gadgettable-right, #gadgettable-right-gadgets {
+#gadgettable-top-gadgets {
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-bottom: 8px;
+}
+#gadgettable-top-gadgets .gadget.worlds {
+  background-color: #000;
+  opacity: 0.4;
+}
+#gadgettable-top-gadgets .gadget.worlds .world_list {
+  color: white !important;
+}
+#gadgettable-top-gadgets .gadget.ticker {
+  text-align: center;
+  font-style: normal;
+  font-size: smaller;
+  padding-top: 5px;
+  padding-top: 6px;
+}
+#gadgettable-top-gadgets .gadget.ticker:hover {
+  opacity: 0.9;
+}
+#gadgettable-top-gadgets .gadget.ticker .ticker_msg {
+  font-weight: normal !important;
+}
+#gadgettable-top-gadgets .gadget.ticker .ticker_label {
+  font-style: normal !important;
+}
+#gadgettable-top-gadgets .gadget.clock {
+  background-color: #000;
+}
+#gadgettable-top-gadgets .gadget.clock span#clock {
+  color: white !important;
+}
+
+#gadgettable-right,
+#gadgettable-right-gadgets {
   min-width: 200px;
   text-align: left;
   padding: 10px;
 }
-#gadgettable-right #gadgettable-right-gadgets, #gadgettable-right-gadgets #gadgettable-right-gadgets {
+#gadgettable-right #gadgettable-right-gadgets,
+#gadgettable-right-gadgets #gadgettable-right-gadgets {
   margin-top: 10px;
   font-size: 11px;
 }
-#gadgettable-right #gadgettable-right-gadgets.gadget, #gadgettable-right-gadgets #gadgettable-right-gadgets.gadget {
-  margin-top: 0;
+#gadgettable-right #gadgettable-right-gadgets .gadget,
+#gadgettable-right-gadgets #gadgettable-right-gadgets .gadget {
+  margin-top: 10px;
+  border-bottom: 0.6px solid #aebece;
 }
-#gadgettable-right .button, #gadgettable-right-gadgets .button {
+#gadgettable-right #gadgettable-right-gadgets .gadget.medals,
+#gadgettable-right-gadgets #gadgettable-right-gadgets .gadget.medals {
+  display: none;
+}
+#gadgettable-right .button,
+#gadgettable-right-gadgets .button {
   font-weight: lighter;
   border: dotted grey;
   background: rgba(200, 200, 100, 0.3);
 }
-#gadgettable-right #gadgetNextdungeonTime, #gadgettable-right-gadgets #gadgetNextdungeonTime {
+#gadgettable-right #gadgetNextdungeonTime,
+#gadgettable-right-gadgets #gadgetNextdungeonTime {
   background: yellow;
 }
 
 #gadgettable-center-gadgets .ticker {
   text-align: center;
-  background: rgba(217, 167, 167, 0.1882352941);
-  font-family: Kaiti !important;
   font-style: normal;
+  font-size: smaller;
+  padding-top: 5px;
 }
 #gadgettable-center-gadgets .ticker:hover {
   opacity: 0.9;

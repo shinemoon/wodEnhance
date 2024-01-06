@@ -2,6 +2,8 @@
 // Define Item
 $rightPanel: "#gadgettable-right ";
 $rightPanelGadgets: "#gadgettable-right-gadgets ";
+$topPanelGadgets: "#gadgettable-top-gadgets ";
+
 // Mixins
 @mixin tutorial-styles {
   max-width: 100% !important;
@@ -10,6 +12,7 @@ $rightPanelGadgets: "#gadgettable-right-gadgets ";
   border: 1px dotted grey;
   background-color: #e7d5c72e;
   color: #667;
+
   img.tutorial {
     display: none !important;
   }
@@ -23,15 +26,18 @@ $rightPanelGadgets: "#gadgettable-right-gadgets ";
 
 @mixin ticker-styles {
   text-align: center;
-  background: #d9a7a730;
-  font-family: Kaiti !important;
   font-style: normal;
+  font-size: smaller;
+  padding-top: 5px;
+
   &:hover {
     opacity: 0.9;
   }
+
   .ticker_msg {
     font-weight: normal !important;
   }
+
   .ticker_label {
     font-style: normal !important;
   }
@@ -43,9 +49,9 @@ Body
 */
 
 .page_bg_with_image {
-    //background: url(images/page/page-background.jpg) no-repeat scroll;
-    background: #c9c4c4!important;
-    background-color: #c9c4c4!important;
+  //background: url(images/page/page-background.jpg) no-repeat scroll;
+  background: #c9c4c4 !important;
+  background-color: #c9c4c4 !important;
 }
 
 // Search
@@ -65,16 +71,56 @@ div.tutorial {
 }
 
 // Gadget
+// Top
+
+#{$topPanelGadgets} {
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-bottom: 8px;
+
+  .gadget {
+
+    // Gadgets Setting
+    // Hide Metals
+    &.worlds {
+      background-color: #000;
+      .world_list{
+        color: white!important;
+      }
+      opacity:0.4;
+    }
+
+    &.ticker {
+      @include ticker-styles;
+      padding-top: 6px;
+    }
+
+    &.clock {
+      background-color: #000;
+      span#clock {
+        color: white!important;
+      }
+    }
+  }
+}
+
 // Right
-#{$rightPanel}, #{$rightPanelGadgets} {
+#{$rightPanel},
+#{$rightPanelGadgets} {
   @include gadget-styles;
 
   #{$rightPanelGadgets} {
     margin-top: 10px;
     font-size: 11px;
 
-    &.gadget {
-      margin-top: 0;
+    .gadget {
+      margin-top: 10px;
+      border-bottom: 0.6px solid #aebece;
+
+      // Gadgets Setting
+      // Hide Metals
+      &.medals {
+        display: none;
+      }
     }
   }
 
@@ -112,5 +158,5 @@ span {
 }
 
 body {
-  display:block!important;
+  display: block !important;
 }
