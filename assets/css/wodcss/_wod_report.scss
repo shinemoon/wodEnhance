@@ -1,24 +1,25 @@
 // Styles
 p.rep_level_success,
 div.rep_dungeon_description {
-    max-width: 100%!important;
+    max-width: 100% !important;
     font-size: 14px;
-    line-height: 2!important;
+    line-height: 2 !important;
     color: lightblue;
     background: #333;
     padding-top: 40px;
     padding-bottom: 40px;
-    .bbcode_i {
-        color:white!important;
-        font-size:0.8em;
+
+    [class*="bbcode_"] {
+        color: white !important;
+        font-size: 0.8em;
     }
 }
 
-p.rep_level_description {
-    color:#333;
-    max-width: 80%!important;
+p[class*="rep_level_"] {
+    color: #333;
+    max-width: 80% !important;
     font-size: 14px;
-    line-height: 1.8em;
+    line-height: 2 !important;
     background: #333;
     padding-top: 40px;
     padding-bottom: 40px;

@@ -57,7 +57,7 @@ Body
 // Search
 .search_container {
   width: 100%;
-  border:#000 0px solid!important;
+  border: #000 0px solid !important;
 }
 
 .search_short.texttoken {
@@ -75,7 +75,14 @@ div.tutorial {
 // Top
 
 #{$topPanelGadgets} {
-  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 30px;
+  z-index: 999;
+  background-color: #c9c4c450;
+  border-bottom: 1px solid #333;
   margin-bottom: 8px;
 
   .gadget {
@@ -84,9 +91,11 @@ div.tutorial {
     // Hide Metals
     &.worlds {
       background-color: #000;
-      .world_list{
-        color: white!important;
+
+      .world_list {
+        color: white !important;
       }
+
       opacity:0.4;
     }
 
@@ -97,8 +106,9 @@ div.tutorial {
 
     &.clock {
       background-color: #000;
+
       span#clock {
-        color: white!important;
+        color: white !important;
       }
     }
   }
@@ -160,18 +170,53 @@ span {
 
 body {
   display: block !important;
+  padding-top: 25px !important;
 }
 
 span.menu_0_selected {
-  display:none;
+  display: none;
 }
 
 .paginator_selected {
-  font-size:12px!important;
-  color:white!important;
+  font-size: 12px !important;
+  color: white !important;
 }
 
 input.pagi_def {
-  background:white!important;
-  color:black!important;
+  background: white !important;
+  color: black !important;
+}
+
+#FooterMenu {
+  background: #ccc;
+  font-size: 12px;
+}
+
+//Fill bar
+.experience-bar, .fame-bar {
+  width: 100px;
+  height: 10px;
+  border: 2px solid #7c7979;
+  border-radius: 5px;
+  margin-left:20px;
+}
+
+.filled-bar {
+  height: 100%;
+  background-color: #f0bf37;
+  transition: width 0.5s;
+}
+
+.heroTitle , .heroClass, .heroRace{
+  margin-left:20px;
+    /* border-top: 1px dotted #555; */
+    /* border-bottom: 1px dotted #555; */
+    border-left: 1px dotted #555;
+    span {
+      margin-left:10px;
+    }
+
+}
+.gadget.languages {
+  background:#6d6b68;
 }
