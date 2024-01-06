@@ -57,6 +57,7 @@ Body
 // Search
 .search_container {
   width: 100%;
+  border:#000 0px solid!important;
 }
 
 .search_short.texttoken {
@@ -159,4 +160,18 @@ span {
 
 body {
   display: block !important;
+}
+
+span.menu_0_selected {
+  display:none;
+}
+
+.paginator_selected {
+  font-size:12px!important;
+  color:white!important;
+}
+
+input.pagi_def {
+  background:white!important;
+  color:black!important;
 }

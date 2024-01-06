@@ -7,12 +7,12 @@ table.content_table > * > tr > td {
   border: 0 solid white;
 }
 table.content_table > * > tr.row0 {
-  background-color: #eee;
-  background: #eee;
+  background-color: #eee !important;
+  background: #eee !important;
 }
 table.content_table > * > tr.row1 {
-  background-color: #fff;
-  background: #fff;
+  background-color: #fff !important;
+  background: #fff !important;
 }
 table.content_table .header .clickable {
   font-size: 10px;

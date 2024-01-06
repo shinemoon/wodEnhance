@@ -24,6 +24,8 @@ function replaceImageUrls() {
 function otherRefinement(){
   //Remove the action of top tools
   $('#gadgettable-top-gadgets .gadget_icon img').removeAttr('onmouseout').removeAttr("onmouseover");
+  $('#gadgettable-top-gadgets .gadget_icon img').off('mouseout').off("mouseover");
+  $('img[src*="images/icons/inf.gif"]').css('border-radius', '8px').css('margin-left','5px');
 }
 
 replaceCssFile();

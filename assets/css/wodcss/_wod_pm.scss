@@ -1,0 +1,8 @@
+.subject_selected, .subject_standard {
+    background-color:rgba(0,0,0,0)!important;
+}
+ 
+input.clickable[class*='folder_'] {
+    width:80%!important;
+    font-size:12px;
+} 

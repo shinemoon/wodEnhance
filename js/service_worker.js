@@ -181,7 +181,6 @@ function injectLocalIDLEFileIntoCurrentPage(tid, url) {
 
     cssfileurl.push("/assets/css/wodcss/empty.css");
     chrome.scripting.insertCSS({ target: { tabId: tid }, files: cssfileurl })
-    console.debug("Script injected on target: ", cssfileurl)
         .then(() => console.debug("CSS injected"))
         .finally(() => console.debug("All Injection Finished!"))
 };
@@ -195,6 +194,12 @@ function injectLocalFileIntoCurrentPage(tid, url) {
 
     scriptfileurl.push("/js/jquery-3.7.1.min.js");
     scriptfileurl.push("/js/wodjs/content_script.js");
+
+    // Plugin Files:
+    scriptfileurl.push("/js/wodjs/plugin_jumper.js");
+    scriptfileurl.push("/js/wodjs/plugin_price.js");
+
+
     cssfileurl.push("/assets/css/wodcss/wod.css");
 
     // Page Handling differently
@@ -209,6 +214,12 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         cssfileurl.push("/assets/css/wodcss/wodReport.css");
     };
 
+    // REPORT
+    if (url.indexOf("pm") > 0) {
+        cssfileurl.push("/assets/css/wodcss/wodPM.css");
+    };
+
+
     // NON-FORUM
     if (url.indexOf("viewtopic") < 0) {
         cssfileurl.push("/assets/css/wodcss/nonWodForum.css");
@@ -218,7 +229,8 @@ function injectLocalFileIntoCurrentPage(tid, url) {
     chrome.scripting.executeScript({ target: { tabId: tid }, files: scriptfileurl, })
         .then(() => {
             chrome.scripting.insertCSS({ target: { tabId: tid }, files: cssfileurl })
-            console.debug("Script injected on target: ", cssfileurl);
+            console.debug("Script injected on target: ", scriptfileurl);
+            console.debug("CSS injected on target: ", cssfileurl);
         })
         .then(() => console.debug("CSS injected"))
         .finally(() => console.debug("All Injection Finished!"))
