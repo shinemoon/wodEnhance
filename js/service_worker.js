@@ -123,6 +123,20 @@ self.addEventListener('message', (event) => {
     }
 });
 
+
+// For Chrome.runtime.onMessage
+// Listen for messages from content scripts
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+    console.log(message);
+    console.log(sender);
+    if (message.action === 'calculateStr') {
+        sendResponse({ success: true, data: 0 });
+    }
+    //Return True for async return
+    return true;
+});
+
+
 /*
 =================================================
 TAB DETECT & INJECTION RELATED
@@ -190,18 +204,24 @@ function injectLocalFileIntoCurrentPage(tid, url) {
     // Specify the path to the local CSS file within your extension folder
     let cssfileurl = [];
     let scriptfileurl = [];
-    // Baseline for common CSS & JS
 
+
+    let pluginscriptfileurl = [];
+
+    //Please not the order of script/css!
+
+    // Baseline for common CSS & JS
     scriptfileurl.push("/js/jquery-3.7.1.min.js");
+    // Final Mockup
     scriptfileurl.push("/js/wodjs/content_script.js");
 
     // Plugin Files:
-    scriptfileurl.push("/js/wodjs/plugin_jumper.js");
-    scriptfileurl.push("/js/wodjs/plugin_price.js");
-
+    pluginscriptfileurl.push("/js/wodjs/plugin_jumper.js");
+    pluginscriptfileurl.push("/js/wodjs/plugin_price.js");
+    pluginscriptfileurl.push("/js/wodjs/plugin_extra_statistics.js");
+    pluginscriptfileurl.push("/js/wodjs/plugin_skillrolls.js");
 
     cssfileurl.push("/assets/css/wodcss/wod.css");
-
     // Page Handling differently
     // TRADE
     if (url.indexOf("trade.php") > 0) {
@@ -225,6 +245,7 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         cssfileurl.push("/assets/css/wodcss/nonWodForum.css");
     };
 
+    //Reverse script/css lists
 
     chrome.scripting.executeScript({ target: { tabId: tid }, files: scriptfileurl, })
         .then(() => {
@@ -233,7 +254,13 @@ function injectLocalFileIntoCurrentPage(tid, url) {
             console.debug("CSS injected on target: ", cssfileurl);
         })
         .then(() => console.debug("CSS injected"))
-        .finally(() => console.debug("All Injection Finished!"))
+        .finally(() => {
+            console.debug("All Injection Finished!");
+            console.debug("Start Plugin Injection!");
+            chrome.scripting.executeScript({ target: { tabId: tid }, files: pluginscriptfileurl, })
+                .then(() => console.log("Plugin Injected."))
+                .catch((error) => console.error(`Plugin Injection failure:${error.message}`))
+        })
 };
 
 async function handleTab() {

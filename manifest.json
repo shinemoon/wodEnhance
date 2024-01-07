@@ -28,6 +28,11 @@
     "tabs",
     "activeTab"
   ],
+  "sandbox": {
+    "pages": [
+      "sandbox.html"
+    ]
+  },
   "host_permissions": [
     "*://*.world-of-dungeons.org/*"
   ]

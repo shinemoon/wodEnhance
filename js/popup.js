@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Listen for messages from the service worker
   navigator.serviceWorker.addEventListener('message', (event) => {
+    console.log(event);
     const { action, data } = event.data;
 
     if (action === 'switchState') {
@@ -17,6 +18,15 @@ document.addEventListener('DOMContentLoaded', function () {
       updateStatusText();
     } else if (action === 'switchStateUpdated') {
       // Handle state update if needed
+    }
+
+  });
+
+
+  chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    if (request.action === "executeCode") {
+      // Handle the message and send a response if needed
+      sendResponse({ success: true, result: 0 });
     }
   });
 

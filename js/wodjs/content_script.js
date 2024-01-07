@@ -50,7 +50,9 @@ function otherRefinement() {
   var missingFame = extractValue(fameinfo, '缺少:');
   $('div.fame .image').hide();
   $('div.fame .bar').hide();
-  $('div.fame').append('<div style="display:flex;align-items: center;margin-top:5px;margin-bottom:20px;"><div style="margin-right:8px;">Fame: </div><div style="margin-left:20px;"><span style="background:yellow;">'+missingFame+'</span> to next level.</div>')
+  $('div.fame').append('<div style="display:flex;align-items: center;margin-top:5px;margin-bottom:20px;"><div style="margin-right:0px;">Fame: </div><div class="fame-bar" hin><div class="filled-bar"></div></div></div>')
+  //$('div.fame').append('<div style="display:flex;align-items: center;margin-top:5px;margin-bottom:20px;"><div style="margin-right:8px;">Fame: </div><div style="margin-left:20px;"><span style="background:yellow;">'+missingFame+'</span> to next level.</div>')
+  updateExperienceBar(originalFame, nextTitleFame, '.fame-bar');
 }
 
 // Function to extract value based on the label
