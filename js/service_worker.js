@@ -7,6 +7,7 @@ DATA BASE RELATED
 */
 
 let db; // Define db globally
+let cport = null;
 
 function openDatabase() {
     return new Promise((resolve, reject) => {
@@ -127,13 +128,27 @@ self.addEventListener('message', (event) => {
 // For Chrome.runtime.onMessage
 // Listen for messages from content scripts
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-    console.log(message);
-    console.log(sender);
     if (message.action === 'calculateStr') {
         sendResponse({ success: true, data: 0 });
+        //        cport.postMessage("One Request Coming")
     }
     //Return True for async return
     return true;
+});
+
+//For Internal Port
+chrome.runtime.onConnect.addListener((port) => {
+    console.log('connected')
+    console.assert(port.name === "popup");
+    cport = port;
+    console.log('port');
+    console.log(cport);
+    port.onMessage.addListener((msg) => {
+        if (msg.action === "executeResult") {
+            // Handle the message and send a response if needed
+            port.postMessage({ result: "Message received and processed." });
+        }
+    });
 });
 
 

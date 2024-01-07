@@ -23,11 +23,14 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-  chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if (request.action === "executeCode") {
-      // Handle the message and send a response if needed
-      sendResponse({ success: true, result: 0 });
-    }
+  // popup.js
+  const port = chrome.runtime.connect({ name: "popup" });
+
+  // port.postMessage({ action: "executeCode", data: 0 });
+
+  // Listen for responses from the service worker
+  port.onMessage.addListener((response) => {
+    console.log("Response from service worker:", response);
   });
 
   // Handle switch state changes
