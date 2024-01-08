@@ -52,6 +52,12 @@ function otherRefinement() {
   $('div.fame').append('<div style="display:flex;align-items: center;margin-top:5px;margin-bottom:0px;"><div style="margin-right:0px;">Fame: <u>' + originalFame + '</u></div></div><div class="fame-bar" style="margin-top:5px;margin-bottom:20px;" ><div class="filled-bar"></div></div>')
   updateExperienceBar(originalFame, nextTitleFame, '.fame-bar');
 
+  $('textarea').on('mouseover', function () {
+    // Remove resizer:
+    $('textarea').off('mouseover');
+    $('textarea').removeAttr('onmouseover');
+    $('textarea').parent().removeClass('resizeable');
+  });
 }
 
 // Function to extract value based on the label

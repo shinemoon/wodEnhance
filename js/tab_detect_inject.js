@@ -9,7 +9,8 @@ TAB DETECT & INJECTION RELATED
 //const tabId = activeInfo.tabId;
 chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
     //Only react after load done
-    if (changeInfo.status === 'complete') {
+    //if (changeInfo.status === 'complete') {
+    if (changeInfo.status === 'loading') {
         //Firstly to check if the tabID had already injected by message
         // To send one message to this tab.
         await handleTab()
@@ -27,24 +28,28 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
                     })
                     .finally(closeDatabase);
             });
+        /*
+        // Idea to only inject real script after complete... but ... it's so hard to load full page sometimes, so give up.
+        // 
     } else if (changeInfo.status === 'loading') {
-        //Firstly to check if the tabID had already injected by message
-        // To send one message to this tab.
-        await handleTab()
-            .then((tabinfo) => {
-                if (tabinfo.isAllowed == false) {
-                    return;
-                }
-                console.debug("Valid WoD:", tabinfo.url);
-                openDatabase()
-                    .then((db) => getDataFromStore(db, 'extensionState', 1))
-                    .then((state) => {
-                        if (state) {
-                            injectLocalIDLEFileIntoCurrentPage(tabId, tabinfo.url);
-                        }
-                    })
-                    .finally(closeDatabase);
-            });
+    //Firstly to check if the tabID had already injected by message
+    // To send one message to this tab.
+    await handleTab()
+        .then((tabinfo) => {
+            if (tabinfo.isAllowed == false) {
+                return;
+            }
+            console.debug("Valid WoD:", tabinfo.url);
+            openDatabase()
+                .then((db) => getDataFromStore(db, 'extensionState', 1))
+                .then((state) => {
+                    if (state) {
+                        injectLocalIDLEFileIntoCurrentPage(tabId, tabinfo.url);
+                    }
+                })
+                .finally(closeDatabase);
+        });
+        */
     }
 });
 
@@ -97,7 +102,7 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         cssfileurl.push("/assets/css/wodcss/wodReport.css");
     };
     // SKILLCONFIG
-    if (url.indexOf("skillconfig") > 0 || url.indexOf("hero/skillconf")>0) {
+    if (url.indexOf("skillconfig") > 0 || url.indexOf("hero/skillconf") > 0) {
         scriptfileurl.push("/js/wodjs/skill_config.js");
         cssfileurl.push("/assets/css/wodcss/wodSkillConf.css");
     };
@@ -141,7 +146,7 @@ function injectLocalFileIntoCurrentPage(tid, url) {
             console.debug("All Injection Finished!");
             console.debug("Start Plugin Injection!");
             chrome.scripting.executeScript({ target: { tabId: tid }, files: pluginscriptfileurl, })
-                .then(() => console.log("Plugin Injected:",pluginscriptfileurl))
+                .then(() => console.log("Plugin Injected:", pluginscriptfileurl))
                 .catch((error) => console.error(`Plugin Injection failure:${error.message}`))
         })
 };
