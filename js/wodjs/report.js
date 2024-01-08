@@ -14,4 +14,12 @@ if (window.location.href.indexOf("report.php") >= 0) {
         $('.rep_status_table~hr~table:not(.rep_status_table) tr:not(:contains("' + user + '"))').toggle();
         $('.rewards:not(:contains("' + user + '"))').toggle();
     });
+    for (var i of ['击倒', '被解除', '逃走']) {
+        $('.rep_status_table tr:contains(' + i + ')').css('background', '#dedede').css('color', '#888');
+        $('.rep_status_table tr:contains(' + i + ') a').css('color', '#888');
+    }
+    for (var i of ['轻伤', '重伤']) {
+        $('.rep_status_table tr:contains(' + i + ')').css('background', '#f1dcce70').css('color', 'black');
+    }
+
 };

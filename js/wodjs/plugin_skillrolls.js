@@ -113,7 +113,6 @@ if (window.location.href.indexOf("/hero/skills") >= 0) {
     // Use messaging to calculate the result in the background script
     const result = await new Promise(resolve => {
       chrome.runtime.sendMessage({ action: 'calculateStr', data: replaced }, response => {
-        console.log('Content script received response:', response);
         resolve(response.data);
       });
     });
@@ -194,20 +193,22 @@ if (window.location.href.indexOf("/hero/skills") >= 0) {
       return;
     }
 
+
     if (!skillRollData?.[skill]) {
       const skillData = await new Promise(resolve => {
-        GM.xmlHttpRequest({
+        $.ajax({
           url: link,
-          synchronous: false,
-          onload: (data) => {
-            resolve(data.responseText);
+          async: true,
+          success: data => {
+            resolve(data);
           }
         });
       });
-      //console.log('qqqq',skillData);
+      //console.log('qqqq', skillData);
       skillRollData[skill] = parseAttackRolls(skillData);
       save(SKILL_ROLLS_STORAGE_KEY, skillRollData);
     }
+
     //console.log( "data", skillRollData[skill] );
     if (skillRollData[skill].length === 0) {
       return;
@@ -225,7 +226,6 @@ if (window.location.href.indexOf("/hero/skills") >= 0) {
     // Wait for all promises to resolve
     const formatted = await Promise.all(formattedPromises);
 
-    console.log({ formatted });
     $(row)
       .find('td[class=roll_placeholder]')
       .replaceWith(`<td class="roll_placeholder"><table width="100%"><tbody>${formatted
@@ -245,7 +245,12 @@ if (window.location.href.indexOf("/hero/skills") >= 0) {
         })
         .join('')
         }</tbody></table></td>`);
+        skillRollsStyle();
   }
+
+  function skillRollsStyle() {
+    $('img[src*="images/icons/inf.gif"]').css('border-radius', '8px').css('margin-left', '5px');
+  };
   main();
 }
 

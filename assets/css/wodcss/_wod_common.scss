@@ -195,14 +195,39 @@ span.menu_0_selected {
   display: none;
 }
 
+//.paginator_selected {
+.pagi_but,
+.paginator,
 .paginator_selected {
+  display: inline-block !important;
+  padding: 6px 10px !important;
   font-size: 12px !important;
-  color: white !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border: 1px solid #333 !important;
+  color: #333 !important;
+  border-radius: 2px !important;
+  background-color: #e4e9ee20 !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+  height: 28px !important;
+
+  &:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+  }
 }
 
-input.pagi_def {
-  background: white !important;
-  color: black !important;
+.paginator_selected {
+  background-color: #e4e9ee !important;
+}
+
+.pagi_but {
+  border-radius: 15px !important;
+  font-size: 10px !important;
+  width: 25px !important;
+  height: 25px !important;
+  background-color: #eeeeee !important;
+  padding-right: 15px !important;
 }
 
 #FooterMenu {
@@ -211,7 +236,7 @@ input.pagi_def {
 }
 
 
-@mixin progressbar{
+@mixin progressbar {
   width: 100px;
   height: 10px;
   border: 2px solid #7c7979;
@@ -225,11 +250,13 @@ input.pagi_def {
   }
 
 }
+
 //Fill bar
 .experience-bar,
 .fame-bar {
   @include progressbar;
 }
+
 .fame-bar {
   .filled-bar {
     background-color: #b275eb;
@@ -258,4 +285,102 @@ input.pagi_def {
 .logo img {
   margin-left: 10px;
   margin-top: 5px;
+}
+
+iframe.content_block,
+div.content_block,
+p.content_block,
+table.content_table>*>tr>th,
+table.content_table>*>tr>td {
+  border: 1px solid white !important;
+}
+
+/* WebKit (Chrome, Safari) */
+textarea::-webkit-scrollbar {
+  width: 12px !important;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: #ccc !important;
+  border-radius: 3px !important;
+}
+
+/* Firefox */
+textarea {
+  scrollbar-width: thin !important;
+  scrollbar-color: #ccc transparent !important;
+}
+
+/* Add this to your existing CSS for the textarea styling */
+textarea {
+  border: 1px solid lightgrey !important;
+  padding: 10px !important;
+  font-family: 'Helvetica', sans-serif !important;
+  font-size: 12px !important;
+  line-height: 2 !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  resize: none !important;
+  border-radius: 6px !important;
+  /* Add 3px border-radius */
+  background: #e4e9ee80 !important;
+}
+
+input.pagi_def {
+  background-color: white !important;
+  border-width: 1px !important;
+  border-color: black !important;
+  color: black !important;
+  height: 20px !important;
+}
+
+span.texttoken {
+  margin-left: 30px !important;
+}
+
+a.button_minor:visited,
+a.button_minor:active,
+a.button_minor:link,
+a.button_minor:hover,
+.button_minor {
+  min-width: 60px !important;
+  margin: 3px;
+}
+
+
+A.button,
+A:visited.button,
+A:active.button {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 1px solid #eee !important;
+}
+
+#footer {
+  font-size: 11px !important;
+}
+
+center:contains("点链接"):last {
+  font-size: 11px !important;
+}
+
+.button_image_info {
+  background-position: center center !important;
+  opacity: 0.4;
+  border-radius: 20px !important;
+  border: 4px solid #333 !important;
+  height: 20px !important;
+  width: 20px !important;
+
+  &:hover {
+    opacity: 0.6;
+
+  }
+}
+
+.font_Hero_Title {
+  background: #f6df64a0;
+  padding-left: 5px;
+  padding-right: 5px;
 }

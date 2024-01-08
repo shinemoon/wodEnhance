@@ -23,12 +23,11 @@ function replaceImageUrls() {
 
 function otherRefinement() {
   //Remove the action of top tools
-  //$('#gadgettable-top-gadgets .gadget_icon img').removeAttr('onmouseout').removeAttr("onmouseover");
-  //$('#gadgettable-top-gadgets .gadget_icon img').off('mouseout').off("mouseover");
   $('img[src*="images/icons/inf.gif"]').css('border-radius', '8px').css('margin-left', '5px');
+  $('img[src*="images/icons/gem_.gif"]').css('border-radius', '8px').css('margin-left', '5px');
 
   //Gold
-  $('.gold').css('margin-top','10px').css('padding-top','10px').css('border-top','1px solid #aaa');
+  $('.gold').css('margin-top', '10px').css('padding-top', '10px').css('border-top', '1px solid #aaa');
   $('.gold .image').hide();
   // fetch ep/fame
   var epinfo = $('.ep .bar').attr('onmouseover');
@@ -41,7 +40,7 @@ function otherRefinement() {
   $('div.ep .image').hide();
   $('div.ep .bar').hide();
 
-  $('div.ep').append('<div style="display:flex;align-items: center;margin-top:5px;"><div style="margin-right:8px;">Exp: </div><div class="experience-bar" hin><div class="filled-bar"></div></div></div>')
+  $('div.ep').append('<div style="display:flex;align-items: center;margin-top:5px;"><div style="margin-right:8px;">Exp: <u>'+usableExp+' </u></div></div><div class="experience-bar" style="margin-top:5px;"><div class="filled-bar" ></div></div>')
   updateExperienceBar(usableExp, nextLevelExp, '.experience-bar');
   // Extract the values using regular expressions
   var totalFame = extractValue(fameinfo, '荣誉总数（含奖励值）:');
@@ -50,26 +49,28 @@ function otherRefinement() {
   var missingFame = extractValue(fameinfo, '缺少:');
   $('div.fame .image').hide();
   $('div.fame .bar').hide();
-  $('div.fame').append('<div style="display:flex;align-items: center;margin-top:5px;margin-bottom:20px;"><div style="margin-right:0px;">Fame: </div><div class="fame-bar" hin><div class="filled-bar"></div></div></div>')
-  //$('div.fame').append('<div style="display:flex;align-items: center;margin-top:5px;margin-bottom:20px;"><div style="margin-right:8px;">Fame: </div><div style="margin-left:20px;"><span style="background:yellow;">'+missingFame+'</span> to next level.</div>')
+  $('div.fame').append('<div style="display:flex;align-items: center;margin-top:5px;margin-bottom:0px;"><div style="margin-right:0px;">Fame: <u>'+originalFame+'</u></div></div><div class="fame-bar" style="margin-top:5px;margin-bottom:20px;" ><div class="filled-bar"></div></div>')
   updateExperienceBar(originalFame, nextTitleFame, '.fame-bar');
 }
 
 // Function to extract value based on the label
 function extractValue(htmlString, label) {
-  var regex = new RegExp(label + '</td><td>([\\d,]+)');
-  var match = htmlString.match(regex);
-  if (match && match.length === 2) {
-    return match[1].replace(',', ''); // Remove commas from the number
-  }
-
+  try {
+    var regex = new RegExp(label + '</td><td>([\\d,]+)');
+    var match = htmlString.match(regex);
+    if (match && match.length === 2) {
+      return match[1].replace(',', ''); // Remove commas from the number
+    };
+  } catch {
+    return null;
+  };
   return null;
 }
 
 // Function to update the experience bar
 function updateExperienceBar(currentExp, nextLevelExp, hdlstr) {
   var percentage = (currentExp / nextLevelExp) * 100;
-  $(hdlstr  +' .filled-bar').css('width', percentage + '%');
+  $(hdlstr + ' .filled-bar').css('width', percentage + '%');
   // Update tooltip text
   var tooltipText = `Current: ${currentExp}\nNext Level: ${nextLevelExp}`;
   $(hdlstr).attr('title', tooltipText);

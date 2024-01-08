@@ -73,3 +73,10 @@ table.content_table {
         background: #fff !important;
     }
 }
+
+.rep_status_table tr {
+    &:contains('击倒'){
+        color:red!important;
+    }
+
+}

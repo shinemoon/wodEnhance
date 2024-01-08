@@ -1,3 +1,4 @@
+@charset "UTF-8";
 p.rep_level_success,
 div.rep_dungeon_description {
   max-width: 100% !important;
@@ -62,4 +63,8 @@ table.content_table > * > tr.row0 {
 table.content_table > * > tr.row1 {
   background-color: #fff !important;
   background: #fff !important;
+}
+
+.rep_status_table tr:contains("击倒") {
+  color: red !important;
 }/*# sourceMappingURL=wodReport.css.map */

@@ -1,0 +1,12 @@
+.roll_placeholder {
+  /* Adjust the width percentages as needed */
+}
+.roll_placeholder td:nth-child(1) {
+  width: 50%;
+}
+.roll_placeholder td:nth-child(2) {
+  width: 40%;
+}
+.roll_placeholder td:nth-child(3) {
+  width: 10%;
+}/*# sourceMappingURL=plugin_skillrolls.css.map */

@@ -1,0 +1,16 @@
+.message_info {
+  font-size: 12px !important;
+  line-height: 2 !important;
+  background: #daf0fa !important;
+  border-radius: 6px !important;
+  max-height: -moz-fit-content !important;
+  max-height: fit-content !important;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+  padding-left: 10px !important;
+}
+
+img[src*=gem_] {
+  border-radius: 10px !important;
+  margin-right: 3px !important;
+}/*# sourceMappingURL=wodItem.css.map */
