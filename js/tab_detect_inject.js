@@ -112,6 +112,13 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         cssfileurl.push("/assets/css/wodcss/wodItem.css");
     };
 
+    // Item 
+    if (url.indexOf("hero/profile.php") > 0) {
+        cssfileurl.push("/assets/css/wodcss/wodProfile.css");
+        scriptfileurl.push("/js/wodjs/profile.js");
+    };
+
+
 
 
     // NON-FORUM

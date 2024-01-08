@@ -40,7 +40,7 @@ function otherRefinement() {
   $('div.ep .image').hide();
   $('div.ep .bar').hide();
 
-  $('div.ep').append('<div style="display:flex;align-items: center;margin-top:5px;"><div style="margin-right:8px;">Exp: <u>'+usableExp+' </u></div></div><div class="experience-bar" style="margin-top:5px;"><div class="filled-bar" ></div></div>')
+  $('div.ep').append('<div style="display:flex;align-items: center;margin-top:5px;"><div style="margin-right:8px;">Exp: <u>' + usableExp + ' </u></div></div><div class="experience-bar" style="margin-top:5px;"><div class="filled-bar" ></div></div>')
   updateExperienceBar(usableExp, nextLevelExp, '.experience-bar');
   // Extract the values using regular expressions
   var totalFame = extractValue(fameinfo, '荣誉总数（含奖励值）:');
@@ -49,8 +49,9 @@ function otherRefinement() {
   var missingFame = extractValue(fameinfo, '缺少:');
   $('div.fame .image').hide();
   $('div.fame .bar').hide();
-  $('div.fame').append('<div style="display:flex;align-items: center;margin-top:5px;margin-bottom:0px;"><div style="margin-right:0px;">Fame: <u>'+originalFame+'</u></div></div><div class="fame-bar" style="margin-top:5px;margin-bottom:20px;" ><div class="filled-bar"></div></div>')
+  $('div.fame').append('<div style="display:flex;align-items: center;margin-top:5px;margin-bottom:0px;"><div style="margin-right:0px;">Fame: <u>' + originalFame + '</u></div></div><div class="fame-bar" style="margin-top:5px;margin-bottom:20px;" ><div class="filled-bar"></div></div>')
   updateExperienceBar(originalFame, nextTitleFame, '.fame-bar');
+
 }
 
 // Function to extract value based on the label
