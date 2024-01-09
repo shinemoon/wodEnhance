@@ -1,0 +1,31 @@
+TR.boardhead {
+        background-color: #cdcfd2 !important;
+        color: brown;
+}
+
+tr.boardcon2 {
+        background-color: #eee!important;
+}
+
+
+table.boardmain {
+        // Main table of forum
+        &:nth-child(4) {
+                border: 2px solid #919199 !important;
+                box-shadow: grey -1px 1px 8px 2px !important;
+
+                tr {
+                        &:nth-child(even) {
+                                background: #eeeeee !important;
+                        }
+                }
+        }
+
+        //Bottom table
+        &:nth-child(6) {
+                font-size: 11px !important;
+                background: #eeeeee !important;
+        }
+
+
+}

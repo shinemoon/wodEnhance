@@ -1,4 +1,5 @@
 console.log('WoDEnhancement Injection Start!');
+$('html').hide();
 
 //Force to 'Office Skin'
 // Function to replace the CSS file
@@ -91,3 +92,6 @@ otherRefinement();
 // To replace the logo with Avator
 $('.gadget.logo .gadget_body').append("<img style='width:120px;height:120px;' src='" + $('.hero_avatar.image img').attr('src') + "'>");
 $('.hero_avatar.image img').hide();
+
+console.log('WoDEnhancement Basical Injection Done!');
+$('html').show();

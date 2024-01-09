@@ -92,6 +92,11 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         scriptfileurl.push("/js/wodjs/profile.js");
     };
 
+    if (url.indexOf("spiel/forum") > 0) {
+        cssfileurl.push("/assets/css/wodcss/wodForum.css");
+        //        scriptfileurl.push("/js/wodjs/profile.js");
+    };
+
 
 
 
