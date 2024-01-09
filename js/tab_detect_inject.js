@@ -5,51 +5,21 @@ TAB DETECT & INJECTION RELATED
 */
 
 // Listen for tab activation changes
-//chrome.tabs.onActivated.addListener(async (activeInfo) => {
-//const tabId = activeInfo.tabId;
 chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
-    //Only react after load done
-    //if (changeInfo.status === 'complete') {
     if (changeInfo.status === 'loading') {
-        //Firstly to check if the tabID had already injected by message
-        // To send one message to this tab.
         await handleTab()
             .then((tabinfo) => {
                 if (tabinfo.isAllowed == false) {
                     return;
                 }
                 console.debug("Valid WoD:", tabinfo.url);
-                openDatabase()
-                    .then((db) => getDataFromStore(db, 'extensionState', 1))
+                getDataFromStore('extensionState', 1, false)
                     .then((state) => {
                         if (state) {
                             injectLocalFileIntoCurrentPage(tabId, tabinfo.url);
                         }
-                    })
-                    .finally(closeDatabase);
+                    });
             });
-        /*
-        // Idea to only inject real script after complete... but ... it's so hard to load full page sometimes, so give up.
-        // 
-    } else if (changeInfo.status === 'loading') {
-    //Firstly to check if the tabID had already injected by message
-    // To send one message to this tab.
-    await handleTab()
-        .then((tabinfo) => {
-            if (tabinfo.isAllowed == false) {
-                return;
-            }
-            console.debug("Valid WoD:", tabinfo.url);
-            openDatabase()
-                .then((db) => getDataFromStore(db, 'extensionState', 1))
-                .then((state) => {
-                    if (state) {
-                        injectLocalIDLEFileIntoCurrentPage(tabId, tabinfo.url);
-                    }
-                })
-                .finally(closeDatabase);
-        });
-        */
     }
 });
 
@@ -63,8 +33,7 @@ function injectLocalIDLEFileIntoCurrentPage(tid, url) {
     chrome.scripting.insertCSS({ target: { tabId: tid }, files: cssfileurl })
         .then(() => console.debug("CSS injected"))
         .finally(() => console.debug("All Injection Finished!"))
-};
-
+}
 
 function injectLocalFileIntoCurrentPage(tid, url) {
     // Specify the path to the local CSS file within your extension folder
@@ -149,7 +118,7 @@ function injectLocalFileIntoCurrentPage(tid, url) {
                 .then(() => console.log("Plugin Injected:", pluginscriptfileurl))
                 .catch((error) => console.error(`Plugin Injection failure:${error.message}`))
         })
-};
+}
 
 async function handleTab() {
     return new Promise((resolve) => {
@@ -157,15 +126,14 @@ async function handleTab() {
             const activeTab = tabs[0];
             if (activeTab && activeTab.url) {
                 const url = activeTab.url;
-                // Now you can use the URL as needed
                 const isAllowed = isAllowedDomain(url);
                 resolve({ url: url, isAllowed: isAllowed });
             }
         });
     });
-};
+}
 
 function isAllowedDomain(url) {
     const allowedHostPattern = /^http.*:\/\/.*\.world-of-dungeons\.org\/.*/;
     return allowedHostPattern.test(url);
-};
+}

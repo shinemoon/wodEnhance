@@ -4,15 +4,9 @@ LISTENER RELATED
 =================================================
 */
 self.addEventListener('install', (event) => {
-    //Initializaton of DB during installation
-    event.waitUntil(openDatabase().then(closeDatabase));
+    // Initialization during installation (using local storage)
+    // No need to open or close anything
 });
-
-/*
-self.addEventListener('fetch', (event) => {
-    // Handle fetch events if needed
-});
-*/
 
 self.addEventListener('message', (event) => {
     const { action, data } = event.data;
@@ -20,9 +14,9 @@ self.addEventListener('message', (event) => {
     console.debug("Got Message: ", action);
 
     if (action === 'getSwitchState') {
-        openDatabase()
-            .then((db) => getDataFromStore(db,'extensionState',1))
+        getDataFromStore('extensionState', 1, false)
             .then((state) => {
+                console.log(state);
                 self.clients.matchAll().then((clients) => {
                     clients.forEach((client) => {
                         client.postMessage({ action: 'extensionState', data: state });
@@ -31,11 +25,9 @@ self.addEventListener('message', (event) => {
             })
             .catch((error) => {
                 console.error('Error retrieving switch state:', error);
-            })
-            .finally(closeDatabase);
+            });
     } else if (action === 'setSwitchState') {
-        openDatabase()
-            .then((db) => setDataInStore(db, 'extensionState',1, data))
+        setDataInStore('extensionState', 1, data)
             .then(() => {
                 self.clients.matchAll().then((clients) => {
                     clients.forEach((client) => {
@@ -45,26 +37,23 @@ self.addEventListener('message', (event) => {
             })
             .catch((error) => {
                 console.error('Error setting switch state:', error);
-            })
-            .finally(closeDatabase);
+            });
     }
 });
 
-
-// For Chrome.runtime.onMessage
+// For chrome.runtime.sendMessage
 // Listen for messages from content scripts
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     if (message.action === 'calculateStr') {
         sendResponse({ success: true, data: calculateExpression(message.data) });
-        //        cport.postMessage("One Request Coming")
     }
-    //Return True for async return
+    // Return true for asynchronous response
     return true;
 });
 
-//For Internal Port
+// For Internal Port
 chrome.runtime.onConnect.addListener((port) => {
-    console.log('connected')
+    console.log('connected');
     console.assert(port.name === "popup");
     cport = port;
     console.log('port');

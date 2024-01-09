@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(event);
     const { action, data } = event.data;
 
-    if (action === 'switchState') {
+    if (action === 'extensionState') {
       // Update the switch state in the popup UI
       toggleSwitch.checked = data;
       updateStatusText();
-    } else if (action === 'switchStateUpdated') {
+    } else if (action === 'extensionStateUpdated') {
       // Handle state update if needed
     }
 
