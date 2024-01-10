@@ -84,6 +84,7 @@ function updateExperienceBar(currentExp, nextLevelExp, hdlstr) {
   $(hdlstr).attr('title', tooltipText);
 }
 
+
 replaceCssFile();
 //replaceImageUrls();
 otherRefinement();

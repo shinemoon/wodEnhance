@@ -1,3 +1,6 @@
+/*
+    I hope to make this great plugin more like one module can support more flexible 'bbcode' transfer for differnt part. But hads off for orginal great author. (refer to below info)
+*/
 //-----------------------------------------------------------------------------
 // [WoD] BBCode generator
 // Version 1.71, 2011-02-24
@@ -70,13 +73,16 @@
 // @downloadURL https://update.greasyfork.org/scripts/3800/BBCode%20Generator.user.js
 // @updateURL https://update.greasyfork.org/scripts/3800/BBCode%20Generator.meta.js
 // ==/UserScript==
+// Export the function for further calling...thanks, Finargol
+var bbcode_generate_CreateBB;
 
 (function () {
-
+    bbcode_generate_CreateBB = function (node,size,color,font) {
+        return CreateBB(node, size, color, font);
+    }
     //-----------------------------------------------------------------------------
     // auxiliary functions
     //-----------------------------------------------------------------------------
-
     // Usage: dump(object)
     function dump(object, pad) {
         var indent = "\t";
@@ -350,9 +356,14 @@
                         checkbox.addEventListener("click", UpdateSettings, false);
                         checkbox.setAttribute("type", "checkbox");
                         checkbox.setAttribute("id", LOCAL_VAR_NAME + CheckBoxes[j]);
+                        checkbox.setAttribute("checked", "checked");
+
+                        /*
                         if (GM_getValue(LOCAL_VAR_NAME + CheckBoxes[j], true))
                             checkbox.setAttribute("checked", "checked");
-                        checkTD.appendChild(checkbox);
+                        */
+                        //Hide checkbox, let's take it into other configuration
+                        //checkTD.appendChild(checkbox);
 
                         var text = undefined;
                         if (CheckBoxes[j] == "clr")
@@ -365,7 +376,8 @@
                         var label = document.createElement("label");
                         label.setAttribute("for", LOCAL_VAR_NAME + CheckBoxes[j]);
                         label.innerHTML = text.replace(" ", "&nbsp;") + "&nbsp;";
-                        checkTD.appendChild(label);
+                        //Hide checkbox, let's take it into other configuration
+                        // checkTD.appendChild(label);
                     }
 
                     allInputs[i].appendChild(ButtonTable);
@@ -406,9 +418,9 @@
     //-----------------------------------------------------------------------------
 
     function UpdateSettings() {
-        for (var i = 0; i < CheckBoxes.length; ++i) {
-            GM_setValue(LOCAL_VAR_NAME + CheckBoxes[i], document.getElementById(LOCAL_VAR_NAME + CheckBoxes[i]).checked);
-        }
+        //for (var i = 0; i < CheckBoxes.length; ++i) {
+        //GM_setValue(LOCAL_VAR_NAME + CheckBoxes[i], document.getElementById(LOCAL_VAR_NAME + CheckBoxes[i]).checked);
+        //}
     }
 
     function CreateResult() {
@@ -689,7 +701,8 @@
 
     function getFontProps(node) {
         var styleCollection = getStyleCollection(node);
-        return { color: getColor(styleCollection), size: getFontSize(styleCollection), font: getFont(styleCollection) };
+        var result = { color: getColor(styleCollection), size: getFontSize(styleCollection), font: getFont(styleCollection) };
+        return result;
     }
 
     function getLinkProps(node) {
@@ -708,14 +721,14 @@
     }
 
     function getLinkColor(styleCollection) {
-        if (!GM_getValue(LOCAL_VAR_NAME + "clr", true)) return "";
+        //    if (!GM_getValue(LOCAL_VAR_NAME + "clr", true)) return "";
         var txtColor = getItemColor(styleCollection);
-        if (txtColor == DefaultLinkColor) txtColor = "";
+        if (txtColor == DefaultColor) txtColor = "";
         return txtColor;
     }
 
     function getColor(styleCollection) {
-        if (!GM_getValue(LOCAL_VAR_NAME + "clr", true)) return "";
+        //        if (!GM_getValue(LOCAL_VAR_NAME + "clr", true)) return "";
         var txtColor = getItemColor(styleCollection);
         if (txtColor == DefaultColor) txtColor = "";
         return txtColor;
@@ -736,8 +749,8 @@
     }
 
     function getFontSize(styleCollection) {
-        if (!GM_getValue(LOCAL_VAR_NAME + "sz", true) || styleCollection == undefined) return "";
-
+        //if (!GM_getValue(LOCAL_VAR_NAME + "sz", true) || styleCollection == undefined) return "";
+        if (styleCollection == undefined) return "";
         var size = styleCollection.getStyle("font-size");
         if (size == undefined) size = "";
         size = size.removeRight("px");
@@ -746,8 +759,8 @@
     }
 
     function getFont(styleCollection) {
-        if (!GM_getValue(LOCAL_VAR_NAME + "fnt", true) || styleCollection == undefined) return "";
-
+        //if (!GM_getValue(LOCAL_VAR_NAME + "fnt", true) || styleCollection == undefined) return "";
+        if (styleCollection == undefined) return "";
         var family = styleCollection.getStyle("font-family");
         if (family == undefined) family = "";
         var comma = family.indexOf(',');

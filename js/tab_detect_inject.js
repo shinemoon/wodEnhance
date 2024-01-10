@@ -49,13 +49,14 @@ function injectLocalFileIntoCurrentPage(tid, url) {
     scriptfileurl.push("/js/jquery-3.7.1.min.js");
     // Final Mockup
     scriptfileurl.push("/js/wodjs/content_script.js");
+    scriptfileurl.push("/js/wodjs/plugin_bbcode_generate.js");
 
     // Plugin Files:
+    // NOTE: some plugin is important and reused in some other script. which will be moved to previous js array. i.e. bbcode_generate, skillrolls.
     pluginscriptfileurl.push("/js/wodjs/plugin_jumper.js");
     pluginscriptfileurl.push("/js/wodjs/plugin_price.js");
     pluginscriptfileurl.push("/js/wodjs/plugin_extra_statistics.js");
     pluginscriptfileurl.push("/js/wodjs/plugin_skillrolls.js");
-    pluginscriptfileurl.push("/js/wodjs/plugin_bbcode_generate.js");
 
     cssfileurl.push("/assets/css/wodcss/wod.css");
 
@@ -107,9 +108,9 @@ function injectLocalFileIntoCurrentPage(tid, url) {
 
     cssfileurl.push("/assets/css/wodcss/plugin/plugin_skillrolls.css");
 
-    //Reverse script/css lists
+    // Fetch and input parameter into page
 
-    chrome.scripting.executeScript({ target: { tabId: tid }, files: scriptfileurl, })
+    chrome.scripting.executeScript({ target: { tabId: tid }, files: scriptfileurl, world:"MAIN" })
         .then(() => {
             chrome.scripting.insertCSS({ target: { tabId: tid }, files: cssfileurl })
             console.debug("Script injected on target: ", scriptfileurl);
@@ -119,7 +120,7 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         .finally(() => {
             console.debug("All Injection Finished!");
             console.debug("Start Plugin Injection!");
-            chrome.scripting.executeScript({ target: { tabId: tid }, files: pluginscriptfileurl, })
+            chrome.scripting.executeScript({ target: { tabId: tid }, files: pluginscriptfileurl, world:"MAIN"})
                 .then(() => console.log("Plugin Injected:", pluginscriptfileurl))
                 .catch((error) => console.error(`Plugin Injection failure:${error.message}`))
         })
