@@ -75,8 +75,31 @@ table.content_table {
 }
 
 .rep_status_table tr {
-    &:contains('击倒'){
-        color:red!important;
+    &:contains('击倒') {
+        color: red !important;
     }
 
+}
+
+//For Ext Stats
+
+#stat_all {
+    .stat_header {
+        background-color: #555;
+        text-align: center;
+        color: white;
+        line-height: 32px;
+    }
+    .content_table_row_0{
+        background-color: #eee;
+    }
+
+    input[type="button"].button {
+        background-color: #eeeeee00;
+        border: 0px solid #eee!important;
+        padding-left:15px;
+        padding-right:15px;
+        padding-top:5px;
+        padding-bottom:5px;
+    }
 }

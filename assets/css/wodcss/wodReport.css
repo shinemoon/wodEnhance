@@ -67,4 +67,22 @@ table.content_table > * > tr.row1 {
 
 .rep_status_table tr:contains("击倒") {
   color: red !important;
+}
+
+#stat_all .stat_header {
+  background-color: #555;
+  text-align: center;
+  color: white;
+  line-height: 32px;
+}
+#stat_all .content_table_row_0 {
+  background-color: #eee;
+}
+#stat_all input[type=button].button {
+  background-color: rgba(238, 238, 238, 0);
+  border: 0px solid #eee !important;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }/*# sourceMappingURL=wodReport.css.map */
