@@ -73,7 +73,6 @@
 // @downloadURL https://update.greasyfork.org/scripts/3800/BBCode%20Generator.user.js
 // @updateURL https://update.greasyfork.org/scripts/3800/BBCode%20Generator.meta.js
 // ==/UserScript==
-// Export the function for further calling...thanks, Finargol
 var bbcode_generate_CreateBB;
 
 (function () {

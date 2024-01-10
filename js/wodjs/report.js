@@ -22,4 +22,5 @@ if (window.location.href.indexOf("report.php") >= 0) {
         $('.rep_status_table tr:contains(' + i + ')').css('background', '#f1dcce70').css('color', 'black');
     }
 
+
 };
