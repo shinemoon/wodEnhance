@@ -1,0 +1,216 @@
+[
+    {
+        "layer": 0,
+        "position": "中间",
+        "preAction": "中间",
+        "customzied": false,
+        "preSkills": [
+            {
+                "name": "仪式：冥想 (一次性)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            },
+            {
+                "name": "法术：魔法盾 (尽可能多的重复)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            }
+        ],
+        "inSkills": [
+            {
+                "name": "论证：逻辑论述 (尽可能多的重复)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            },
+            {
+                "name": "干等着 (尽可能多的重复)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            }
+        ],
+        "cureSetting": {
+            "light": "(还没有可以使用的技能)",
+            "mid": "(还没有可以使用的技能)",
+            "heavy": "(还没有可以使用的技能)"
+        },
+        "defSkills": {
+            "near": "(还没有可以使用的技能)",
+            "far": "战斗：远程回避(自动)",
+            "magic": "(还没有可以使用的技能)",
+            "mental": "精神：钢铁意志(自动)"
+        },
+        "attOrder": ">队伍后方>后排>中间>左翼>右翼>前排",
+        "sptOrder": ">前排>中间>后排>左翼>右翼>队伍后方",
+        "defaultAtt": true,
+        "setTitle": "设置: 矿井"
+    },
+    {
+        "layer": 1,
+        "position": null,
+        "preAction": "行动：极速思维",
+        "customzied": true,
+        "preSkills": [
+            {
+                "name": "仪式：冥想 (一次性)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            },
+            {
+                "name": "启发：智慧之语 (尽可能多的重复)",
+                "item": "风化的书卷：新手躲避 ",
+                "ammo": "",
+                "position": "前排, 左翼, 右翼"
+            },
+            {
+                "name": "法术：魔法盾 (尽可能多的重复)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            }
+        ],
+        "inSkills": [
+            {
+                "name": "论证：逻辑论述 (尽可能多的重复)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            },
+            {
+                "name": "干等着 (尽可能多的重复)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            }
+        ],
+        "cureSetting": {
+            "light": "(还没有可以使用的技能)",
+            "mid": "(还没有可以使用的技能)",
+            "heavy": "(还没有可以使用的技能)"
+        }
+    },
+    {
+        "layer": 2,
+        "position": null,
+        "preAction": "行动：极速思维",
+        "customzied": true,
+        "preSkills": [
+            {
+                "name": "仪式：冥想 (一次性)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            },
+            {
+                "name": "法术：魔法盾 (尽可能多的重复)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            },
+            {
+                "name": "启发：智慧之语 (尽可能多的重复)",
+                "item": "风化的书卷：高级闪避技巧 ",
+                "ammo": "",
+                "position": "前排"
+            }
+        ],
+        "inSkills": [
+            {
+                "name": "法术：卷轴防护 (尽可能多的重复)",
+                "item": "蔑视卷轴 ",
+                "ammo": "",
+                "position": "前排"
+            },
+            {
+                "name": "论证：逻辑论述 (尽可能多的重复)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            },
+            {
+                "name": "干等着 (尽可能多的重复)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            }
+        ],
+        "cureSetting": {
+            "light": "(还没有可以使用的技能)",
+            "mid": "(还没有可以使用的技能)",
+            "heavy": "(还没有可以使用的技能)"
+        }
+    },
+    {
+        "layer": 3,
+        "position": null,
+        "preAction": "行动：极速思维",
+        "customzied": true,
+        "preSkills": [
+            {
+                "name": "仪式：冥想 (一次性)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            },
+            {
+                "name": "启发：智慧之语 (尽可能多的重复)",
+                "item": "风化的书卷：高级闪避技巧 ",
+                "ammo": "",
+                "position": "前排"
+            },
+            {
+                "name": "生活：阅读 (尽可能多的重复)",
+                "item": "风化的书卷：意志力优势 ",
+                "ammo": "",
+                "position": ""
+            }
+        ],
+        "inSkills": [
+            {
+                "name": "法术：卷轴防护 (尽可能多的重复)",
+                "item": "蔑视卷轴 ",
+                "ammo": "",
+                "position": "前排, 左翼, 右翼"
+            },
+            {
+                "name": "论证：逻辑论述 (尽可能多的重复)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            },
+            {
+                "name": "启发：智慧之语 (尽可能多的重复)",
+                "item": "风化的书卷：法力之风 ",
+                "ammo": "",
+                "position": "中间"
+            },
+            {
+                "name": "法术：卷轴加持 (尽可能多的重复)",
+                "item": "永恒恢复戒指 ",
+                "ammo": "",
+                "position": "前排, 中间, 后排"
+            },
+            {
+                "name": "启发：智慧之语 (尽可能多的重复)",
+                "item": "风化的书卷：药膏 ",
+                "ammo": "",
+                "position": "后排"
+            },
+            {
+                "name": "干等着 (尽可能多的重复)",
+                "item": "",
+                "ammo": "",
+                "position": ""
+            }
+        ],
+        "cureSetting": {
+            "light": "(还没有可以使用的技能)",
+            "mid": "(还没有可以使用的技能)",
+            "heavy": "(还没有可以使用的技能)"
+        }
+    }
+]

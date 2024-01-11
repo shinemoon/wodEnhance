@@ -64,7 +64,7 @@ if (window.location.href.indexOf("skillconfig.php") >= 0 || window.location.href
 
         console.log(setList);
         chrome.runtime.sendMessage({ action: 'generateSettingPage', data: setList }, response => {
-//            console.log(response);
+            //            console.log(response);
         });
     });
 };
@@ -83,29 +83,31 @@ function parseSetting(inputItem, layer) {
     //Parse Default
     if (layer == 0) {
         position = inputItem.find('div:visible:first').find('select:visible:first').val()
+        preAction = inputItem.find('div:visible:first').find('select:visible:nth-child(1)').val()
     } else {
-        //Parse L1 ~ L10
         preAction = inputItem.find('div:visible:first').find('select:visible:first').val()
-        noDefault = inputItem.find('input[type=checkbox]:visible').eq(0).is(":checked")
-        preList = inputItem.find('.wod-list').eq(ind_pre);
-        preList.find('.wod-list-item').each(function (ind, content) {
-            preSkills.push({
-                name: $(content).find('.wod-list-item-label-skill').text(),
-                item: $(content).find('.wod-list-item-label-item').text(),
-                ammo: $(content).find('.wod-list-item-label-ammo').text(),
-                position: $(content).find('.wod-list-item-label-positions').text(),
-            })
-        })
-        inList = inputItem.find('.wod-list').eq(ind_in);
-        inList.find('.wod-list-item').each(function (ind, content) {
-            inSkills.push({
-                name: $(content).find('.wod-list-item-label-skill').text(),
-                item: $(content).find('.wod-list-item-label-item').text(),
-                ammo: $(content).find('.wod-list-item-label-ammo').text(),
-                position: $(content).find('.wod-list-item-label-positions').text(),
-            })
-        });
     };
+    //Parse L1 ~ L10
+    noDefault = inputItem.find('input[type=checkbox]:visible').eq(0).is(":checked")
+    preList = inputItem.find('.wod-list').eq(ind_pre);
+    preList.find('.wod-list-item>div:first-child:not(.disabled)').each(function (ind, content) {
+        preSkills.push({
+            name: $(content).find('.wod-list-item-label-skill').text(),
+            item: $(content).find('.wod-list-item-label-item').text(),
+            ammo: $(content).find('.wod-list-item-label-ammo').text(),
+            position: $(content).find('.wod-list-item-label-positions').text(),
+        })
+    })
+    inList = inputItem.find('.wod-list').eq(ind_in);
+    inList.find('.wod-list-item>div:first-child:not(.disabled)').each(function (ind, content) {
+        inSkills.push({
+            name: $(content).find('.wod-list-item-label-skill').text(),
+            item: $(content).find('.wod-list-item-label-item').text(),
+            ammo: $(content).find('.wod-list-item-label-ammo').text(),
+            position: $(content).find('.wod-list-item-label-positions').text(),
+        })
+    });
+
     cureSetting.light = inputItem.find('div:visible:first').find("h4:contains('轻伤') + span label").text() + $("h4:contains('轻伤') + span select:first").text() + ($("h4:contains('轻伤') + span select:nth-child(2)").length > 0 ? $("h4:contains('轻伤') + span select:nth-child(2)").val() : "");
     cureSetting.mid = inputItem.find('div:visible:first').find("h4:contains('受伤') + span label").text() + $("h4:contains('受伤') + span select:first").text() + ($("h4:contains('受伤') + span select:nth-child(2)").length > 0 ? $("h4:contains('受伤') + span select:nth-child(2)").val() : "");
     cureSetting.heavy = inputItem.find('div:visible:first').find("h4:contains('重伤') + span label").text() + $("h4:contains('重伤') + span select:first").text() + ($("h4:contains('重伤') + span select:nth-child(2)").length > 0 ? $("h4:contains('重伤') + span select:nth-child(2)").val() : "");

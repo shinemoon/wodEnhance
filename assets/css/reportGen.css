@@ -1,3 +1,58 @@
-body {
+#reportPage {
   background: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  background: #555;
+  width: 100%;
+  font-size: 22px;
+  color: white;
+}
+
+h2 {
+  background: #888;
+  width: 100%;
+  font-size: 18px;
+  color: white;
+  text-align: left;
+}
+
+h3 {
+  background: #eee;
+  width: 100%;
+  font-size: 14px;
+  color: black;
+  text-align: left;
+}
+
+.skillInfo {
+  margin-left: 20px;
+}
+.skillInfo label {
+  color: darkblue;
+  margin-right: 30px;
+  font-weight: bold;
+}
+.skillInfo .skillname {
+  color: rgb(31, 56, 71);
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.skillInfo .skillitem {
+  color: rgb(35, 146, 7);
+  margin-right: 10px;
+  font-size: 10px;
+}
+.skillInfo .skillammo {
+  color: rgb(62, 78, 224);
+  margin-right: 10px;
+  font-size: 10px;
+}
+.skillInfo .skillpos {
+  color: rgb(207, 111, 33);
+  margin-right: 10px;
+  font-size: 10px;
 }/*# sourceMappingURL=reportGen.css.map */

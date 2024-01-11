@@ -59,6 +59,8 @@ function otherRefinement() {
     $('textarea').removeAttr('onmouseover');
     $('textarea').parent().removeClass('resizeable');
   });
+
+  $('span[style*=paleturquoise]').attr("style", "color:#147fcb!important");
 }
 
 // Function to extract value based on the label
