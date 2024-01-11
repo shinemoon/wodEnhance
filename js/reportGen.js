@@ -38,10 +38,12 @@ function genSkillSetPage(dat) {
     curSetting.append("<h3>一般设置</h3>");
     curSetting.append("<div class='skillInfo'><label>位置:</label><span>" + dat[0].position + "</span></div>");
     curSetting.append("<h3>防御技能</h3>");
-    curSetting.append("<div class='skillInfo'><label>近战:</label><span>" + dat[0].defSkills.near + "</span></div>");
-    curSetting.append("<div class='skillInfo'><label>远程:</label><span>" + dat[0].defSkills.far + "</span></div>");
-    curSetting.append("<div class='skillInfo'><label>法术:</label><span>" + dat[0].defSkills.magic + "</span></div>");
-    curSetting.append("<div class='skillInfo'><label>心理:</label><span>" + dat[0].defSkills.mental + "</span></div>");
+    curSetting.append("<ol>");
+    curSetting.append("<li class='skillInfo'><label>近战:</label><span>" + dat[0].defSkills.near + "</span></li>");
+    curSetting.append("<li class='skillInfo'><label>远程:</label><span>" + dat[0].defSkills.far + "</span></li>");
+    curSetting.append("<li class='skillInfo'><label>法术:</label><span>" + dat[0].defSkills.magic + "</span></li>");
+    curSetting.append("<li class='skillInfo'><label>心理:</label><span>" + dat[0].defSkills.mental + "</span></li>");
+    curSetting.append("</ol>");
 
     // Default & General
     generalLayer(curSetting, dat[0]);
@@ -51,8 +53,10 @@ function genSkillSetPage(dat) {
     else
         curSetting.append("<span>禁止自动攻击</span>");
     curSetting.append("<h3>行为顺序</h3>");
-    curSetting.append("<div class='skillInfo'><label>攻击:</label><span>" + dat[0].attOrder + "</span></div>");
-    curSetting.append("<div class='skillInfo'><label>辅助:</label><span>" + dat[0].sptOrder + "</span></div>");
+    curSetting.append("<ol>");
+    curSetting.append("<li class='skillInfo'><label>攻击:</label><span>" + dat[0].attOrder + "</span></li>");
+    curSetting.append("<li class='skillInfo'><label>辅助:</label><span>" + dat[0].sptOrder + "</span></li>");
+    curSetting.append("</ol>");
 
     htmlHdl.find('.defaultLayer').eq(0).append(curSetting);
 
@@ -82,15 +86,21 @@ function generalLayer(curSetting, curDat) {
     curSetting.append("<h3>先攻技能:</h3>");
     curSetting.append("<div class='skillInfo'><span class='skillname'>" + curDat.preAction + "</span></div>");
     curSetting.append("<h3>回合前</h3>");
+    curSetting.append("<ol>");
     curDat.preSkills.forEach(function (cont) {
-        curSetting.append("<div class='skillInfo'><span class='skillname'>" + cont.name + "</span><span class='skillitem'>" + cont.item + " </span><span class='skillammo'>" + cont.ammo + " </span><span class='skillpos'>" + cont.position + "</span></div>");
+        curSetting.append("<li class='skillInfo'><span class='skillname'>" + cont.name + "</span><span class='skillitem'>" + cont.item + " </span><span class='skillammo'>" + cont.ammo + " </span><span class='skillpos'>" + cont.position + "</span></li>");
     })
+    curSetting.append("</ol>");
     curSetting.append("<h3>回合中</h3>");
+    curSetting.append("<ol>");
     curDat.inSkills.forEach(function (cont) {
-        curSetting.append("<div class='skillInfo'><span class='skillname'>" + cont.name + "</span><span class='skillitem'>" + cont.item + " </span><span class='skillammo'>" + cont.ammo + " </span><span class='skillpos'>" + cont.position + "</span></div>");
+        curSetting.append("<li class='skillInfo'><span class='skillname'>" + cont.name + "</span><span class='skillitem'>" + cont.item + " </span><span class='skillammo'>" + cont.ammo + " </span><span class='skillpos'>" + cont.position + "</span></li>");
     })
+    curSetting.append("</ol>");
     curSetting.append("<h3>治疗设置</h3>");
-    curSetting.append("<div class='skillInfo'><label>轻伤:</label><span>" + curDat.cureSetting.light + "</span></div>");
-    curSetting.append("<div class='skillInfo'><label>受伤:</label><span>" + curDat.cureSetting.mid + "</span></div>");
-    curSetting.append("<div class='skillInfo'><label>重伤:</label><span>" + curDat.cureSetting.heavy + "</span></div>");
+    curSetting.append("<ol>");
+    curSetting.append("<li class='skillInfo'><label>轻伤:</label><span>" + curDat.cureSetting.light + "</span></li>");
+    curSetting.append("<li class='skillInfo'><label>受伤:</label><span>" + curDat.cureSetting.mid + "</span></li>");
+    curSetting.append("<li class='skillInfo'><label>重伤:</label><span>" + curDat.cureSetting.heavy + "</span></li>");
+    curSetting.append("</ol>");
 }
