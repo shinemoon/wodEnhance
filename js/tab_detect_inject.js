@@ -110,7 +110,7 @@ function injectLocalFileIntoCurrentPage(tid, url) {
 
     // Fetch and input parameter into page
 
-    chrome.scripting.executeScript({ target: { tabId: tid }, files: scriptfileurl, world:"MAIN" })
+    chrome.scripting.executeScript({ target: { tabId: tid }, files: scriptfileurl, world:"ISOLATED" })
         .then(() => {
             chrome.scripting.insertCSS({ target: { tabId: tid }, files: cssfileurl })
             console.debug("Script injected on target: ", scriptfileurl);
@@ -120,7 +120,7 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         .finally(() => {
             console.debug("All Injection Finished!");
             console.debug("Start Plugin Injection!");
-            chrome.scripting.executeScript({ target: { tabId: tid }, files: pluginscriptfileurl, world:"MAIN"})
+            chrome.scripting.executeScript({ target: { tabId: tid }, files: pluginscriptfileurl, world:"ISOLATED"})
                 .then(() => console.log("Plugin Injected:", pluginscriptfileurl))
                 .catch((error) => console.error(`Plugin Injection failure:${error.message}`))
         })

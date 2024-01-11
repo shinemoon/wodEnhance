@@ -3,6 +3,11 @@
 LISTENER RELATED
 =================================================
 */
+let pport = null; // port for popup
+let rport = null; // port for report
+
+let reportSrc = null;
+
 self.addEventListener('install', (event) => {
     // Initialization during installation (using local storage)
     // No need to open or close anything
@@ -46,6 +51,13 @@ self.addEventListener('message', (event) => {
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     if (message.action === 'calculateStr') {
         sendResponse({ success: true, data: calculateExpression(message.data) });
+    };
+    if (message.action === 'generateSettingPage') {
+        //        genHtmlfromJson(message.data);
+        chrome.tabs.create({ url: 'reportGen.html' }, function () {
+           reportSrc = message.data; 
+        });
+        sendResponse({ success: true, data: "Generation Done" });
     }
     // Return true for asynchronous response
     return true;
@@ -53,15 +65,38 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
 // For Internal Port
 chrome.runtime.onConnect.addListener((port) => {
-    console.log('connected');
-    console.assert(port.name === "popup");
-    cport = port;
-    console.log('port');
-    console.log(cport);
-    port.onMessage.addListener((msg) => {
-        if (msg.action === "executeResult") {
-            // Handle the message and send a response if needed
-            port.postMessage({ result: "Message received and processed." });
-        }
-    });
+    console.log('connected, port: ' + port.name);
+
+    if (port.name === 'popup') {
+        pport = port;
+        //Popup
+        pport.onMessage.addListener((msg) => {
+            console.log("Popup message got ");
+            console.log(msg);
+        });
+
+        pport.onDisconnect.addListener(
+            () => {
+                pport = null;
+            }
+        )
+    }
+
+    if (port.name === 'reportGen') {
+        rport = port;
+        rport.postMessage({ action: 'init', data: null });
+
+        // the init will be sent during page init and then waiting for activel pullin from sub page
+        rport.onMessage.addListener((msg) => {
+            if (msg.action == 'requestData') {
+                rport.postMessage({ action: 'dataInput', data: reportSrc})
+            }
+        });
+
+        rport.onDisconnect.addListener(
+            () => {
+                rport = null;
+            }
+        );
+    }
 });
