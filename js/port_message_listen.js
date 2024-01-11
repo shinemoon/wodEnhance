@@ -55,7 +55,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     if (message.action === 'generateSettingPage') {
         //        genHtmlfromJson(message.data);
         chrome.tabs.create({ url: 'reportGen.html' }, function () {
-           reportSrc = message.data; 
+           reportSrc = {action:"skillConfigPage",data:message.data};
         });
         sendResponse({ success: true, data: "Generation Done" });
     }
