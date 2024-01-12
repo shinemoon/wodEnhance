@@ -24,13 +24,23 @@ function genPage(dat) {
     }
 
 }
-
+/*
+'<label class="switch-container"> \
+    <input type="checkbox" class="switch-input"> \
+    <div class="switch-slider"> \
+      <div class="switch-indicator"></div> \
+    </div> \
+  </label>'
+  */
 
 function genSkillSetPage(dat) {
     //Gen SkillSet Page
     console.log(dat);
     var htmlHdl = $('<h1 id="pageTitle"> </h1> \
-    <div id="buttonList"><span id="exportbutton" class="elegant-button"> 导出BBCODE</span><span>:导出未折叠部分的BBCODE</span></div> \
+    <div id="buttonList"> \
+    <div id="exportbutton" class="elegant-button"> 导出BBCODE</div> \
+    <div id="themes" class="switch-button"> <input id="themecheck" type=checkbox></div><div>  适配暗色主题论坛</div> \
+    </div> \
     <div id="reportPage"> \
     <h2 id="defaultSection"> 默认及一般设置 </h2> \
     <div id="defaultLayer" class="settingLayer"></div> \
@@ -84,6 +94,18 @@ function genSkillSetPage(dat) {
     $('Title').text(dat[0].setTitle);
     $('h1').eq(0).text(dat[0].setTitle);
     //Add Action
+    //Theme select
+    const darkThemeToggle = $('#themecheck');
+    // Check if the dark theme preference is stored in localStorage
+    const isDarkTheme = localStorage.getItem('darktheme') === 'true';
+    // Set the initial state based on localStorage
+    darkThemeToggle.prop('checked', isDarkTheme);
+    // Handle changes to the checkbox
+    darkThemeToggle.on('change', function () {
+        // Update localStorage with the new state
+        localStorage.setItem('darktheme', darkThemeToggle.prop('checked'));
+    });
+
     $('#pageTitle').click(function () {
         if ($(this).hasClass('zap')) {
             $('#reportPage').removeClass('zap').show();
@@ -126,7 +148,7 @@ function genSkillSetPage(dat) {
         if (!$('#defaultSection').hasClass('zap')) {
             exportBB = exportBB + "[h2]缺省及通用设置[/h2]";
             exportBB = exportBB + "[hr]";
-            exportBB = exportBB + bbcode_generate_CreateBB($('#defaultLayer')[0], "", "", "") ;
+            exportBB = exportBB + bbcode_generate_CreateBB($('#defaultLayer')[0], "", "", "");
         }
         if (!$('#LayerSection').hasClass('zap')) {
             exportBB = exportBB + "[h2]分层设置[/h2]";
@@ -149,6 +171,13 @@ function genSkillSetPage(dat) {
 function refineBB(strin) {
     // remove space before '[list]'
     var resultString = strin.replace(/ \[list\]/g, '[list]');
+    var isDarkTheme = localStorage.getItem('darktheme') === 'true';
+    if (isDarkTheme) {
+        // refine the color 
+        resultString = resultString.replace(/1f3847/g, 'eeeeee');
+        resultString = resultString.replace(/000000/g, 'cccccc');
+        resultString = resultString.replace(/00008b/g, 'eeeeee');
+    }
     return resultString;
 }
 
@@ -173,4 +202,4 @@ function generalLayer(curSetting, curDat) {
     lihdl.append("<li class='skillInfo'><label>轻伤:</label><span>" + curDat.cureSetting.light + "</span></li>");
     lihdl.append("<li class='skillInfo'><label>受伤:</label><span>" + curDat.cureSetting.mid + "</span></li>");
     lihdl.append("<li class='skillInfo'><label>重伤:</label><span>" + curDat.cureSetting.heavy + "</span></li>");
-}
+};

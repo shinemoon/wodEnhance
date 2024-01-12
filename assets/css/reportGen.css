@@ -156,4 +156,11 @@ h3 {
   font-size: 12px;
   font-weight: bold;
   border-radius: 20px;
+}
+
+#buttonList {
+  display: flex;
+}
+#buttonList #themes {
+  margin-left: 20px;
 }/*# sourceMappingURL=reportGen.css.map */
