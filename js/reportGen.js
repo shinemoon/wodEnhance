@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
             genPage(message.data);
         }
     });
+    // Close popup when the close button is clicked
+    $("#closePopup").click(function () {
+        $("#popupOverlay").fadeOut();
+    });
 });
 
 function genPage(dat) {
@@ -25,12 +29,13 @@ function genPage(dat) {
 function genSkillSetPage(dat) {
     //Gen SkillSet Page
     console.log(dat);
-    var htmlHdl = $('<div id="reportPage"> \
-    <h1 id="pageTitle"> </h1> \
+    var htmlHdl = $('<h1 id="pageTitle"> </h1> \
+    <div id="buttonList"><span id="exportbutton" class="elegant-button"> 导出BBCODE</span><span>:导出未折叠部分的BBCODE</span></div> \
+    <div id="reportPage"> \
     <h2 id="defaultSection"> 默认及一般设置 </h2> \
-    <div class="defaultLayer settingLayer"></div> \
+    <div id="defaultLayer" class="settingLayer"></div> \
     <h2 id="LayersSection"> 分层设置</h2> \
-    <div class="layers settingLayer"></div> \
+    <div class="layers" id="settingLayer"></div> \
     </div > ');
 
     //Default
@@ -39,11 +44,11 @@ function genSkillSetPage(dat) {
     curSetting.append("<div class='skillInfo'><label>位置:</label><span>" + dat[0].position + "</span></div>");
     curSetting.append("<h3>防御技能</h3>");
     curSetting.append("<ol>");
-    curSetting.append("<li class='skillInfo'><label>近战:</label><span>" + dat[0].defSkills.near + "</span></li>");
-    curSetting.append("<li class='skillInfo'><label>远程:</label><span>" + dat[0].defSkills.far + "</span></li>");
-    curSetting.append("<li class='skillInfo'><label>法术:</label><span>" + dat[0].defSkills.magic + "</span></li>");
-    curSetting.append("<li class='skillInfo'><label>心理:</label><span>" + dat[0].defSkills.mental + "</span></li>");
-    curSetting.append("</ol>");
+    var lihdl = curSetting.find('ol:last');
+    lihdl.append("<li class='skillInfo'><label>近战:</label><span>" + dat[0].defSkills.near + "</span></li>");
+    lihdl.append("<li class='skillInfo'><label>远程:</label><span>" + dat[0].defSkills.far + "</span></li>");
+    lihdl.append("<li class='skillInfo'><label>法术:</label><span>" + dat[0].defSkills.magic + "</span></li>");
+    lihdl.append("<li class='skillInfo'><label>心理:</label><span>" + dat[0].defSkills.mental + "</span></li>");
 
     // Default & General
     generalLayer(curSetting, dat[0]);
@@ -54,11 +59,11 @@ function genSkillSetPage(dat) {
         curSetting.append("<span>禁止自动攻击</span>");
     curSetting.append("<h3>行为顺序</h3>");
     curSetting.append("<ol>");
-    curSetting.append("<li class='skillInfo'><label>攻击:</label><span>" + dat[0].attOrder + "</span></li>");
-    curSetting.append("<li class='skillInfo'><label>辅助:</label><span>" + dat[0].sptOrder + "</span></li>");
-    curSetting.append("</ol>");
+    lihdl = curSetting.find('ol:last');
+    lihdl.append("<li class='skillInfo'><label>攻击:</label><span>" + dat[0].attOrder + "</span></li>");
+    lihdl.append("<li class='skillInfo'><label>辅助:</label><span>" + dat[0].sptOrder + "</span></li>");
 
-    htmlHdl.find('.defaultLayer').eq(0).append(curSetting);
+    htmlHdl.find('#defaultLayer').eq(0).append(curSetting);
 
     // Other Layers
     /*
@@ -71,15 +76,74 @@ function genSkillSetPage(dat) {
     for (var i = 1; i < dat.length; i++) {
         curSetting = $('<div class="setting-row"></div>');
         generalLayer(curSetting, dat[i]);
-        htmlHdl.find('.layers').eq(0).append("<h2 class='subLayerTitle'>L"+i+"</h2>");
+        htmlHdl.find('.layers').eq(0).append("<h2 class='subLayerTitle'>L" + i + "</h2>");
         htmlHdl.find('.layers').eq(0).append("<div class='single-layer'></div>");
         htmlHdl.find('.single-layer:last').eq(0).append(curSetting);
     }
-
-
     $('body').append(htmlHdl);
     $('Title').text(dat[0].setTitle);
     $('h1').eq(0).text(dat[0].setTitle);
+    //Add Action
+    $('#pageTitle').click(function () {
+        if ($(this).hasClass('zap')) {
+            $('#reportPage').removeClass('zap').show();
+        } else {
+            $('#reportPage').addClass('zap').hide();
+        }
+        $(this).toggleClass('zap');
+    });
+
+    $('h2#defaultSection').click(function () {
+        if ($(this).hasClass('zap')) {
+            $('#defaultLayer').removeClass('zap').show();
+        } else {
+            $('#defaultLayer').addClass('zap').hide();
+        }
+        $(this).toggleClass('zap');
+    })
+
+    $('h2#LayersSection').click(function () {
+        if ($(this).hasClass('zap')) {
+            $('#settingLayer').removeClass('zap').show();
+        } else {
+            $('#settingLayer').addClass('zap').hide();
+        }
+        $(this).toggleClass('zap');
+    });
+
+    $('h2.subLayerTitle').click(function () {
+        if ($(this).hasClass('zap')) {
+            $(this).next('div.single-layer').removeClass('zap').show();
+        } else {
+            $(this).next('div.single-layer').addClass('zap').hide();
+        }
+        $(this).toggleClass('zap');
+    })
+
+    $('#exportbutton').click(function () {
+        var exportBB = "[h1]" + $('title').text() + " 战术设置[/h1]";
+        exportBB = exportBB + "[hr]";
+        if (!$('#defaultSection').hasClass('zap')) {
+            exportBB = exportBB + "[h2]缺省及通用设置[/h2]";
+            exportBB = exportBB + "[hr]";
+            exportBB = exportBB + bbcode_generate_CreateBB($('#defaultLayer')[0], "", "", "") ;
+        }
+        if (!$('#LayerSection').hasClass('zap')) {
+            exportBB = exportBB + "[h2]分层设置[/h2]";
+            exportBB = exportBB + "[hr]";
+            var tmpHdl = $('#settingLayer');
+            for (var i = 1; i < 11; i++) {
+                //if set in place and not zapped
+                if ($("h2.subLayerTitle:contains(L" + i + ")").length > 0 && !$("h2.subLayerTitle:contains(L" + i + ")").hasClass('zap')) {
+                    exportBB = exportBB + "[h3]第" + i + "层[/h3]";
+                    exportBB = exportBB + "[hr]";
+                    exportBB = exportBB + bbcode_generate_CreateBB($("h2.subLayerTitle:contains(L" + i + ")~ div.single-layer")[0], "", "", "");
+                }
+            }
+        }
+        $('#popupOverlay textarea').eq(0).val(exportBB);
+        $("#popupOverlay").fadeIn();
+    })
 };
 
 function generalLayer(curSetting, curDat) {
@@ -87,20 +151,20 @@ function generalLayer(curSetting, curDat) {
     curSetting.append("<div class='skillInfo'><span class='skillname'>" + curDat.preAction + "</span></div>");
     curSetting.append("<h3>回合前</h3>");
     curSetting.append("<ol>");
+    var lihdl = curSetting.find('ol:last');
     curDat.preSkills.forEach(function (cont) {
-        curSetting.append("<li class='skillInfo'><span class='skillname'>" + cont.name + "</span><span class='skillitem'>" + cont.item + " </span><span class='skillammo'>" + cont.ammo + " </span><span class='skillpos'>" + cont.position + "</span></li>");
+        lihdl.append("<li class='skillInfo'><span class='skillname'>" + cont.name + "</span><span class='skillitem'>" + cont.item + " </span><span class='skillammo'>" + cont.ammo + " </span><span class='skillpos'>" + cont.position + "</span></li>");
     })
-    curSetting.append("</ol>");
     curSetting.append("<h3>回合中</h3>");
     curSetting.append("<ol>");
+    lihdl = curSetting.find('ol:last');
     curDat.inSkills.forEach(function (cont) {
-        curSetting.append("<li class='skillInfo'><span class='skillname'>" + cont.name + "</span><span class='skillitem'>" + cont.item + " </span><span class='skillammo'>" + cont.ammo + " </span><span class='skillpos'>" + cont.position + "</span></li>");
+        lihdl.append("<li class='skillInfo'><span class='skillname'>" + cont.name + "</span><span class='skillitem'>" + cont.item + " </span><span class='skillammo'>" + cont.ammo + " </span><span class='skillpos'>" + cont.position + "</span></li>");
     })
-    curSetting.append("</ol>");
     curSetting.append("<h3>治疗设置</h3>");
     curSetting.append("<ol>");
-    curSetting.append("<li class='skillInfo'><label>轻伤:</label><span>" + curDat.cureSetting.light + "</span></li>");
-    curSetting.append("<li class='skillInfo'><label>受伤:</label><span>" + curDat.cureSetting.mid + "</span></li>");
-    curSetting.append("<li class='skillInfo'><label>重伤:</label><span>" + curDat.cureSetting.heavy + "</span></li>");
-    curSetting.append("</ol>");
+    lihdl = curSetting.find('ol:last');
+    lihdl.append("<li class='skillInfo'><label>轻伤:</label><span>" + curDat.cureSetting.light + "</span></li>");
+    lihdl.append("<li class='skillInfo'><label>受伤:</label><span>" + curDat.cureSetting.mid + "</span></li>");
+    lihdl.append("<li class='skillInfo'><label>重伤:</label><span>" + curDat.cureSetting.heavy + "</span></li>");
 }
