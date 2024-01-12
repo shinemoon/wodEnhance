@@ -141,10 +141,16 @@ function genSkillSetPage(dat) {
                 }
             }
         }
-        $('#popupOverlay textarea').eq(0).val(exportBB);
+        $('#popupOverlay textarea').eq(0).val(refineBB(exportBB));
         $("#popupOverlay").fadeIn();
     })
 };
+
+function refineBB(strin) {
+    // remove space before '[list]'
+    var resultString = strin.replace(/ \[list\]/g, '[list]');
+    return resultString;
+}
 
 function generalLayer(curSetting, curDat) {
     curSetting.append("<h3>先攻技能:</h3>");
