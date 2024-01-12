@@ -174,9 +174,13 @@ function refineBB(strin) {
     var isDarkTheme = localStorage.getItem('darktheme') === 'true';
     if (isDarkTheme) {
         // refine the color 
-        resultString = resultString.replace(/1f3847/g, 'eeeeee');
-        resultString = resultString.replace(/000000/g, 'cccccc');
-        resultString = resultString.replace(/00008b/g, 'eeeeee');
+        /*
+        resultString = resultString.replace(/#1f3847/g, '#eeeeee');
+        resultString = resultString.replace(/#000000/g, '#cccccc');
+        resultString = resultString.replace(/#00008b/g, '#eeeeee');
+        */
+       //To use default value
+        resultString = resultString.replace(/\[color=[^\]]+\]/g, '').replace(/\[\/color\]/g, '');
     }
     return resultString;
 }
