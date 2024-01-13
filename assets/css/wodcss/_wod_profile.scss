@@ -1,3 +1,14 @@
-.xyz {
-    color:#eee;
+#gencard {
+    border: 1px solid #888;
+    background-color:#ddd;
+    text-align:center;
+    &.disabled {
+        background:#eee;
+        border: 1px solid #ccc;
+        color:darklight;
+    }
+    &:hover {
+        background-color:#bbb;
+        color:#555;
+    }
 }

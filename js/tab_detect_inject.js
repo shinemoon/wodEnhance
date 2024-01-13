@@ -90,6 +90,9 @@ function injectLocalFileIntoCurrentPage(tid, url) {
     // Item 
     if (url.indexOf("hero/profile.php") > 0) {
         cssfileurl.push("/assets/css/wodcss/wodProfile.css");
+        scriptfileurl.push("/js/wodjs/profile_get_attribute.js");
+        scriptfileurl.push("/js/wodjs/profile_get_skills.js");
+        scriptfileurl.push("/js/wodjs/profile_get_gears.js");
         scriptfileurl.push("/js/wodjs/profile.js");
     };
 

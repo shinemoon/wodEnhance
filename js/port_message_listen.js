@@ -52,10 +52,18 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     if (message.action === 'calculateStr') {
         sendResponse({ success: true, data: calculateExpression(message.data) });
     };
+
     if (message.action === 'generateSettingPage') {
         //        genHtmlfromJson(message.data);
         chrome.tabs.create({ url: 'reportGen.html' }, function () {
            reportSrc = {action:"skillConfigPage",data:message.data};
+        });
+        sendResponse({ success: true, data: "Generation Done" });
+    }
+
+    if (message.action === 'generateCharacterCard') {
+        chrome.tabs.create({ url: 'reportGen.html' }, function () {
+           reportSrc = {action:"charCardPage",data:message.data};
         });
         sendResponse({ success: true, data: "Generation Done" });
     }
