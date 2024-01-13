@@ -7,8 +7,8 @@ function genCardPage(dat) {
     var attrCard = $('<table id="attriCard">');
     var attrItem = dat[0][0];
     attrCard.append("<tr class='row2'>");
-    attrCard.find('tr:last').append("<td class='label' colspan=2 style='background:#eee;'>概况</td>");
-    attrCard.find('tr:last').append("<td colspan=2 class='label' style='background:#eee;'>属性</td>");
+    attrCard.find('tr:last').append("<td class='label' colspan=2 style='background:#aaa;'>概况</td>");
+    attrCard.find('tr:last').append("<td colspan=2 class='label' style='background:#aaa;'>属性</td>");
     attrCard.append("<tr class='row2'>");
     attrCard.find('tr:last').append("<td id='avatar'><img src='" + attrItem['头像'].value + "'></td>");
     attrCard.find('tr:last').append("<td id='otherTable' style='vertical-align:top'><table></table></td>");
@@ -37,19 +37,19 @@ function genCardPage(dat) {
         }
     }
     attrCard.find('.row2:last').after("<tr class='row2'>");
-    attrCard.find('tr:last').append("<td  style='vertical-align:top; background-color:#eee;' class='header'> 其他属性 </td>");
-    attrCard.find('tr:last').append("<td style='vertical-align:top;background-color:#eee;' class='header'>装备</td>");
-    attrCard.find('tr:last').append("<td colspan=2 style='vertical-align:top;background-color:#eee;' class='header'>口袋</td>");
+    attrCard.find('tr:last').append("<td  style='vertical-align:top; background-color:#aaa;' class='header'> 其他属性 </td>");
+    attrCard.find('tr:last').append("<td style='vertical-align:top;background-color:#aaa;' class='header'>装备</td>");
+    attrCard.find('tr:last').append("<td colspan=2 style='vertical-align:top;background-color:#aaa;' class='header'>口袋</td>");
 
 
 
     attrCard.find('.row2:last').after("<tr class='row2'>");
     attrCard.find('tr:last').append("<td  style='vertical-align:top'><table id='attrIITable'></table></td>");
-    attrCard.find('tr:last td:last').append("<div style='background:#eee'>护甲加成</div>");
+    attrCard.find('tr:last td:last').append("<div style='background:#aaa'>护甲加成</div>");
     attrCard.find('tr:last td:last').append("<table id='armorTable' ></table>");
-    attrCard.find('tr:last td:last').append("<div style='background:#eee'>攻击加成</div>");
+    attrCard.find('tr:last td:last').append("<div style='background:#aaa'>攻击加成</div>");
     attrCard.find('tr:last td:last').append("<table id='attTable' ></table>");
-    attrCard.find('tr:last td:last').append("<div style='background:#eee'>防御加成</div>");
+    attrCard.find('tr:last td:last').append("<div style='background:#aaa'>防御加成</div>");
     attrCard.find('tr:last td:not(.label):last').append("<table id='defendTable' ></table>");
 //    attrCard.find('tr:last').append("<td id='attTable'  style='vertical-align:top'><table></table></td>");
  //   attrCard.find('tr:last').append("<td id='defendTable' style='vertical-align:top'><table></table></td>");
@@ -120,7 +120,7 @@ function genCardPage(dat) {
             attrCard.find('#equipTable table').append("<tr><td class='label'>" + element['equipPos']+ ":</td><td>" + element['equipName'] + "</td></tr>");
         }
     }
-    attrCard.find('#equipTable table').append("<tr><td colspan=2 style='background:#eee;'>戒指</td></tr>");
+    attrCard.find('#equipTable table').append("<tr><td colspan=2 style='background:#aaa;'>戒指</td></tr>");
     curattr = dat[2][1];
     // Loop through the new object and display its elements
     for (const key in curattr) {
@@ -130,7 +130,7 @@ function genCardPage(dat) {
             attrCard.find('#equipTable table').append("<tr><td class='label'>" + element['medalPos']+ ":</td><td>" + element['medalName'] + "</td></tr>");
         }
     }
-    attrCard.find('#equipTable table').append("<tr><td colspan=2 style='background:#eee;'>徽章</td></tr>");
+    attrCard.find('#equipTable table').append("<tr><td colspan=2 style='background:#aaa;'>徽章</td></tr>");
     curattr = dat[2][3];
     // Loop through the new object and display its elements
     for (const key in curattr) {
