@@ -91,6 +91,10 @@ chrome.runtime.onConnect.addListener((port) => {
     }
 
     if (port.name === 'reportGen') {
+        if(rport!=null) {
+            console.log("Already Connected.")
+            return;
+        }
         rport = port;
         rport.postMessage({ action: 'init', data: null });
 
