@@ -14,3 +14,21 @@
 - 增加了战斗设置的BBcode导出功能；
 - 优化了战报界面；
 - 角色卡的导出BBcode功能。
+
+# wodEnhance
+
+An enhanced extension for [WoD](https://delta.world-of-dungeons.org/), featuring the following:
+
+- Customized interface adjustments based on personal preferences.
+- Integration of several content scripts, each modified to comply with Chrome Manifest V3 specifications:
+  - [WoD BBCode Generator](https://update.greasyfork.org/scripts/3800/BBCode%20Generator.user.js) by @Tomy/Finargol
+  - [Wod Display Skill Rolls](https://update.greasyfork.org/scripts/439870/%5BWoD%5D%20Display%20Skill%20Rolls_CN.meta.js) by @Xaerodegreaz
+  - [WoD Extra Statistics](https://update.greasyfork.org/scripts/3801/Extra%20Statistics.meta.js) by @fenghou, Tomy
+  - [WoD Jumpbox Enhancement](https://greasyfork.org/zh-CN/scripts/398732-wod-jumpbox-enhanced) by @DotIN13
+  - [Wod 耗材单价]( https://greasyfork.org/zh-CN/scripts/8896-wod-%E8%80%97%E6%9D%90%E5%8D%95%E4%BB%B7) by @lgg 2
+
+Special thanks to these script authors!
+
+- Added BBcode export functionality for combat settings.
+- Optimized the battle report interface.
+- BBcode export functionality for character sheets.
