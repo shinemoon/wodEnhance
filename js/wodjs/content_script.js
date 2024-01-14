@@ -80,6 +80,7 @@ function extractValue(htmlString, label) {
 // Function to update the experience bar
 function updateExperienceBar(currentExp, nextLevelExp, hdlstr) {
   var percentage = (currentExp / nextLevelExp) * 100;
+  if(percentage>=100) percentage = 100;
   $(hdlstr + ' .filled-bar').css('width', percentage + '%');
   // Update tooltip text
   var tooltipText = `Current: ${currentExp}\nNext Level: ${nextLevelExp}`;

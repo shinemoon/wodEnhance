@@ -65,7 +65,6 @@ function injectLocalFileIntoCurrentPage(tid, url) {
     if (url.indexOf("trade.php") > 0) {
         cssfileurl.push("/assets/css/wodcss/wodTrade.css");
     };
-
     // REPORT
     if (url.indexOf("report") > 0) {
         scriptfileurl.push("/js/wodjs/report.js");
@@ -76,8 +75,6 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         scriptfileurl.push("/js/wodjs/skill_config.js");
         cssfileurl.push("/assets/css/wodcss/wodSkillConf.css");
     };
-
-
     // PM
     if (url.indexOf("pm") > 0) {
         cssfileurl.push("/assets/css/wodcss/wodPM.css");
@@ -86,7 +83,6 @@ function injectLocalFileIntoCurrentPage(tid, url) {
     if (url.indexOf("items.php") > 0) {
         cssfileurl.push("/assets/css/wodcss/wodItem.css");
     };
-
     // Item 
     if (url.indexOf("hero/profile.php") > 0) {
         cssfileurl.push("/assets/css/wodcss/wodProfile.css");
@@ -96,26 +92,27 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         scriptfileurl.push("/js/wodjs/profile.js");
     };
 
+    if (url.indexOf("hero/skill") > 0) {
+        cssfileurl.push("/assets/css/wodcss/plugin/plugin_skillrolls.css");
+    }
+
+
     if (url.indexOf("spiel/forum") > 0) {
-        cssfileurl.push("/assets/css/wodcss/wodForum.css");
-        //        scriptfileurl.push("/js/wodjs/profile.js");
+//        cssfileurl.push("/assets/css/wodcss/wodForum.css");
     };
 
-
-
-
     // NON-FORUM
-    if (url.indexOf("viewtopic") < 0) {
+    if (url.indexOf("spiel/forum") < 0) {
         cssfileurl.push("/assets/css/wodcss/nonWodForum.css");
     };
 
-    cssfileurl.push("/assets/css/wodcss/plugin/plugin_skillrolls.css");
 
     // Fetch and input parameter into page
 
-    chrome.scripting.executeScript({ target: { tabId: tid }, files: scriptfileurl, world:"ISOLATED" })
+    chrome.scripting.executeScript({ target: { tabId: tid }, files: scriptfileurl, world: "ISOLATED" })
         .then(() => {
-            chrome.scripting.insertCSS({ target: { tabId: tid }, files: cssfileurl })
+            if(cssfileurl.length>0)
+                chrome.scripting.insertCSS({ target: { tabId: tid }, files: cssfileurl })
             console.debug("Script injected on target: ", scriptfileurl);
             console.debug("CSS injected on target: ", cssfileurl);
         })
@@ -123,7 +120,7 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         .finally(() => {
             console.debug("All Injection Finished!");
             console.debug("Start Plugin Injection!");
-            chrome.scripting.executeScript({ target: { tabId: tid }, files: pluginscriptfileurl, world:"ISOLATED"})
+            chrome.scripting.executeScript({ target: { tabId: tid }, files: pluginscriptfileurl, world: "ISOLATED" })
                 .then(() => console.log("Plugin Injected:", pluginscriptfileurl))
                 .catch((error) => console.error(`Plugin Injection failure:${error.message}`))
         })

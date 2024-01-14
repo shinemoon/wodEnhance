@@ -1,5 +1,5 @@
 #reportPage {
-  background: white;
+  background: rgba(238, 238, 238, 0.6666666667);
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -163,4 +163,53 @@ h3 {
 }
 #buttonList #themes {
   margin-left: 20px;
+}
+
+#charCard {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+}
+#charCard td.label {
+  font-weight: bold;
+}
+#charCard td.header {
+  font-weight: bold;
+  background: #aaa;
+}
+#charCard div {
+  font-weight: bold;
+}
+#charCard .row2 table {
+  width: 100%;
+}
+#charCard .row2 table tr td.label {
+  font-weight: bold;
+}
+#charCard .row2 table tr td a {
+  text-decoration: none;
+}
+#charCard.dark {
+  background: black;
+  border: 1px solid #eee;
+}
+#charCard.dark td.label,
+#charCard.dark td.header {
+  color: #fff;
+}
+#charCard.dark td.header {
+  font-weight: bold;
+  background: #555;
+}
+#charCard.dark div {
+  color: #fff;
+}
+#charCard.dark .row2 table tr td {
+  color: #f0f0f0;
+}
+#charCard.dark .row2 table tr td.label {
+  color: ORANGE;
+}
+#charCard.dark .row2 table tr td a {
+  color: #FFCF00;
 }/*# sourceMappingURL=reportGen.css.map */

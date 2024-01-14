@@ -147,6 +147,12 @@ function parseLocalHeroAttributes(data) {
 
 
 
+    attributesTable = jq.find('table[class=content_table]').eq(0);
+    attributeRows = $(attributesTable).find('tr[class^=row]')
+    retAttrVal["团队"] = {type:'charattr', value:$('.content_table').eq(0).find('tr[class^=row]').eq(0).find('>td').eq(1).text().trim()};
+    retAttrVal["联盟"] = {type:'charattr', value:$('.content_table').eq(0).find('tr[class^=row]').eq(1).find('>td').eq(1).text().trim()};
+
+
     // Additional item in profile page:
     retAttrVal["名字"] = {type:'charattr', value:$('span.font_Hero_Name').text().trim()};
     retAttrVal["头衔"] = {type:'charattr', value:$('div.hero_full .heroTitle').text().trim()};

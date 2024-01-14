@@ -1,5 +1,5 @@
 #reportPage {
-    background: white;
+    background: #eeeeeeaa;;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -156,12 +156,83 @@ h3 {
     border-radius: 3px;
     font-size: 12px;
     font-weight: bold;
-    border-radius:20px;
+    border-radius: 20px;
 }
 
 #buttonList {
-    display:flex;
+    display: flex;
+
     #themes {
-        margin-left:20px;
+        margin-left: 20px;
+    }
+}
+
+#charCard {
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px solid black;
+
+    td.label{
+        font-weight: bold;
+    }
+    td.header {
+        font-weight: bold;
+        background:#aaa;
+    }
+
+    div {
+        font-weight: bold;
+    }
+
+    .row2 table {
+        width: 100%;
+
+        tr {
+            td {
+                &.label {
+                    font-weight: bold;
+                }
+
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    &.dark {
+        background: black;
+        border: 1px solid #eee;
+
+        td.label,
+        td.header {
+            color: #fff;
+        }
+    td.header {
+        font-weight: bold;
+        background:#555;
+    }
+
+
+        div {
+            color: #fff
+        }
+
+
+        .row2 table {
+            tr {
+                td {
+                    color: #f0f0f0;
+
+                    &.label {
+                        color: ORANGE;
+                    }
+
+                    a {
+                        color: #FFCF00;
+                    }
+                }
+            }
+        }
     }
 }
