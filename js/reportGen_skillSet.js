@@ -1,10 +1,10 @@
 function genSkillSetPage(dat) {
     //Gen SkillSet Page
+//    <div id="themes" class="switch-button"> <input id="themecheck" type=checkbox></div><div>  适配暗色主题论坛</div> \
     console.log(dat);
     var htmlHdl = $('<h1 id="pageTitle"> </h1> \
     <div id="buttonList"> \
     <div id="exportbutton" class="elegant-button"> 导出BBCODE</div> \
-    <div id="themes" class="switch-button"> <input id="themecheck" type=checkbox></div><div>  适配暗色主题论坛</div> \
     </div> \
     <div id="reportPage"> \
     <h2 id="defaultSection"> 默认及一般设置 </h2> \
@@ -58,19 +58,6 @@ function genSkillSetPage(dat) {
     $('body').append(htmlHdl);
     $('Title').text(dat[0].setTitle);
     $('h1').eq(0).text(dat[0].setTitle);
-    //Add Action
-    //Theme select
-    const darkThemeToggle = $('#themecheck');
-    // Check if the dark theme preference is stored in localStorage
-    const isDarkTheme = localStorage.getItem('darktheme') === 'true';
-    // Set the initial state based on localStorage
-    darkThemeToggle.prop('checked', isDarkTheme);
-    // Handle changes to the checkbox
-    darkThemeToggle.on('change', function () {
-        // Update localStorage with the new state
-        localStorage.setItem('darktheme', darkThemeToggle.prop('checked'));
-    });
-
     $('#pageTitle').click(function () {
         if ($(this).hasClass('zap')) {
             $('#reportPage').removeClass('zap').show();
@@ -128,6 +115,8 @@ function genSkillSetPage(dat) {
                 }
             }
         }
+        exportBB = exportBB.replace(/\[\/?(font|color)[^\]]*\]/g, '');        // Remove color size font
+
         $('#popupOverlay textarea').eq(0).val(refineBB(exportBB));
         $("#popupOverlay").fadeIn();
     })
@@ -136,17 +125,6 @@ function genSkillSetPage(dat) {
 function refineBB(strin) {
     // remove space before '[list]'
     var resultString = strin.replace(/ \[list\]/g, '[list]');
-    var isDarkTheme = localStorage.getItem('darktheme') === 'true';
-    if (isDarkTheme) {
-        // refine the color 
-        /*
-        resultString = resultString.replace(/#1f3847/g, '#eeeeee');
-        resultString = resultString.replace(/#000000/g, '#cccccc');
-        resultString = resultString.replace(/#00008b/g, '#eeeeee');
-        */
-       //To use default value
-        resultString = resultString.replace(/\[color=[^\]]+\]/g, '').replace(/\[\/color\]/g, '');
-    }
     return resultString;
 }
 
