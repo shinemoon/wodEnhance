@@ -176,12 +176,15 @@ h3 {
         font-weight: bold;
     }
     td.header {
+        color: #333;
         font-weight: bold;
         background:#aaa;
     }
 
     div {
+        color: #333;
         font-weight: bold;
+        background:#aaa;
     }
 
     .row2 table {
@@ -195,6 +198,7 @@ h3 {
 
                 a {
                     text-decoration: none;
+                    color:#3498db;
                 }
             }
         }
@@ -215,7 +219,8 @@ h3 {
 
 
         div {
-            color: #fff
+            color: #fff;
+            background:#555;
         }
 
 

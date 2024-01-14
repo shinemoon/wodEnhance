@@ -8,8 +8,8 @@ function genCardPage(dat) {
     var attrCard = $('#charCard');
     var attrItem = dat[0][0];
     attrCard.append("<tr class='row2'>");
-    attrCard.find('tr:last').append("<td class='header' colspan=2 >概况</td>");
-    attrCard.find('tr:last').append("<td colspan=2 class='header' >属性</td>");
+    attrCard.find('tr:last').append("<td class='header' colspan=2><b>角色卡：<span id='nametitle'></span></b></td>");
+    attrCard.find('tr:last').append("<td colspan=2 class='header' ><b>属性</b></td>");
     attrCard.append("<tr class='row2'>");
     attrCard.find('tr:last').append("<td id='avatar'><img src='" + attrItem['头像'].value + "'></td>");
     attrCard.find('tr:last').append("<td id='otherTable' style='vertical-align:top'><table></table></td>");
@@ -22,7 +22,7 @@ function genCardPage(dat) {
     for (const key in curattr) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
-            attrCard.find('#attrTable table').append("<tr><td class='label'>" + key + "</td><td>" + element.value + "</td></tr>");
+            attrCard.find('#attrTable table').append("<tr><td class='label'><u>" + key + "</u></td><td>" + element.value + "</td></tr>");
         }
     }
     curattr = Object.fromEntries(
@@ -33,14 +33,17 @@ function genCardPage(dat) {
     for (const key in curattr) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
+            if (key == '名字')
+                attrCard.find('#nametitle').text(element.value);
+
             if (key != '头像')
-                attrCard.find('#otherTable table').append("<tr><td class='label'>" + key + "</td><td>" + element.value + "</td></tr>");
+                attrCard.find('#otherTable table').append("<tr><td class='label'><u>" + key + "</u></td><td>" + element.value + "</td></tr>");
         }
     }
     attrCard.find('.row2:last').after("<tr class='row2'>");
-    attrCard.find('tr:last').append("<td  style='vertical-align:top; ' class='header'> 其他属性 </td>");
-    attrCard.find('tr:last').append("<td  style='vertical-align:top;' class='header'>装备</td>");
-    attrCard.find('tr:last').append("<td  style='vertical-align:top;' class='header'>口袋</td>");
+    attrCard.find('tr:last').append("<td  style='vertical-align:top; ' class='header'><b> 其他属性 </b></td>");
+    attrCard.find('tr:last').append("<td  style='vertical-align:top;' class='header'><b>装备</b></td>");
+    attrCard.find('tr:last').append("<td  style='vertical-align:top;' class='header'><b>口袋</b></td>");
 
 
 
@@ -65,7 +68,7 @@ function genCardPage(dat) {
     for (const key in curattr) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
-            attrCard.find('table#attrIITable').append("<tr><td class='label'>" + key + "</td><td>" + element.value + "</td></tr>");
+            attrCard.find('table#attrIITable').append("<tr><td class='label'><u>" + key + "</u></td><td>" + element.value + "</td></tr>");
         }
     }
 
@@ -81,7 +84,7 @@ function genCardPage(dat) {
     for (const key in curattr) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
-            attrCard.find('table#armorTable').append("<tr><td class='label'>" + key + "</td><td>" + element.value + "</td></tr>");
+            attrCard.find('table#armorTable').append("<tr><td class='label'><u>" + key + "</u></td><td>" + element.value + "</td></tr>");
         }
     }
 
@@ -94,7 +97,7 @@ function genCardPage(dat) {
     for (const key in curattr) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
-            attrCard.find('table#attTable').append("<tr><td class='label'>" + key + "</td><td>" + element.value + "</td></tr>");
+            attrCard.find('table#attTable').append("<tr><td class='label'><u>" + key + "</u></td><td>" + element.value + "</td></tr>");
         }
     }
 
@@ -107,7 +110,7 @@ function genCardPage(dat) {
     for (const key in curattr) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
-            attrCard.find('table#defendTable').append("<tr><td class='label'>" + key + "</td><td>" + element.value + "</td></tr>");
+            attrCard.find('table#defendTable').append("<tr><td class='label'><u>" + key + "</u></td><td>" + element.value + "</td></tr>");
         }
     }
 
@@ -119,9 +122,9 @@ function genCardPage(dat) {
             const element = curattr[key];
             console.log(element);
             if (element['equipName'] == "")
-                attrCard.find('#equipTable table').append("<tr><td class='label'>" + element['equipPos'] + ":</td><td>" + element['equipName'] + "</td></tr>");
+                attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['equipPos'] + "</u>:</td><td>" + element['equipName'] + "</td></tr>");
             else
-                attrCard.find('#equipTable table').append("<tr><td class='label'>" + element['equipPos'] + ":</td><td><a href='item'>" + element['equipName'] + "</a></td></tr>");
+                attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['equipPos'] + "</u>:</td><td><a href='item'>" + element['equipName'] + "</a></td></tr>");
         }
     }
     curattr = dat[2][1];
@@ -131,9 +134,9 @@ function genCardPage(dat) {
             const element = curattr[key];
             console.log(element);
             if (element['medalName'] == "")
-                attrCard.find('#equipTable table').append("<tr><td class='label'>" + element['medalPos'] + ":</td><td>" + element['medalName'] + "</td></tr>");
+                attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['medalPos'] + "</u>:</td><td>" + element['medalName'] + "</td></tr>");
             else
-                attrCard.find('#equipTable table').append("<tr><td class='label'>" + element['medalPos'] + ":</td><td><a href='item'>" + element['medalName'] + "</a></td></tr>");
+                attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['medalPos'] + "</u>:</td><td><a href='item'>" + element['medalName'] + "</a></td></tr>");
         }
     }
     curattr = dat[2][3];
@@ -142,7 +145,7 @@ function genCardPage(dat) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
             console.log(element);
-            attrCard.find('#equipTable table').append("<tr><td class='label'>" + element['ringPos'] + ":</td><td><a href='item'>" + element['ringName'] + "</a></td></tr>");
+            attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['ringPos'] + "</u>:</td><td><a href='item'>" + element['ringName'] + "</a></td></tr>");
         }
     }
 
@@ -152,13 +155,13 @@ function genCardPage(dat) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
             console.log(element);
-            attrCard.find('#bucketTable table').append("<tr><td class='label'>" + element['bucketPos'] + ":</td><td><a href='item'>" + element['bucketName'] + "</a></td></tr>");
+            attrCard.find('#bucketTable table').append("<tr><td class='label'><u>" + element['bucketPos'] + "</u>:</td><td><a href='item'>" + element['bucketName'] + "</a></td></tr>");
         }
     }
 
     // SKILL TABLES
     attrCard.find('.row2:last').after("<tr class='row2'>");
-    attrCard.find('tr:last').append("<td colspan=3  class='header'>技能</td>");
+    attrCard.find('tr:last').append("<td colspan=3  class='header'><b>技能</b></td>");
     attrCard.find('.row2:last').after("<tr class='row2'>");
     attrCard.find('tr:last').append("<td  style='vertical-align:top'><table id='skillTableI'></table></td>");
     attrCard.find('tr:last').append("<td  style='vertical-align:top'><table id='skillTableII'></table></td>");

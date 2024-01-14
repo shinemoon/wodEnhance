@@ -174,11 +174,14 @@ h3 {
   font-weight: bold;
 }
 #charCard td.header {
+  color: #333;
   font-weight: bold;
   background: #aaa;
 }
 #charCard div {
+  color: #333;
   font-weight: bold;
+  background: #aaa;
 }
 #charCard .row2 table {
   width: 100%;
@@ -188,6 +191,7 @@ h3 {
 }
 #charCard .row2 table tr td a {
   text-decoration: none;
+  color: #3498db;
 }
 #charCard.dark {
   background: black;
@@ -203,6 +207,7 @@ h3 {
 }
 #charCard.dark div {
   color: #fff;
+  background: #555;
 }
 #charCard.dark .row2 table tr td {
   color: #f0f0f0;
