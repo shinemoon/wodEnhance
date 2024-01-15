@@ -58,7 +58,7 @@ function parseLocalHeroAttributes(data) {
         .toArray();
     const retAttrVal = {};
     rawRows.forEach(function (x) {
-        retAttrVal[x.attributeName] = {type:'attr',value:x.effectiveValueCell.length > 0 ? x.valueCell + "[" + x.effectiveValueCell + "]" : Number(x.valueCell)};
+        retAttrVal[x.attributeName] = { type: 'attr', value: x.effectiveValueCell.length > 0 ? x.valueCell + "[" + x.effectiveValueCell + "]" : Number(x.valueCell) };
     });
 
 
@@ -66,20 +66,22 @@ function parseLocalHeroAttributes(data) {
     attributesTable = jq.find('table[class=content_table]').eq(1);
     attributeRows = $(attributesTable).find('tr[class^=row]')
     // hp
-    retAttrVal["体力"] = {type:'attrII', value:attributeRows.eq(4).find('>td').eq(1).text().trim().replace(/[\n ]/g, '')};
+    retAttrVal["体力"] = { type: 'attrII', value: attributeRows.eq(4).find('>td').eq(1).text().trim().replace(/[\n ]/g, '') };
     // hp-recover
-    retAttrVal["体力恢复"] = {type:'attrII', value:attributeRows.eq(4).find('>td').eq(2).find('.effective_value').text().trim()};
+    retAttrVal["体力恢复"] = { type: 'attrII', value: attributeRows.eq(4).find('>td').eq(2).find('.effective_value').text().trim() };
     // mp
-    retAttrVal["法力"] = {type:'attrII', value:attributeRows.eq(5).find('>td').eq(1).text().trim().replace(/[\n ]/g, '')};
+    retAttrVal["法力"] = { type: 'attrII', value: attributeRows.eq(5).find('>td').eq(1).text().trim().replace(/[\n ]/g, '') };
     // mp-recover
-    retAttrVal["法力恢复"] = {type:'attrII', value:attributeRows.eq(5).find('>td').eq(2).find('.effective_value').text().trim()};
+    retAttrVal["法力恢复"] = { type: 'attrII', value: attributeRows.eq(5).find('>td').eq(2).find('.effective_value').text().trim() };
     // rounds
-    retAttrVal['每回合行动次数'] = {type:'attrII', value:attributeRows.eq(6).find('>td').eq(1).text().trim().replace(/[\n ]/g, '')};
+    retAttrVal['每回合行动次数'] = { type: 'attrII', value: attributeRows.eq(6).find('>td').eq(1).text().trim().replace(/[\n ]/g, '') };
     // pre-act
-    retAttrVal['先攻附加值'] = {type:'attrII', value:attributeRows.eq(7).find('>td').eq(1).text().trim().replace(/[\n ]/g, '')};
+    retAttrVal['先攻附加值'] = { type: 'attrII', value: attributeRows.eq(7).find('>td').eq(1).text().trim().replace(/[\n ]/g, '') };
 
     //Table III
-    attributesTable = jq.find('table[class=content_table]').eq(2);
+    //    attributesTable = jq.find('table[class=content_table]').eq(2);
+    var iloc = jq.find('h3:contains("护甲")').closest('td').index();
+    attributesTable = jq.find('h3:contains("护甲")').closest('tr').next().find('>td').eq(iloc).find('table.content_table');
     attributeRows = $(attributesTable).find('tr[class^=row]')
     const rawAmourRows = attributeRows
         .map(function () {
@@ -99,11 +101,13 @@ function parseLocalHeroAttributes(data) {
         .toArray();
     const retAmorVal = {};
     rawAmourRows.forEach(function (x) {
-        retAmorVal[x.attributeName] = {type:'armor', value:x.effectiveValueCell};
+        retAmorVal[x.attributeName] = { type: 'armor', value: x.effectiveValueCell };
     });
+    console.info(retAmorVal);
 
     //Table IV
-    attributesTable = jq.find('table[class=content_table]').eq(3);
+    iloc = jq.find('h3:contains("累计攻击奖励")').closest('td').index();
+    attributesTable = jq.find('h3:contains("累计攻击奖励")').closest('tr').next().find('>td').eq(iloc).find('table.content_table');
     attributeRows = $(attributesTable).find('tr:not(.header)')
     const rawAttRows = attributeRows
         .map(function () {
@@ -119,11 +123,14 @@ function parseLocalHeroAttributes(data) {
         .toArray();
     const retAttVal = {};
     rawAttRows.forEach(function (x) {
-        retAttVal[x.attributeName] = {type:'attack',value:x.effectiveValueCell};
+        retAttVal[x.attributeName] = { type: 'attack', value: x.effectiveValueCell };
     });
+    console.info(iloc);
+    console.info(retAttVal);
 
     //Table V
-    attributesTable = jq.find('table[class=content_table]').eq(4);
+    iloc = jq.find('h3:contains("累计防御奖励")').closest('td').index();
+    attributesTable = jq.find('h3:contains("累计防御奖励")').closest('tr').next().find('>td').eq(iloc).find('table.content_table');
     attributeRows = $(attributesTable).find('tr[class^=row]')
     const rawDefRows = attributeRows
         .map(function () {
@@ -138,28 +145,53 @@ function parseLocalHeroAttributes(data) {
             return { attributeName, effectiveValueCell };
         })
         .toArray();
-
+    // Other table
     const retDefVal = {};
     rawDefRows.forEach(function (x) {
-        retDefVal[x.attributeName] = {type:'defend',value:x.effectiveValueCell};
+        retDefVal[x.attributeName] = { type: 'defend', value: x.effectiveValueCell };
     });
+    console.info(retDefVal);
+    //Table VI
+    // Other table
+    const retHurtVal = {};
+    iloc = jq.find('h3:contains("损害")').closest('td').index();
+    attributesTable = jq.find('h3:contains("损害")').closest('tr').next().find('>td').eq(iloc).find('table.content_table');
+    if (attributesTable.length > 0) {
+        attributeRows = $(attributesTable).find('tr[class^=row]')
+        const rawHurtRows = attributeRows
+            .map(function () {
+                const cells = $(this).find('> td');
+                const attributeName = cells
+                    .first()
+                    .text()
+                    .trim();
+                const effectiveValueCell = cells.eq(2)
+                    .text()
+                    .trim();
+                return { attributeName, effectiveValueCell };
+            })
+            .toArray();
+        rawHurtRows.forEach(function (x) {
+            retHurtVal[x.attributeName] = { type: 'hurt', value: x.effectiveValueCell };
+        });
+    }
 
-
-
+    console.info(iloc);
+    console.info(retHurtVal);
 
     attributesTable = jq.find('table[class=content_table]').eq(0);
     attributeRows = $(attributesTable).find('tr[class^=row]')
-    retAttrVal["团队"] = {type:'charattr', value:$('.content_table').eq(0).find('tr[class^=row]').eq(0).find('>td').eq(1).text().trim()};
-    retAttrVal["联盟"] = {type:'charattr', value:$('.content_table').eq(0).find('tr[class^=row]').eq(1).find('>td').eq(1).text().trim()};
+    retAttrVal["团队"] = { type: 'charattr', value: $('.content_table').eq(0).find('tr[class^=row]').eq(0).find('>td').eq(1).text().trim() };
+    retAttrVal["联盟"] = { type: 'charattr', value: $('.content_table').eq(0).find('tr[class^=row]').eq(1).find('>td').eq(1).text().trim() };
 
 
     // Additional item in profile page:
-    retAttrVal["名字"] = {type:'charattr', value:$('span.font_Hero_Name').text().trim()};
-    retAttrVal["头衔"] = {type:'charattr', value:$('div.hero_full .heroTitle').text().trim()};
-    retAttrVal["种族"] = {type:'charattr', value:$('div.hero_full .heroRace').text().trim()};
-    retAttrVal["职业"] = {type:'charattr', value:$('div.hero_full .heroClass').text().trim()};
-    retAttrVal["级别"] = {type:'charattr', value:$('div.hero_full .heroLevel').text().trim()};
-    retAttrVal["头像"] = {type:'charattr', value:$('.boardavatar:first').attr('src')};
+    retAttrVal["名字"] = { type: 'charattr', value: $('span.font_Hero_Name').text().trim() };
+    retAttrVal["头衔"] = { type: 'charattr', value: $('div.hero_full .heroTitle').text().trim() };
+    retAttrVal["种族"] = { type: 'charattr', value: $('div.hero_full .heroRace').text().trim() };
+    retAttrVal["职业"] = { type: 'charattr', value: $('div.hero_full .heroClass').text().trim() };
+    retAttrVal["级别"] = { type: 'charattr', value: $('div.hero_full .heroLevel').text().trim() };
+    retAttrVal["头像"] = { type: 'charattr', value: $('.boardavatar:first').attr('src') };
 
-    return [retAttrVal,retAmorVal, retAttVal,retDefVal];
+    return [retAttrVal, retAmorVal, retAttVal, retDefVal, retHurtVal];
 }

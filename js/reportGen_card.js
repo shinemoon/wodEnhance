@@ -51,6 +51,8 @@ function genCardPage(dat) {
     attrCard.find('tr:last').append("<td  style='vertical-align:top'><table id='attrIITable' ></table></td>");
     attrCard.find('tr:last td:last').append("<div >护甲加成</div>");
     attrCard.find('tr:last td:last').append("<table id='armorTable' ></table>");
+    attrCard.find('tr:last td:last').append("<div >损害</div>");
+    attrCard.find('tr:last td:last').append("<table id='hurtTable' ></table>");
     attrCard.find('tr:last td:last').append("<div >攻击加成</div>");
     attrCard.find('tr:last td:last').append("<table id='attTable' ></table>");
     attrCard.find('tr:last td:last').append("<div >防御加成</div>");
@@ -114,13 +116,25 @@ function genCardPage(dat) {
         }
     }
 
+    attrItem = dat[0][4];
+    curattr = Object.fromEntries(
+        Object.entries(attrItem)
+            .filter(([key, value]) => value.type === "hurt")
+    );
+    // Loop through the new object and display its elements
+    for (const key in curattr) {
+        if (curattr.hasOwnProperty(key)) {
+            const element = curattr[key];
+            attrCard.find('table#hurtTable').append("<tr><td class='label'><u>" + key + "</u></td><td>" + element.value + "</td></tr>");
+        }
+    }
+
 
     curattr = dat[2][0];
     // Loop through the new object and display its elements
     for (const key in curattr) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
-            console.log(element);
             if (element['equipName'] == "")
                 attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['equipPos'] + "</u>:</td><td>" + element['equipName'] + "</td></tr>");
             else
@@ -132,7 +146,6 @@ function genCardPage(dat) {
     for (const key in curattr) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
-            console.log(element);
             if (element['medalName'] == "")
                 attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['medalPos'] + "</u>:</td><td>" + element['medalName'] + "</td></tr>");
             else
@@ -144,7 +157,6 @@ function genCardPage(dat) {
     for (const key in curattr) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
-            console.log(element);
             attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['ringPos'] + "</u>:</td><td><a href='item'>" + element['ringName'] + "</a></td></tr>");
         }
     }
@@ -154,8 +166,11 @@ function genCardPage(dat) {
     for (const key in curattr) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
-            console.log(element);
-            attrCard.find('#bucketTable table').append("<tr><td class='label'><u>" + element['bucketPos'] + "</u>:</td><td><a href='item'>" + element['bucketName'] + "</a></td></tr>");
+            if (element['bucketName'] == "")
+                attrCard.find('#bucketTable table').append("<tr><td class='label'><u>" + element['bucketPos'] + "</u>:</td><td>" + element['bucketName'] + "</td></tr>");
+            else
+                attrCard.find('#bucketTable table').append("<tr><td class='label'><u>" + element['bucketPos'] + "</u>:</td><td><a href='item'>" + element['bucketName'] + "</a></td></tr>");
+
         }
     }
 
