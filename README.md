@@ -32,3 +32,7 @@ Special thanks to these script authors!
 - Added BBcode export functionality for combat settings.
 - Optimized the battle report interface.
 - BBcode export functionality for character sheets.
+
+## Versions
+- v1.0.1:     Minor fix on charCard
+- v1.0:       Released
