@@ -8,7 +8,8 @@ function genCardPage(dat) {
     var attrCard = $('#charCard');
     var attrItem = dat[0][0];
     attrCard.append("<tr class='row2'>");
-    attrCard.find('tr:last').append("<td class='header' colspan=2><b>角色卡：<span id='nametitle'></span></b></td>");
+    attrCard.find('tr:last').append("<td class='header'><b>角色卡：<span id='nametitle'></span></td>");
+    attrCard.find('tr:last').append("<td class='header'><u><span id='timestamp'></u></span></td>");
     attrCard.find('tr:last').append("<td colspan=2 class='header' ><b>属性</b></td>");
     attrCard.append("<tr class='row2'>");
     attrCard.find('tr:last').append("<td id='avatar'><img src='" + attrItem['头像'].value + "'></td>");
@@ -35,7 +36,8 @@ function genCardPage(dat) {
             const element = curattr[key];
             if (key == '名字')
                 attrCard.find('#nametitle').text(element.value);
-
+            // Timestamp
+            attrCard.find('#timestamp').text(getCurrentDateTime());
             if (key != '头像')
                 attrCard.find('#otherTable table').append("<tr><td class='label'><u>" + key + "</u></td><td>" + element.value + "</td></tr>");
         }
@@ -49,13 +51,13 @@ function genCardPage(dat) {
 
     attrCard.find('.row2:last').after("<tr class='row2'>");
     attrCard.find('tr:last').append("<td  style='vertical-align:top'><table id='attrIITable' ></table></td>");
-    attrCard.find('tr:last td:last').append("<div >护甲加成</div>");
+    attrCard.find('tr:last td:last').append("<div ><b>护甲加成</b></div>");
     attrCard.find('tr:last td:last').append("<table id='armorTable' ></table>");
-    attrCard.find('tr:last td:last').append("<div >损害</div>");
+    attrCard.find('tr:last td:last').append("<div ><b>损害</b></div>");
     attrCard.find('tr:last td:last').append("<table id='hurtTable' ></table>");
-    attrCard.find('tr:last td:last').append("<div >攻击加成</div>");
+    attrCard.find('tr:last td:last').append("<div ><b>攻击加成</b></div>");
     attrCard.find('tr:last td:last').append("<table id='attTable' ></table>");
-    attrCard.find('tr:last td:last').append("<div >防御加成</div>");
+    attrCard.find('tr:last td:last').append("<div ><b>防御加成</b></div>");
     attrCard.find('tr:last td:not(.label):last').append("<table id='defendTable' ></table>");
     //    attrCard.find('tr:last').append("<td id='attTable'  style='vertical-align:top'><table></table></td>");
     //   attrCard.find('tr:last').append("<td id='defendTable' style='vertical-align:top'><table></table></td>");
@@ -270,3 +272,18 @@ function genCardPage(dat) {
 
 }
 
+// Function to format the date as YYYY-MM-DD HH:MM
+function getCurrentDateTime() {
+    const now = new Date();
+
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
+
+    return formattedDateTime;
+}
