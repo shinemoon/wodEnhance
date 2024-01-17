@@ -67,6 +67,17 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         });
         sendResponse({ success: true, data: "Generation Done" });
     }
+
+
+    if (message.action === 'generateLibData') {
+        //        genHtmlfromJson(message.data);
+        chrome.tabs.create({ url: 'reportGen.html' }, function () {
+           reportSrc = {action:"libItemsPage",data:message.data};
+        });
+        sendResponse({ success: true, data: "Generation Done" });
+    }
+
+
     // Return true for asynchronous response
     return true;
 });

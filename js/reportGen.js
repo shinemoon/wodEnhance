@@ -28,5 +28,8 @@ function genPage(dat) {
     if (dat.action == 'charCardPage') {
         genCardPage(dat.data);
     }
+    if (dat.action == 'libItemsPage') {
+        genLibPage(dat.data);
+    }
 }
 
