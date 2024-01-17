@@ -82,7 +82,11 @@ function injectLocalFileIntoCurrentPage(tid, url) {
     // Item 
     if (url.indexOf("items.php") > 0) {
         cssfileurl.push("/assets/css/wodcss/wodItem.css");
+        pluginscriptfileurl.push("/js/wodjs/plugin_market.js");
     };
+    if (url.indexOf("csvexport.php") > 0) {
+        pluginscriptfileurl.push("/js/wodjs/plugin_market.js");
+    }
     // Item 
     if (url.indexOf("hero/profile.php") > 0) {
         cssfileurl.push("/assets/css/wodcss/wodProfile.css");
