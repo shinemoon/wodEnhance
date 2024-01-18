@@ -9,6 +9,20 @@ function genLibPage(dat) {
     $('body').append(tableHtml);
 
     $('#inventory').DataTable({
+        "oLanguage": {
+            "sLengthMenu": 'Display <select>' +
+                '<option value="10">10</option>' +
+                '<option value="50">50</option>' +
+                '<option value="100">100</option>' +
+                '<option value="150">150</option>' +
+                '<option value="200">200</option>' +
+                '<option value="300">300</option>' +
+                '<option value="400">400</option>' +
+                '<option value="500">500</option>' +
+                '<option value="-1">All</option>' +
+                '</select> records'
+        },
+        "iDisplayLength": 200, 
         fixedHeader: {
             header: true,
             footer: true
@@ -18,7 +32,7 @@ function genLibPage(dat) {
                 .columns()
                 .every(function () {
                     let column = this;
-                    if ([0,1,4,5,6].includes(column.index()) ){
+                    if ([0, 1, 4, 5, 6].includes(column.index())) {
                         // Create select element
                         let select = document.createElement('select');
                         select.add(new Option(''));
@@ -54,6 +68,7 @@ function genLibPage(dat) {
         // Replace with the desired format
         exportBB = exportBB.replace(regex, '[$1:$2]');
 
+        exportBB = exportBB.replace(/\[tr\]((?:(?!\[\/tr\]).|\n)*)\[td rowspan=1\]((?:(?!\[\/td\]).|\n)*)\[\/td\]((?:(?!\[\/tr\]).|\n)*)\[\/tr\]/g, '');
 
         $('#popupOverlay textarea').eq(0).val(exportBB);
         $("#popupOverlay").fadeIn();
