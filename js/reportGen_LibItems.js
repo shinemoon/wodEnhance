@@ -8,6 +8,8 @@ function genLibPage(dat) {
                                          </div > ');
     $('body').append(tableHtml);
 
+    $('#inventory').DataTable();
+
     $('#exportbutton').click(function () {
         var exportBB = bbcode_generate_CreateBB($('#inventory')[0], "", "", "")
             .replace(/^ \[table\]/, '[table border=1]')         //Set border
@@ -108,27 +110,27 @@ function ParseTreasure(text) {
 
 function displayInventoryTable(inventory) {
     let table = '<table id="inventory">';
-    //table += '<tr><th>耗材/非耗材</th><th>装备位</th><th>名称</th><th>数量</th><th>类型</th><th>完整类型</th><th>唯一性</th><th>镶嵌孔</th><th>总使用次数</th><th>最大使用次数</th><th>耐久度</th><th>最大耐久度</th></tr>';
-    table += '<tr><th>装备位</th><th>名称</th><th>数量</th><th>类型</th><th>唯一性</th><th>镶嵌孔</th><th>总使用次数</th><th>最大使用次数</th><th>耐久度</th><th>最大耐久度</th></tr>';
+    table += '<thead><tr><th>耗材/非耗材</th><th>装备位</th><th>名称</th><th>数量</th><th>类型</th><th>完整类型</th><th>唯一性</th><th>镶嵌孔</th><th>总使用次数</th><th>最大使用次数</th><th>耐久度</th><th>最大耐久度</th></tr></thead><tbody>';
+    //table += '<tr><th>装备位</th><th>名称</th><th>数量</th><th>类型</th><th>唯一性</th><th>镶嵌孔</th><th>总使用次数</th><th>最大使用次数</th><th>耐久度</th><th>最大耐久度</th></tr>';
 
     for (let category in inventory) {
         for (let slot in inventory[category]) {
             for (let item of inventory[category][slot]) {
-/*                table += `<tr>
-                        <td>${category || ''}</td>
-                        <td>${slot || ''}</td>
-                        <td>${item.Name || ''}</td>
-                        <td>${item.Count || ''}</td>
-                        <td>${item.ClassType || ''}</td>
-                        <td>${item.FullClassType || ''}</td>
-                        <td>${item.Unique || ''}</td>
-                        <td>${item.Grafting || ''}</td>
-                        <td>${item.CCount || ''}</td>
-                        <td>${item.MaxCCount || ''}</td>
-                        <td>${item.Hitpoints || ''}</td>
-                        <td>${item.MaxHitpoints || ''}</td>
+                table += `<tr>
+                        <td>${category || '-'}</td>
+                        <td>${slot || '-'}</td>
+                        <td>${item.Name || '-'}</td>
+                        <td>${item.Count || '-'}</td>
+                        <td>${item.ClassType || '-'}</td>
+                        <td>${item.FullClassType || '-'}</td>
+                        <td>${item.Unique || '-'}</td>
+                        <td>${item.Grafting || '-'}</td>
+                        <td>${item.CCount || '-'}</td>
+                        <td>${item.MaxCCount || '-'}</td>
+                        <td>${item.Hitpoints || '-'}</td>
+                        <td>${item.MaxHitpoints || '-'}</td>
                     </tr>`;
-*/
+                    /*
                 table += `<tr>
                         <td>${slot || ''}</td>
                         <td><a href='item'>${item.Name || ''}</a></td>
@@ -141,10 +143,11 @@ function displayInventoryTable(inventory) {
                         <td>${item.Hitpoints || ''}</td>
                         <td>${item.MaxHitpoints || ''}</td>
                     </tr>`;
+                    */
             }
         }
     }
 
-    table += '</table>';
+    table += '</tbody></table>';
     return table;
 };
