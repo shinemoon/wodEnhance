@@ -8,7 +8,40 @@ function genLibPage(dat) {
                                          </div > ');
     $('body').append(tableHtml);
 
-    $('#inventory').DataTable();
+    $('#inventory').DataTable({
+        fixedHeader: {
+            header: true,
+            footer: true
+        },
+        initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    let column = this;
+                    if ([0,1,4,5,6].includes(column.index()) ){
+                        // Create select element
+                        let select = document.createElement('select');
+                        select.add(new Option(''));
+                        column.footer().replaceChildren(select);
+                        // Apply listener for user change in value
+                        select.addEventListener('change', function () {
+                            var val = DataTable.util.escapeRegex(select.value);
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
+                                .draw();
+                        });
+                        // Add list of options
+                        column
+                            .data()
+                            .unique()
+                            .sort()
+                            .each(function (d, j) {
+                                select.add(new Option(d));
+                            });
+                    };
+                });
+        }
+    });
 
     $('#exportbutton').click(function () {
         var exportBB = bbcode_generate_CreateBB($('#inventory')[0], "", "", "")
@@ -110,19 +143,18 @@ function ParseTreasure(text) {
 
 function displayInventoryTable(inventory) {
     let table = '<table id="inventory">';
-    table += '<thead><tr><th>耗材/非耗材</th><th>装备位</th><th>名称</th><th>数量</th><th>类型</th><th>完整类型</th><th>唯一性</th><th>镶嵌孔</th><th>总使用次数</th><th>最大使用次数</th><th>耐久度</th><th>最大耐久度</th></tr></thead><tbody>';
+    table += '<thead><tr><th>耗材/非耗材</th><th>装备位</th><th>名称</th><th>数量</th><th>类型</th><th>唯一性</th><th>镶嵌孔</th><th>总使用次数</th><th>最大使用次数</th><th>耐久度</th><th>最大耐久度</th></tr></thead><tbody>';
     //table += '<tr><th>装备位</th><th>名称</th><th>数量</th><th>类型</th><th>唯一性</th><th>镶嵌孔</th><th>总使用次数</th><th>最大使用次数</th><th>耐久度</th><th>最大耐久度</th></tr>';
 
     for (let category in inventory) {
         for (let slot in inventory[category]) {
             for (let item of inventory[category][slot]) {
                 table += `<tr>
-                        <td>${category || '-'}</td>
+                        <td>${category === 'Consumables' ? '耗材' : (category === 'Treasury' ? '非耗材' : '')}</td>
                         <td>${slot || '-'}</td>
-                        <td>${item.Name || '-'}</td>
+                        <td><a href='item'>${item.Name || ''}</a></td>
                         <td>${item.Count || '-'}</td>
                         <td>${item.ClassType || '-'}</td>
-                        <td>${item.FullClassType || '-'}</td>
                         <td>${item.Unique || '-'}</td>
                         <td>${item.Grafting || '-'}</td>
                         <td>${item.CCount || '-'}</td>
@@ -130,24 +162,25 @@ function displayInventoryTable(inventory) {
                         <td>${item.Hitpoints || '-'}</td>
                         <td>${item.MaxHitpoints || '-'}</td>
                     </tr>`;
-                    /*
-                table += `<tr>
-                        <td>${slot || ''}</td>
-                        <td><a href='item'>${item.Name || ''}</a></td>
-                        <td>${item.Count || ''}</td>
-                        <td>${item.ClassType || ''}</td>
-                        <td>${item.Unique || ''}</td>
-                        <td>${item.Grafting || ''}</td>
-                        <td>${item.CCount || ''}</td>
-                        <td>${item.MaxCCount || ''}</td>
-                        <td>${item.Hitpoints || ''}</td>
-                        <td>${item.MaxHitpoints || ''}</td>
-                    </tr>`;
-                    */
+                /*
+            table += `<tr>
+                    <td>${slot || ''}</td>
+                    <td><a href='item'>${item.Name || ''}</a></td>
+                    <td>${item.Count || ''}</td>
+                    <td>${item.ClassType || ''}</td>
+                    <td>${item.FullClassType || '-'}</td>
+                    <td>${item.Unique || ''}</td>
+                    <td>${item.Grafting || ''}</td>
+                    <td>${item.CCount || ''}</td>
+                    <td>${item.MaxCCount || ''}</td>
+                    <td>${item.Hitpoints || ''}</td>
+                    <td>${item.MaxHitpoints || ''}</td>
+                </tr>`;
+                */
             }
         }
     }
-
-    table += '</tbody></table>';
+    table += '<tfoot><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tfoot><tbody>';
+    //table += '</tbody></table>';
     return table;
 };

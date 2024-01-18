@@ -114,6 +114,7 @@ h3 {
   background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
 
 /* Styles for the popup */
@@ -218,3 +219,11 @@ h3 {
 #charCard.dark .row2 table tr td a {
   color: #FFCF00;
 }/*# sourceMappingURL=reportGen.css.map */
+
+#inventory {
+  tr {
+    &.odd{
+      background:#eee;
+    }
+  }
+}
