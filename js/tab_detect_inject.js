@@ -80,7 +80,7 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         cssfileurl.push("/assets/css/wodcss/wodPM.css");
     };
     // Item 
-    if (url.indexOf("items.php") > 0) {
+    if (url.indexOf("items.php") > 0 || url.indexOf("trade.php") > 0) {
         cssfileurl.push("/js/jqplugin/nice-select/nice-select2.css");
         cssfileurl.push("/assets/css/wodcss/wodItem.css");
         pluginscriptfileurl.push("/js/jqplugin/nice-select/nice-select2.js");
