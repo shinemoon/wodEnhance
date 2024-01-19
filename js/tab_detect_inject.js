@@ -81,7 +81,9 @@ function injectLocalFileIntoCurrentPage(tid, url) {
     };
     // Item 
     if (url.indexOf("items.php") > 0) {
+        cssfileurl.push("/js/jqplugin/nice-select/nice-select2.css");
         cssfileurl.push("/assets/css/wodcss/wodItem.css");
+        pluginscriptfileurl.push("/js/jqplugin/nice-select/nice-select2.js");
         pluginscriptfileurl.push("/js/wodjs/plugin_market.js");
     };
     if (url.indexOf("csvexport.php") > 0) {

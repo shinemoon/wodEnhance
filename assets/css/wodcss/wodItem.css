@@ -13,4 +13,34 @@
 img[src*=gem_] {
   border-radius: 10px !important;
   margin-right: 3px !important;
+}
+
+.nice-select {
+  height: 28px !important;
+}
+
+.search_details.box_container > table {
+  width: 100%;
+}
+.search_details.box_container > table tr {
+  height: 35px !important;
+}
+.search_details.box_container > table tr > td:nth-child(0) {
+  width: 10% !important;
+}
+.search_details.box_container > table tr > td:nth-child(1) {
+  width: 30% !important;
+}
+.search_details.box_container > table tr > td:nth-child(2) {
+  width: 30% !important;
+}
+.search_details.box_container > table tr > td:nth-child(3) {
+  width: 30% !important;
+}
+.search_details.box_container > table tr > td div.nice-select {
+  width: 90% !important;
+}
+.search_details.box_container > table tr > td select[name*=hero_class] ~ div.nice-select, .search_details.box_container > table tr > td select[name*=hero_race] ~ div.nice-select, .search_details.box_container > table tr > td select[name*=location] ~ div.nice-select, .search_details.box_container > table tr > td select[name*=unique] ~ div.nice-select, .search_details.box_container > table tr > td select[name*=attribute_name] ~ div.nice-select {
+  width: 50% !important;
+  margin-right: 10px !important;
 }/*# sourceMappingURL=wodItem.css.map */

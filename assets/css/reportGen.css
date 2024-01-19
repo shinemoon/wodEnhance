@@ -219,11 +219,3 @@ h3 {
 #charCard.dark .row2 table tr td a {
   color: #FFCF00;
 }/*# sourceMappingURL=reportGen.css.map */
-
-#inventory {
-  tr {
-    &.odd{
-      background:#eee;
-    }
-  }
-}

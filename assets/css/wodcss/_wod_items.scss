@@ -3,13 +3,63 @@
     line-height: 2 !important;
     background: #daf0fa !important;
     border-radius: 6px !important;
-    max-height:fit-content!important;
-    margin-bottom:10px!important;
-    margin-top:10px!important;
-    padding-left:10px!important;
+    max-height: fit-content !important;
+    margin-bottom: 10px !important;
+    margin-top: 10px !important;
+    padding-left: 10px !important;
 }
 
 img[src*='gem_'] {
-    border-radius:10px!important;
-    margin-right:3px!important;
+    border-radius: 10px !important;
+    margin-right: 3px !important;
+}
+
+.nice-select {
+    height: 28px !important;
+}
+
+.search_details.box_container {
+    >table {
+        width: 100%;
+
+        tr {
+            height: 35px !important;
+
+            >td {
+                &:nth-child(0) {
+                    width: 10% !important;
+                }
+
+                &:nth-child(1) {
+                    width: 30% !important;
+                }
+
+                &:nth-child(2) {
+                    width: 30% !important;
+                }
+
+                &:nth-child(3) {
+                    width: 30% !important;
+                }
+
+                div.nice-select {
+                    width: 90% !important;
+                }
+
+                select {
+
+                    &[name*=hero_class],
+                    &[name*=hero_race],
+                    &[name*=location],
+                    &[name*=unique],
+                    &[name*=attribute_name] {
+                        &~div.nice-select {
+                            width: 50% !important;
+                            margin-right:10px!important;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

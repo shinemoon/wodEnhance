@@ -213,6 +213,13 @@
 				}
 			}
 		}
+		// Refine select!
+		var selects = $('select');
+		for (var i = 0; i < selects.length; i++) {
+			NiceSelect.bind(selects.eq(i)[0], {
+				searchable: true
+			});
+		};
 	}
 
 	//-----------------------------------------------------------------------------
