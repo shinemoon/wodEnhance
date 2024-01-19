@@ -7,6 +7,7 @@ TAB DETECT & INJECTION RELATED
 // Listen for tab activation changes
 chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
     if (changeInfo.status === 'loading') {
+        var curId = tabId
         await handleTab()
             .then((tabinfo) => {
                 if (tabinfo.isAllowed == false) {
@@ -16,7 +17,7 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
                 getDataFromStore('extensionState', 1, false)
                     .then((state) => {
                         if (state) {
-                            injectLocalFileIntoCurrentPage(tabId, tabinfo.url);
+                            injectLocalFileIntoCurrentPage(curId, tabinfo.url);
                         }
                     });
             });
@@ -26,7 +27,6 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
 function injectLocalIDLEFileIntoCurrentPage(tid, url) {
     // Specify the path to the local CSS file within your extension folder
     let cssfileurl = [];
-    let scriptfileurl = [];
     // Baseline for common CSS & JS
 
     cssfileurl.push("/assets/css/wodcss/empty.css");

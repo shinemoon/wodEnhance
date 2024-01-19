@@ -218,4 +218,9 @@ h3 {
 }
 #charCard.dark .row2 table tr td a {
   color: #FFCF00;
+}
+
+#inventory a {
+  text-decoration: none !important;
+  color: cadetblue !important;
 }/*# sourceMappingURL=reportGen.css.map */

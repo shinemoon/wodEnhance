@@ -63,10 +63,10 @@ function genLibPage(dat) {
             .replace(/\[\/?(font|color|size)[^\]]*\]/g, '');        // Remove color size font
         //Handle the url
         // Regex to match the specified BBCode pattern
-        var regex = /\[url=([^[\]]+)\]([^\]]+?)\s*(?:\!\s*)?(?:\(\d+\/\d+\)\s*)?\[\/url\]/g;
-
+        //var regex = /\[url=([^[\]]+)\]([^\]]+?)\s*(?:\!\s*)?(?:\(\d+\/\d+\)\s*)?\[\/url\]/g;
         // Replace with the desired format
-        exportBB = exportBB.replace(regex, '[$1:$2]');
+//        exportBB = exportBB.replace(regex, '[$1:$2]');
+           exportBB = exportBB.replace(/\[url=(.*?)\](.*?)\[\/url\]/g, '[item:$2]');
 
         exportBB = exportBB.replace(/\[tr\]((?:(?!\[\/tr\]).|\n)*)\[td rowspan=1\]((?:(?!\[\/td\]).|\n)*)\[\/td\]((?:(?!\[\/tr\]).|\n)*)\[\/tr\]/g, '');
 
@@ -167,7 +167,7 @@ function displayInventoryTable(inventory) {
                 table += `<tr>
                         <td>${category === 'Consumables' ? '耗材' : (category === 'Treasury' ? '非耗材' : '')}</td>
                         <td>${slot || '-'}</td>
-                        <td><a href='item'>${item.Name || ''}</a></td>
+                        <td><a href='https://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name=${item.Name || ''}&IS_POPUP=1&is_popup=1'>${item.Name || ''}</a></td>
                         <td>${item.Count || '-'}</td>
                         <td>${item.ClassType || '-'}</td>
                         <td>${item.Unique || '-'}</td>
