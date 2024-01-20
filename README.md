@@ -1,3 +1,8 @@
+-1.1: 
+  - 在[[wod]小市场（团商利器）Ver 1.2](https://greasyfork.org/zh-CN/scripts/3797-wod-%E5%B0%8F%E5%B8%82%E5%9C%BA-%E5%9B%A2%E5%95%86%E5%88%A9%E5%99%A8-ver-1-2)基础上，增强了物品读取显示查找的功能；
+  - 为所有物品相关select增加了搜索功能；
+  - 其他修正增强等
+
 # wodEnhance
 针对[WoD](https://delta.world-of-dungeons.org/)的一个增强扩展，主要有如下特性：
 
