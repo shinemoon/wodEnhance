@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "WoDEnhancement",
-  "short_name": "Jekyller",
+  "short_name": "WodEnhance",
   "description": "Enhancement on WoDWeb",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "minimum_chrome_version": "88",
   "default_locale": "zh",
   "action": {
