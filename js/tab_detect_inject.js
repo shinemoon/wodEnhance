@@ -8,7 +8,7 @@ TAB DETECT & INJECTION RELATED
 chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
     if (changeInfo.status === 'loading') {
         var curId = tabId
-        await handleTab()
+        await handleTab(curId)
             .then((tabinfo) => {
                 if (tabinfo.isAllowed == false) {
                     return;
@@ -132,10 +132,12 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         })
 }
 
-async function handleTab() {
+async function handleTab(tabId) {
     return new Promise((resolve) => {
-        chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
-            const activeTab = tabs[0];
+        //chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
+        // const activeTab = tabs[0];
+        chrome.tabs.get(tabId, async (tabs) => {
+            const activeTab = tabs;
             if (activeTab && activeTab.url) {
                 const url = activeTab.url;
                 const isAllowed = isAllowedDomain(url);
