@@ -3,9 +3,18 @@
 Body
 */
 body {
+  padding-top: 25px !important;
   /* WebKit (Chrome, Safari) */
   /* Firefox */
   /* Add this to your existing CSS for the textarea styling */
+}
+body #gadgettable-center {
+  background: #555 !important;
+}
+body h1,
+body h2,
+body h3 {
+  color: #ddd !important;
 }
 body .page_bg_with_image {
   background: #c9c4c4 !important;

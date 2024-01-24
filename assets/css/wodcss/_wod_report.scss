@@ -107,15 +107,6 @@
 
 
     body.dark {
-        #gadgettable-center {
-            background: #555 !important;
-        }
-
-        h1,
-        h2,
-        h3 {
-            color: #ddd !important;
-        }
 
         .content_block,
         table.content_table {
@@ -125,17 +116,17 @@
                 color: #fff !important;
 
                 >td {
-                    background: #888!important;
+                    background: #333 !important;
                 }
             }
 
             &>*>tr.row1 {
-                background-color: #3b3a3a !important;
-                background: #3b3a3a !important;
+                background-color: #8b8b8b !important;
+                background: #8b8b8b !important;
                 color: #fff !important;
 
                 >td {
-                    background: #888!important;
+                    background: #333 !important;
                 }
             }
 
@@ -144,13 +135,40 @@
                 color: #efefef !important;
             }
 
+            .rep_level_monster_exitus,
+            .rep_initiative,
+            .rep_room_end,
+            .rep_level_success,
+            .rep_action,
+            .rep_round_headline,
+            .rep_status_headline,
             .rep_level_description,
             .rep_status_table {
                 color: white !important;
             }
         }
 
+        #stat_all {
+            .stat_header {
+                background-color: #555;
+                color: white;
+                line-height: 32px;
+            }
 
+            .content_table_row_0 {
+                background-color: #292828;
+            }
 
+            input[type="button"].button {
+                background-color: #eeeeee00;
+                border: 0px solid #eee !important;
+                color: white !important;
+            }
+
+            th {
+                border: 1px solid #333 !important;
+                color: white;
+            }
+        }
 
     }
