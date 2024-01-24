@@ -11,11 +11,6 @@ body {
 body #gadgettable-center {
   background: #555 !important;
 }
-body h1,
-body h2,
-body h3 {
-  color: #ddd !important;
-}
 body .page_bg_with_image {
   background: #c9c4c4 !important;
   background-color: #c9c4c4 !important;
@@ -310,47 +305,4 @@ body .font_Hero_Title {
   background: rgba(246, 223, 100, 0.6274509804);
   padding-left: 5px;
   padding-right: 5px;
-}
-body.dark {
-  background: #323232 !important;
-  background-color: #323232 !important;
-  color: #eeeeee !important;
-}
-body.dark .gadget_body {
-  background-color: #323232 !important;
-}
-body.dark TR.boardhead {
-  background-color: #667 !important;
-}
-body.dark TR.boardhead TD.boardhead {
-  color: #fff !important;
-}
-body.dark TR.boardcon1,
-body.dark TR.boardcon2 {
-  background: #2b2929 !important;
-}
-body.dark TD.boardcon1,
-body.dark TD.boardcon2 {
-  background: #7c7979 !important;
-}
-body.dark .main_content {
-  background: black !important;
-}
-body.dark .spoilerbox {
-  background-color: #312c2c !important;
-}
-body.dark .font_Hero_Title {
-  background-color: #534d17 !important;
-}
-body.dark #gadgetNextdungeonTime {
-  background: black !important;
-}
-body.dark .user_name {
-  color: #e4e9ee !important;
-}
-body.dark a {
-  color: #f0bf37 !important;
-}
-body.dark a:link, body.dark a:visited {
-  color: #f0bf37 !important;
 }/*# sourceMappingURL=wod.css.map */
