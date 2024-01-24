@@ -1,20 +1,18 @@
-TR.boardhead {
+body.light TR.boardhead {
   background-color: #cdcfd2 !important;
   color: brown;
 }
-
-tr.boardcon2 {
+body.light tr.boardcon2 {
   background-color: #eee !important;
 }
-
-table.boardmain:nth-child(4) {
+body.light table.boardmain:nth-child(4) {
   border: 2px solid #919199 !important;
   box-shadow: grey -1px 1px 8px 2px !important;
 }
-table.boardmain:nth-child(4) tr:nth-child(even) {
+body.light table.boardmain:nth-child(4) tr:nth-child(even) {
   background: #eeeeee !important;
 }
-table.boardmain:nth-child(6) {
+body.light table.boardmain:nth-child(6) {
   font-size: 11px !important;
   background: #eeeeee !important;
 }/*# sourceMappingURL=wodForum.css.map */

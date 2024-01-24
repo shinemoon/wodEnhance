@@ -19,7 +19,7 @@ self.addEventListener('message', (event) => {
     console.debug("Got Message: ", action);
 
     if (action === 'getSwitchState') {
-        getDataFromStore('extensionState', 1, false)
+        getDataFromStore('extensionState', 1, { onoff: false, night: false })
             .then((state) => {
                 console.log(state);
                 self.clients.matchAll().then((clients) => {
@@ -56,14 +56,14 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     if (message.action === 'generateSettingPage') {
         //        genHtmlfromJson(message.data);
         chrome.tabs.create({ url: 'reportGen.html' }, function () {
-           reportSrc = {action:"skillConfigPage",data:message.data};
+            reportSrc = { action: "skillConfigPage", data: message.data };
         });
         sendResponse({ success: true, data: "Generation Done" });
     }
 
     if (message.action === 'generateCharacterCard') {
         chrome.tabs.create({ url: 'reportGen.html' }, function () {
-           reportSrc = {action:"charCardPage",data:message.data};
+            reportSrc = { action: "charCardPage", data: message.data };
         });
         sendResponse({ success: true, data: "Generation Done" });
     }
@@ -72,7 +72,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     if (message.action === 'generateLibData') {
         //        genHtmlfromJson(message.data);
         chrome.tabs.create({ url: 'reportGen.html' }, function () {
-           reportSrc = {action:"libItemsPage",data:message.data};
+            reportSrc = { action: "libItemsPage", data: message.data };
         });
         sendResponse({ success: true, data: "Generation Done" });
     }
@@ -102,7 +102,7 @@ chrome.runtime.onConnect.addListener((port) => {
     }
 
     if (port.name === 'reportGen') {
-        if(rport!=null) {
+        if (rport != null) {
             console.log("Already Connected.")
             return;
         }
@@ -112,7 +112,7 @@ chrome.runtime.onConnect.addListener((port) => {
         // the init will be sent during page init and then waiting for activel pullin from sub page
         rport.onMessage.addListener((msg) => {
             if (msg.action == 'requestData') {
-                rport.postMessage({ action: 'dataInput', data: reportSrc})
+                rport.postMessage({ action: 'dataInput', data: reportSrc })
             }
         });
 

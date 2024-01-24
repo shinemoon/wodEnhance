@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const toggleSwitch = document.getElementById('toggleSwitch');
   const statusText = document.getElementById('status');
 
+  const toggleNight = document.getElementById('toggleNight');
+  const nightText = document.getElementById('night');
+
+
+
   // Ask the service worker for the initial switch state
   navigator.serviceWorker.controller.postMessage({ action: 'getSwitchState' });
 
@@ -14,7 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (action === 'extensionState') {
       // Update the switch state in the popup UI
-      toggleSwitch.checked = data;
+      toggleSwitch.checked = data['onoff'];
+      toggleNight.checked = data['night'];
       updateStatusText();
     } else if (action === 'extensionStateUpdated') {
       // Handle state update if needed
@@ -35,20 +41,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Handle switch state changes
   toggleSwitch.addEventListener('change', function () {
-    const newState = toggleSwitch.checked;
+    updateSwitch();
+  });
 
+  toggleNight.addEventListener('change', function () {
+    updateSwitch();
+  });
+
+  function updateSwitch() {
+    const newState = toggleSwitch.checked;
+    const nightState = toggleNight.checked;
     // Notify the service worker to update the switch state
     navigator.serviceWorker.controller.postMessage({
       action: 'setSwitchState',
-      data: newState,
+      data: { onoff: newState, night: nightState }
     });
-
     updateStatusText();
-  });
+  };
+
 
   // Update status text based on the switch state
   function updateStatusText() {
     const stateText = toggleSwitch.checked ? 'ON' : 'OFF';
-    statusText.innerText = `Extension is ${stateText}`;
+    const nightStatus = toggleNight.checked ? 'ON' : 'OFF';
+    statusText.innerText = `扩展 ${stateText}`;
+    nightText.innerText = `黑暗模式 ${nightStatus}`;
   }
 });

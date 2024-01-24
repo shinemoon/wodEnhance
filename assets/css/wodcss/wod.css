@@ -2,22 +2,24 @@
 /* 
 Body
 */
-.page_bg_with_image {
+body {
+  /* WebKit (Chrome, Safari) */
+  /* Firefox */
+  /* Add this to your existing CSS for the textarea styling */
+}
+body .page_bg_with_image {
   background: #c9c4c4 !important;
   background-color: #c9c4c4 !important;
 }
-
-.search_container {
+body .search_container {
   width: 100%;
   border: #000 0px solid !important;
 }
-
-.search_short.texttoken {
+body .search_short.texttoken {
   width: 100%;
   text-align: right;
 }
-
-div.tutorial {
+body div.tutorial {
   max-width: 100% !important;
   min-height: 100px !important;
   font: 12px normal !important;
@@ -25,11 +27,10 @@ div.tutorial {
   background-color: rgba(231, 213, 199, 0.1803921569);
   color: #667;
 }
-div.tutorial img.tutorial {
+body div.tutorial img.tutorial {
   display: none !important;
 }
-
-#gadgettable-top-gadgets {
+body #gadgettable-top-gadgets {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -40,124 +41,118 @@ div.tutorial img.tutorial {
   border-bottom: 1px solid #333;
   margin-bottom: 8px;
 }
-#gadgettable-top-gadgets .gadget.worlds {
+body #gadgettable-top-gadgets .gadget.worlds {
   background-color: #000;
   opacity: 0.4;
 }
-#gadgettable-top-gadgets .gadget.worlds .world_list {
+body #gadgettable-top-gadgets .gadget.worlds .world_list {
   color: white !important;
 }
-#gadgettable-top-gadgets .gadget.ticker {
+body #gadgettable-top-gadgets .gadget.ticker {
   text-align: center;
   font-style: normal;
   font-size: smaller;
   padding-top: 5px;
   padding-top: 6px;
 }
-#gadgettable-top-gadgets .gadget.ticker .ticker_label a {
+body #gadgettable-top-gadgets .gadget.ticker .ticker_label a {
   color: #e3e8ec !important;
 }
-#gadgettable-top-gadgets .gadget.ticker .ticker_icon {
+body #gadgettable-top-gadgets .gadget.ticker .ticker_icon {
   display: none !important;
 }
-#gadgettable-top-gadgets .gadget.ticker .ticker_msg {
+body #gadgettable-top-gadgets .gadget.ticker .ticker_msg {
   color: white !important;
 }
-#gadgettable-top-gadgets .gadget.ticker .ticker_msg a {
+body #gadgettable-top-gadgets .gadget.ticker .ticker_msg a {
   color: #e4e9ee !important;
 }
-#gadgettable-top-gadgets .gadget.ticker:hover {
+body #gadgettable-top-gadgets .gadget.ticker:hover {
   opacity: 0.9;
 }
-#gadgettable-top-gadgets .gadget.ticker .ticker_msg {
+body #gadgettable-top-gadgets .gadget.ticker .ticker_msg {
   font-weight: normal !important;
 }
-#gadgettable-top-gadgets .gadget.ticker .ticker_label {
+body #gadgettable-top-gadgets .gadget.ticker .ticker_label {
   font-style: normal !important;
 }
-#gadgettable-top-gadgets .gadget.clock {
+body #gadgettable-top-gadgets .gadget.clock {
   background-color: #000;
 }
-#gadgettable-top-gadgets .gadget.clock span#clock {
+body #gadgettable-top-gadgets .gadget.clock span#clock {
   color: white !important;
 }
-
-#gadgettable-right,
-#gadgettable-right-gadgets {
+body #gadgettable-right,
+body #gadgettable-right-gadgets {
   min-width: 200px;
   text-align: left;
   padding: 10px;
 }
-#gadgettable-right #gadgettable-right-gadgets,
-#gadgettable-right-gadgets #gadgettable-right-gadgets {
+body #gadgettable-right #gadgettable-right-gadgets,
+body #gadgettable-right-gadgets #gadgettable-right-gadgets {
   margin-top: 10px;
   font-size: 11px;
 }
-#gadgettable-right #gadgettable-right-gadgets .gadget,
-#gadgettable-right-gadgets #gadgettable-right-gadgets .gadget {
+body #gadgettable-right #gadgettable-right-gadgets .gadget,
+body #gadgettable-right-gadgets #gadgettable-right-gadgets .gadget {
   margin-top: 10px;
   border-bottom: 0.6px solid #aebece;
 }
-#gadgettable-right #gadgettable-right-gadgets .gadget.medals,
-#gadgettable-right-gadgets #gadgettable-right-gadgets .gadget.medals {
+body #gadgettable-right #gadgettable-right-gadgets .gadget.medals,
+body #gadgettable-right-gadgets #gadgettable-right-gadgets .gadget.medals {
   display: none;
 }
-#gadgettable-right .button,
-#gadgettable-right-gadgets .button {
+body #gadgettable-right .button,
+body #gadgettable-right-gadgets .button {
   font-weight: lighter;
   border: dotted grey;
   background: rgba(200, 200, 100, 0.3);
 }
-#gadgettable-right #gadgetNextdungeonTime,
-#gadgettable-right-gadgets #gadgetNextdungeonTime {
+body #gadgettable-right #gadgetNextdungeonTime,
+body #gadgettable-right-gadgets #gadgetNextdungeonTime {
   background: yellow;
 }
-
-#gadgettable-center-gadgets .ticker {
+body #gadgettable-center-gadgets .ticker {
   text-align: center;
   font-style: normal;
   font-size: smaller;
   padding-top: 5px;
 }
-#gadgettable-center-gadgets .ticker .ticker_label a {
+body #gadgettable-center-gadgets .ticker .ticker_label a {
   color: #e3e8ec !important;
 }
-#gadgettable-center-gadgets .ticker .ticker_icon {
+body #gadgettable-center-gadgets .ticker .ticker_icon {
   display: none !important;
 }
-#gadgettable-center-gadgets .ticker .ticker_msg {
+body #gadgettable-center-gadgets .ticker .ticker_msg {
   color: white !important;
 }
-#gadgettable-center-gadgets .ticker .ticker_msg a {
+body #gadgettable-center-gadgets .ticker .ticker_msg a {
   color: #e4e9ee !important;
 }
-#gadgettable-center-gadgets .ticker:hover {
+body #gadgettable-center-gadgets .ticker:hover {
   opacity: 0.9;
 }
-#gadgettable-center-gadgets .ticker .ticker_msg {
+body #gadgettable-center-gadgets .ticker .ticker_msg {
   font-weight: normal !important;
 }
-#gadgettable-center-gadgets .ticker .ticker_label {
+body #gadgettable-center-gadgets .ticker .ticker_label {
   font-style: normal !important;
 }
-
-.hints.content {
+body .hints.content {
   opacity: 0.8;
   font-size: 11px;
 }
-
-body {
+body body {
   display: block !important;
   padding-top: 25px !important;
 }
-
-span.menu_0_selected {
+body span.menu_0_selected {
   display: none;
 }
-
-.pagi_but,
-.paginator,
-.paginator_selected {
+body .pagi_but,
+body .paginator,
+body .paginator_selected {
   display: inline-block !important;
   padding: 6px 10px !important;
   font-size: 12px !important;
@@ -170,18 +165,16 @@ span.menu_0_selected {
   transition: background-color 0.3s ease, color 0.3s ease !important;
   height: 28px !important;
 }
-.pagi_but:hover,
-.paginator:hover,
-.paginator_selected:hover {
+body .pagi_but:hover,
+body .paginator:hover,
+body .paginator_selected:hover {
   background-color: #333 !important;
   color: #fff !important;
 }
-
-.paginator_selected {
+body .paginator_selected {
   background-color: #e4e9ee !important;
 }
-
-.pagi_but {
+body .pagi_but {
   border-radius: 15px !important;
   font-size: 10px !important;
   width: 25px !important;
@@ -189,80 +182,66 @@ span.menu_0_selected {
   background-color: #eeeeee !important;
   padding-right: 15px !important;
 }
-
-#FooterMenu {
+body #FooterMenu {
   background: #ccc;
   font-size: 12px;
 }
-
-.experience-bar,
-.fame-bar {
+body .experience-bar,
+body .fame-bar {
   width: 100px;
   height: 10px;
   border: 2px solid #7c7979;
   border-radius: 5px;
   margin-left: 20px;
 }
-.experience-bar .filled-bar,
-.fame-bar .filled-bar {
+body .experience-bar .filled-bar,
+body .fame-bar .filled-bar {
   height: 100%;
   background-color: #f0bf37;
   transition: width 0.5s;
 }
-
-.fame-bar .filled-bar {
+body .fame-bar .filled-bar {
   background-color: #b275eb;
 }
-
-.heroTitle,
-.heroClass,
-.heroRace {
+body .heroTitle,
+body .heroClass,
+body .heroRace {
   margin-left: 20px;
   /* border-top: 1px dotted #555; */
   /* border-bottom: 1px dotted #555; */
   border-left: 1px dotted #555;
 }
-.heroTitle span,
-.heroClass span,
-.heroRace span {
+body .heroTitle span,
+body .heroClass span,
+body .heroRace span {
   margin-left: 10px;
 }
-
-.gadget.languages {
+body .gadget.languages {
   background: #6d6b68;
 }
-
-.logo img {
+body .logo img {
   margin-left: 10px;
   margin-top: 5px;
 }
-
-iframe.content_block,
-div.content_block,
-p.content_block,
-table.content_table > * > tr > th,
-table.content_table > * > tr > td {
+body iframe.content_block,
+body div.content_block,
+body p.content_block,
+body table.content_table > * > tr > th,
+body table.content_table > * > tr > td {
   border: 1px solid white !important;
 }
-
-/* WebKit (Chrome, Safari) */
-textarea::-webkit-scrollbar {
+body textarea::-webkit-scrollbar {
   width: 12px !important;
 }
-
-textarea::-webkit-scrollbar-thumb {
+body textarea::-webkit-scrollbar-thumb {
   background-color: #ccc !important;
   border-radius: 3px !important;
 }
-
-/* Firefox */
-textarea {
+body textarea {
   scrollbar-width: thin !important;
   scrollbar-color: #ccc transparent !important;
 }
-
-/* Add this to your existing CSS for the textarea styling */
-textarea {
+body textarea {
   border: 1px solid lightgrey !important;
   padding: 10px !important;
   font-family: "Helvetica", sans-serif !important;
@@ -276,45 +255,38 @@ textarea {
   /* Add 3px border-radius */
   background: rgba(228, 233, 238, 0.5019607843) !important;
 }
-
-input.pagi_def {
+body input.pagi_def {
   background-color: white !important;
   border-width: 1px !important;
   border-color: black !important;
   color: black !important;
   height: 20px !important;
 }
-
-span.texttoken {
+body span.texttoken {
   margin-left: 30px !important;
 }
-
-a.button_minor:visited,
-a.button_minor:active,
-a.button_minor:link,
-a.button_minor:hover,
-.button_minor {
+body a.button_minor:visited,
+body a.button_minor:active,
+body a.button_minor:link,
+body a.button_minor:hover,
+body .button_minor {
   min-width: 60px !important;
   margin: 3px;
 }
-
-A.button,
-A:visited.button,
-A:active.button {
+body A.button,
+body A:visited.button,
+body A:active.button {
   padding-top: 3px;
   padding-bottom: 3px;
   border: 1px solid #eee !important;
 }
-
-#footer {
+body #footer {
   font-size: 11px !important;
 }
-
-center:contains("点链接"):last {
+body center:contains("点链接"):last {
   font-size: 11px !important;
 }
-
-.button_image_info {
+body .button_image_info {
   background-position: center center !important;
   opacity: 0.4;
   border-radius: 20px !important;
@@ -322,12 +294,54 @@ center:contains("点链接"):last {
   height: 20px !important;
   width: 20px !important;
 }
-.button_image_info:hover {
+body .button_image_info:hover {
   opacity: 0.6;
 }
-
-.font_Hero_Title {
+body .font_Hero_Title {
   background: rgba(246, 223, 100, 0.6274509804);
   padding-left: 5px;
   padding-right: 5px;
+}
+body.dark {
+  background: #323232 !important;
+  background-color: #323232 !important;
+  color: #eeeeee !important;
+}
+body.dark .gadget_body {
+  background-color: #323232 !important;
+}
+body.dark TR.boardhead {
+  background-color: #667 !important;
+}
+body.dark TR.boardhead TD.boardhead {
+  color: #fff !important;
+}
+body.dark TR.boardcon1,
+body.dark TR.boardcon2 {
+  background: #2b2929 !important;
+}
+body.dark TD.boardcon1,
+body.dark TD.boardcon2 {
+  background: #7c7979 !important;
+}
+body.dark .main_content {
+  background: black !important;
+}
+body.dark .spoilerbox {
+  background-color: #312c2c !important;
+}
+body.dark .font_Hero_Title {
+  background-color: #534d17 !important;
+}
+body.dark #gadgetNextdungeonTime {
+  background: black !important;
+}
+body.dark .user_name {
+  color: #e4e9ee !important;
+}
+body.dark a {
+  color: #f0bf37 !important;
+}
+body.dark a:link, body.dark a:visited {
+  color: #f0bf37 !important;
 }/*# sourceMappingURL=wod.css.map */

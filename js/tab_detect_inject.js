@@ -4,6 +4,8 @@ TAB DETECT & INJECTION RELATED
 =================================================
 */
 
+let darkMode = false;
+
 // Listen for tab activation changes
 chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
     if (changeInfo.status === 'loading') {
@@ -14,9 +16,10 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
                     return;
                 }
                 console.debug("Valid WoD:", tabinfo.url);
-                getDataFromStore('extensionState', 1, false)
+                getDataFromStore('extensionState', 1, { onoff: false, night: false })
                     .then((state) => {
-                        if (state) {
+                        if (state['onoff']) {
+                            darkMode = state['night'];
                             injectLocalFileIntoCurrentPage(curId, tabinfo.url);
                         }
                     });
@@ -28,7 +31,6 @@ function injectLocalIDLEFileIntoCurrentPage(tid, url) {
     // Specify the path to the local CSS file within your extension folder
     let cssfileurl = [];
     // Baseline for common CSS & JS
-
     cssfileurl.push("/assets/css/wodcss/empty.css");
     chrome.scripting.insertCSS({ target: { tabId: tid }, files: cssfileurl })
         .then(() => console.debug("CSS injected"))
@@ -47,9 +49,9 @@ function injectLocalFileIntoCurrentPage(tid, url) {
 
     // Baseline for common CSS & JS
     scriptfileurl.push("/js/jquery-3.7.1.min.js");
-    // Final Mockup
     scriptfileurl.push("/js/wodjs/content_script.js");
-    scriptfileurl.push("/js/wodjs/plugin_bbcode_generate.js");
+    // Final Mockup
+   scriptfileurl.push("/js/wodjs/plugin_bbcode_generate.js");
 
     // Plugin Files:
     // NOTE: some plugin is important and reused in some other script. which will be moved to previous js array. i.e. bbcode_generate, skillrolls.
@@ -104,7 +106,7 @@ function injectLocalFileIntoCurrentPage(tid, url) {
 
 
     if (url.indexOf("spiel/forum") > 0) {
-//        cssfileurl.push("/assets/css/wodcss/wodForum.css");
+        //        cssfileurl.push("/assets/css/wodcss/wodForum.css");
     };
 
     // NON-FORUM
@@ -112,15 +114,21 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         cssfileurl.push("/assets/css/wodcss/nonWodForum.css");
     };
 
-
+    console.log(darkMode);
+    if (darkMode)
+        scriptfileurl.push("/js/wodjs/set_dark.js");
+    else
+        scriptfileurl.push("/js/wodjs/set_light.js");
+ 
     // Fetch and input parameter into page
 
     chrome.scripting.executeScript({ target: { tabId: tid }, files: scriptfileurl, world: "ISOLATED" })
         .then(() => {
-            if(cssfileurl.length>0)
+            if (cssfileurl.length > 0) {
                 chrome.scripting.insertCSS({ target: { tabId: tid }, files: cssfileurl })
+                console.debug("CSS injected on target: ", cssfileurl);
+            }
             console.debug("Script injected on target: ", scriptfileurl);
-            console.debug("CSS injected on target: ", cssfileurl);
         })
         .then(() => console.debug("CSS injected"))
         .finally(() => {

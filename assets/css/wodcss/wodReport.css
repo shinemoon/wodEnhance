@@ -85,4 +85,44 @@ table.content_table > * > tr.row1 {
   padding-right: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+body.dark #gadgettable-center {
+  background: #555 !important;
+}
+body.dark h1,
+body.dark h2,
+body.dark h3 {
+  color: #ddd !important;
+}
+body.dark .content_block > * > tr.row0,
+body.dark table.content_table > * > tr.row0 {
+  background-color: #3b3a3a !important;
+  background: #3b3a3a !important;
+  color: #fff !important;
+}
+body.dark .content_block > * > tr.row0 > td,
+body.dark table.content_table > * > tr.row0 > td {
+  background: #888 !important;
+}
+body.dark .content_block > * > tr.row1,
+body.dark table.content_table > * > tr.row1 {
+  background-color: #3b3a3a !important;
+  background: #3b3a3a !important;
+  color: #fff !important;
+}
+body.dark .content_block > * > tr.row1 > td,
+body.dark table.content_table > * > tr.row1 > td {
+  background: #888 !important;
+}
+body.dark .content_block td.content_table,
+body.dark table.content_table td.content_table {
+  border: 1px solid #333 !important;
+  color: #efefef !important;
+}
+body.dark .content_block .rep_level_description,
+body.dark .content_block .rep_status_table,
+body.dark table.content_table .rep_level_description,
+body.dark table.content_table .rep_status_table {
+  color: white !important;
 }/*# sourceMappingURL=wodReport.css.map */

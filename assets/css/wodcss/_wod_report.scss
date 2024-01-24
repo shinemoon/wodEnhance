@@ -1,106 +1,156 @@
-// Styles
-p.rep_level_success,
-div.rep_dungeon_description {
-    max-width: 100% !important;
-    font-size: 14px;
-    line-height: 2 !important;
-    color: lightblue;
-    background: #333;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    // Styles
+    p.rep_level_success,
+    div.rep_dungeon_description {
+        max-width: 100% !important;
+        font-size: 14px;
+        line-height: 2 !important;
+        color: lightblue;
+        background: #333;
+        padding-top: 40px;
+        padding-bottom: 40px;
 
-    [class*="bbcode_"] {
-        color: white !important;
-        font-size: 0.8em;
-    }
-}
-
-p[class*="rep_level_"] {
-    color: #333;
-    max-width: 80% !important;
-    font-size: 14px;
-    line-height: 2 !important;
-    background: #333;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-// New button
-body {
-    div#showOff {
-        position: fixed;
-        bottom: 20px;
-        right: 270px;
-        opacity: 0.8;
-        background: #eee;
-        border: 1px solid #aaa;
-        color: white;
-        font-style: bold;
-        background: #e4550e;
-        border-radius: 20px;
-        text-align: center;
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-        align-items: center;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-        cursor: pointer;
-
-        &:hover {
-            background: #d39c06;
-            width: 45px;
-            height: 45px;
-            font-size: 20px;
-            border-radius: 23px;
-
-
+        [class*="bbcode_"] {
+            color: white !important;
+            font-size: 0.8em;
         }
     }
-}
 
-.content_block,
-table.content_table {
-    &>*>tr.row0 {
-        background-color: #eee !important;
-        background: #eee !important;
+    p[class*="rep_level_"] {
+        color: #333;
+        max-width: 80% !important;
+        font-size: 14px;
+        line-height: 2 !important;
+        background: #333;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    // New button
+    body {
+        div#showOff {
+            position: fixed;
+            bottom: 20px;
+            right: 270px;
+            opacity: 0.8;
+            background: #eee;
+            border: 1px solid #aaa;
+            color: white;
+            font-style: bold;
+            background: #e4550e;
+            border-radius: 20px;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            align-items: center;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            cursor: pointer;
+
+            &:hover {
+                background: #d39c06;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                border-radius: 23px;
+
+
+            }
+        }
+    }
+
+    .content_block,
+    table.content_table {
+        &>*>tr.row0 {
+            background-color: #eee !important;
+            background: #eee !important;
+
+        }
+
+        &>*>tr.row1 {
+            background-color: #fff !important;
+            background: #fff !important;
+        }
+    }
+
+    .rep_status_table tr {
+        &:contains('击倒') {
+            color: red !important;
+        }
 
     }
 
-    &>*>tr.row1 {
-        background-color: #fff !important;
-        background: #fff !important;
-    }
-}
+    //For Ext Stats
 
-.rep_status_table tr {
-    &:contains('击倒') {
-        color: red !important;
-    }
+    #stat_all {
+        .stat_header {
+            background-color: #555;
+            text-align: center;
+            color: white;
+            line-height: 32px;
+        }
 
-}
+        .content_table_row_0 {
+            background-color: #eee;
+        }
 
-//For Ext Stats
-
-#stat_all {
-    .stat_header {
-        background-color: #555;
-        text-align: center;
-        color: white;
-        line-height: 32px;
-    }
-    .content_table_row_0{
-        background-color: #eee;
+        input[type="button"].button {
+            background-color: #eeeeee00;
+            border: 0px solid #eee !important;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
     }
 
-    input[type="button"].button {
-        background-color: #eeeeee00;
-        border: 0px solid #eee!important;
-        padding-left:15px;
-        padding-right:15px;
-        padding-top:5px;
-        padding-bottom:5px;
-    }
-}
 
+    body.dark {
+        #gadgettable-center {
+            background: #555 !important;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #ddd !important;
+        }
+
+        .content_block,
+        table.content_table {
+            &>*>tr.row0 {
+                background-color: #3b3a3a !important;
+                background: #3b3a3a !important;
+                color: #fff !important;
+
+                >td {
+                    background: #888!important;
+                }
+            }
+
+            &>*>tr.row1 {
+                background-color: #3b3a3a !important;
+                background: #3b3a3a !important;
+                color: #fff !important;
+
+                >td {
+                    background: #888!important;
+                }
+            }
+
+            td.content_table {
+                border: 1px solid #333 !important;
+                color: #efefef !important;
+            }
+
+            .rep_level_description,
+            .rep_status_table {
+                color: white !important;
+            }
+        }
+
+
+
+
+    }
