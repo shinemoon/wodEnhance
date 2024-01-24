@@ -80,7 +80,7 @@ function extractValue(htmlString, label) {
 // Function to update the experience bar
 function updateExperienceBar(currentExp, nextLevelExp, hdlstr) {
   var percentage = (currentExp / nextLevelExp) * 100;
-  if(percentage>=100) percentage = 100;
+  if (percentage >= 100) percentage = 100;
   $(hdlstr + ' .filled-bar').css('width', percentage + '%');
   // Update tooltip text
   var tooltipText = `Current: ${currentExp}\nNext Level: ${nextLevelExp}`;
@@ -92,6 +92,34 @@ replaceCssFile();
 //replaceImageUrls();
 otherRefinement();
 
+// DarkLight
+
+chrome.runtime.onMessage.addListener(async function (request, sender, sendResponse) {
+  const str = `<style id="offLight">html{filter: invert(0.9);}img {filter: invert(1);}</style>`
+
+  function goDark() {
+    $("head").prepend(
+      str
+    );
+  }
+  function goNoDark() {
+    $("style#offLight").remove();
+  }
+
+
+  switch (request.type) {
+    case "set_isDark":
+      if (request.value) {
+        goDark();
+      } else {
+        goNoDark();
+      }
+      sendResponse("ok");
+      break;
+    default:
+      break;
+  }
+});
 
 // To replace the logo with Avator
 $('.gadget.logo .gadget_body').append("<img style='width:120px;height:120px;' src='" + $('.hero_avatar.image img').attr('src') + "'>");
@@ -99,3 +127,5 @@ $('.hero_avatar.image img').hide();
 
 console.log('WoDEnhancement Basical Injection Done!');
 $('html').show();
+
+

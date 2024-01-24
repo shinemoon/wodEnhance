@@ -27,6 +27,7 @@ An enhanced extension for [WoD](https://delta.world-of-dungeons.org/), featuring
   - [WoD Extra Statistics](https://update.greasyfork.org/scripts/3801/Extra%20Statistics.meta.js) by @fenghou, Tomy
   - [WoD Jumpbox Enhancement](https://greasyfork.org/zh-CN/scripts/398732-wod-jumpbox-enhanced) by @DotIN13
   - [Wod 耗材单价]( https://greasyfork.org/zh-CN/scripts/8896-wod-%E8%80%97%E6%9D%90%E5%8D%95%E4%BB%B7) by @lgg 2
+  - [小市场（团商利器）Ver 1.2](https://greasyfork.org/zh-CN/scripts/3797-wod-%E5%B0%8F%E5%B8%82%E5%9C%BA-%E5%9B%A2%E5%95%86%E5%88%A9%E5%99%A8-ver-1-2); @notaflower
 
 Special thanks to these script authors!
 
@@ -35,6 +36,10 @@ Special thanks to these script authors!
 - BBcode export functionality for character sheets.
 
 ## Versions
+-1.2.5 
+  - 修正了一些问题
+  - 增加了黑暗模式
+
 -1.2 
   - 在[[wod]小市场（团商利器）Ver 1.2](https://greasyfork.org/zh-CN/scripts/3797-wod-%E5%B0%8F%E5%B8%82%E5%9C%BA-%E5%9B%A2%E5%95%86%E5%88%A9%E5%99%A8-ver-1-2)基础上，增强了物品读取显示查找的功能；
   - 为所有物品相关select增加了搜索功能；

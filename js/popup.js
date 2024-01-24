@@ -46,7 +46,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   toggleNight.addEventListener('change', function () {
     updateSwitch();
+    updateNight();
   });
+
+  function updateNight() {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(
+        tabs[0].id,
+        {
+          type: "set_isDark",
+          value: toggleNight.checked,
+        },
+      );
+    });
+  }
 
   function updateSwitch() {
     const newState = toggleSwitch.checked;
