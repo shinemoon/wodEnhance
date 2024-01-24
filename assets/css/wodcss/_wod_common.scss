@@ -70,13 +70,6 @@ body {
     background: #555 !important;
   }
 
-  h1,
-  h2,
-  h3 {
-    color: #ddd !important;
-  }
-
-
   padding-top:25px !important;
 
   .page_bg_with_image {
@@ -389,6 +382,14 @@ body {
 
 
   &.dark {
+
+    h1,
+    h2,
+    h3 {
+      color: #ddd !important;
+    }
+
+
     background: #323232 !important;
     background-color: #323232 !important;
     color: #eeeeee !important;
