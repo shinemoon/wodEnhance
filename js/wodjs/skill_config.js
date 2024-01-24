@@ -19,6 +19,7 @@ if (window.location.href.indexOf("skillconfig.php") >= 0 || window.location.href
     var setList = [];
 
     $(".exportCurrent").click(function () {
+        setList = [];
         $('#wod-orders-tab-dungeon').click();
         for (var i = 0; i < 11; i++) {
             $('.wod-tabs:nth-child(1)').find('li').eq(i).click();

@@ -7,7 +7,7 @@ function genSkillSetPage(dat) {
     <div id="exportbutton" class="elegant-button"> 导出BBCODE</div> \
     </div> \
     <div id="reportPage"> \
-    <h2 id="defaultSection"> 默认及一般设置 </h2> \
+    <h2 id="defaultSection"> 默认层及一般设置 </h2> \
     <div id="defaultLayer" class="settingLayer"></div> \
     <h2 id="LayersSection"> 分层设置</h2> \
     <div class="layers" id="settingLayer"></div> \
@@ -51,7 +51,7 @@ function genSkillSetPage(dat) {
     for (var i = 1; i < dat.length; i++) {
         curSetting = $('<div class="setting-row"></div>');
         generalLayer(curSetting, dat[i]);
-        htmlHdl.find('.layers').eq(0).append("<h2 class='subLayerTitle'>L" + i + "</h2>");
+        htmlHdl.find('.layers').eq(0).append("<h2 class='subLayerTitle'>L" + dat[i]['layer'] + "</h2>");
         htmlHdl.find('.layers').eq(0).append("<div class='single-layer'></div>");
         htmlHdl.find('.single-layer:last').eq(0).append(curSetting);
     }
