@@ -98,7 +98,7 @@ function genSkillSetPage(dat) {
         var exportBB = "[h1]" + $('title').text() + " 战术设置[/h1]";
         exportBB = exportBB + "[hr]";
         if (!$('#defaultSection').hasClass('zap')) {
-            exportBB = exportBB + "[h2]缺省及通用设置[/h2]";
+            exportBB = exportBB + "[h2]默认层及一般设置[/h2]";
             exportBB = exportBB + "[hr]";
             exportBB = exportBB + bbcode_generate_CreateBB($('#defaultLayer')[0], "", "", "");
         }

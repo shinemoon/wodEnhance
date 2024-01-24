@@ -3,9 +3,9 @@
   "name": "WoDEnhancement",
   "short_name": "WodEnhance",
   "description": "Enhancement on WoDWeb",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "minimum_chrome_version": "88",
-  "default_locale": "zh",
+  "default_locale": "zh_CN",
   "action": {
     "default_icon": {
       "16": "assets/icon_512.png",

@@ -35,10 +35,15 @@ if (window.location.href.indexOf("skillconfig.php") >= 0 || window.location.href
         }
         $('#wod-orders-tab-general').click();
         var defSkills = { near: null, far: null, magic: null, mental: null };
-        defSkills.near = $("h4:contains('近战') + span label").text() + $("h4:contains('近战') + span select:first").text() + ($("h4:contains('近战') + span select:nth-child(2)").length > 0 ? $("h4:contains('近战') + span select:nth-child(2)").val() : "");
-        defSkills.far = $("h4:contains('远程') + span label").text() + $("h4:contains('远程') + span select:first").text() + ($("h4:contains('远程') + span select:nth-child(2)").length > 0 ? $("h4:contains('远程') + span select:nth-child(2)").val() : "");
-        defSkills.magic = $("h4:contains('法术') + span label").text() + $("h4:contains('法术') + span select:first").text() + ($("h4:contains('法术') + span select:nth-child(2)").length > 0 ? $("h4:contains('法术') + span select:nth-child(2)").val() : "");
-        defSkills.mental = $("h4:contains('心理') + span label").text() + $("h4:contains('心理') + span select:first").text() + ($("h4:contains('心理') + span select:nth-child(2)").length > 0 ? $("h4:contains('心理') + span select:nth-child(2)").val() : "");
+        defSkills.near = $("h4:contains('近战') + span label").text() + ($("h4:contains('近战') + span select:first").val()==undefined?"": $("h4:contains('近战') + span select:first").val()) + ($("h4:contains('近战') + span select:nth-child(2)").length > 0 ? $("h4:contains('近战') + span select:nth-child(2)").val() : "");
+
+
+        defSkills.far= $("h4:contains('远程') + span label").text() + ($("h4:contains('远程') + span select:first").val()==undefined?"": $("h4:contains('远程') + span select:first").val()) + ($("h4:contains('远程') + span select:nth-child(2)").length > 0 ? $("h4:contains('远程') + span select:nth-child(2)").val() : "");
+
+        defSkills.magic= $("h4:contains('法术') + span label").text() + ($("h4:contains('法术') + span select:first").val()==undefined?"": $("h4:contains('法术') + span select:first").val()) + ($("h4:contains('法术') + span select:nth-child(2)").length > 0 ? $("h4:contains('法术') + span select:nth-child(2)").val() : "");
+
+        defSkills.mental= $("h4:contains('心理') + span label").text() + ($("h4:contains('心理') + span select:first").val()==undefined?"": $("h4:contains('心理') + span select:first").val()) + ($("h4:contains('心理') + span select:nth-child(2)").length > 0 ? $("h4:contains('心理') + span select:nth-child(2)").val() : "");
+
         // Attack Order
         var aorder = $('.wod-list').eq(9).find('.wod-list-items').find('.wod-list-item');
         var attOrder = "";
@@ -83,10 +88,13 @@ function parseSetting(inputItem, layer) {
     // To fetch general setting
     //Parse Default
     if (layer == 0) {
-        position = inputItem.find('div:visible:first').find('select:visible:first').val()
-        preAction = inputItem.find('div:visible:first').find('select:visible:nth-child(1)').val()
+        //position = inputItem.find('div:visible:first').find('select:visible:first').val()
+        //preAction = inputItem.find('div:visible:first').find('select:visible:nth-child(1)').val()
+        position = $('h3:contains("战斗中的位置")+select').val();
+        preAction = $('h3:contains("先攻技能")+span>select').val();
     } else {
-        preAction = inputItem.find('div:visible:first').find('select:visible:first').val()
+        //preAction = inputItem.find('div:visible:first').find('select:visible:first').val()
+        preAction = $('h3:contains("先攻技能")+span>select').val();
     };
     //Parse L1 ~ L10
     noDefault = inputItem.find('input[type=checkbox]:visible').eq(0).is(":checked")
