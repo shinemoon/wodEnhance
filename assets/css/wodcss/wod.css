@@ -305,4 +305,9 @@ body .font_Hero_Title {
   background: rgba(246, 223, 100, 0.6274509804);
   padding-left: 5px;
   padding-right: 5px;
+}
+body .happyhour {
+  background-color: #aca9a9 !important;
+  color: white !important;
+  font-size: 11px !important;
 }/*# sourceMappingURL=wod.css.map */
