@@ -92,9 +92,11 @@ function parseSetting(inputItem, layer) {
         //preAction = inputItem.find('div:visible:first').find('select:visible:nth-child(1)').val()
         position = $('h3:contains("战斗中的位置")+select').val();
         preAction = $('h3:contains("先攻技能")+span>select').val();
+        preAction = preAction !== undefined ? preAction : "N/A";
     } else {
         //preAction = inputItem.find('div:visible:first').find('select:visible:first').val()
         preAction = $('h3:contains("先攻技能")+span>select').val();
+        preAction = preAction !== undefined ? preAction : "N/A";
     };
     //Parse L1 ~ L10
     noDefault = inputItem.find('input[type=checkbox]:visible').eq(0).is(":checked")
@@ -117,9 +119,9 @@ function parseSetting(inputItem, layer) {
         })
     });
 
-    cureSetting.light = inputItem.find('div:visible:first').find("h4:contains('轻伤') + span label").text() + $("h4:contains('轻伤') + span select:first").text() + ($("h4:contains('轻伤') + span select:nth-child(2)").length > 0 ? $("h4:contains('轻伤') + span select:nth-child(2)").val() : "");
-    cureSetting.mid = inputItem.find('div:visible:first').find("h4:contains('受伤') + span label").text() + $("h4:contains('受伤') + span select:first").text() + ($("h4:contains('受伤') + span select:nth-child(2)").length > 0 ? $("h4:contains('受伤') + span select:nth-child(2)").val() : "");
-    cureSetting.heavy = inputItem.find('div:visible:first').find("h4:contains('重伤') + span label").text() + $("h4:contains('重伤') + span select:first").text() + ($("h4:contains('重伤') + span select:nth-child(2)").length > 0 ? $("h4:contains('重伤') + span select:nth-child(2)").val() : "");
+    cureSetting.light = inputItem.find('div:visible:first').find("h4:contains('轻伤') + span label").text() + ($("h4:contains('轻伤') + span select:first").val()==undefined?"":$("h4:contains('轻伤') + span select:first").val()) + ($("h4:contains('轻伤') + span select:nth-child(2)").length > 0 ? $("h4:contains('轻伤') + span select:nth-child(2)").val() : "");
+    cureSetting.mid= inputItem.find('div:visible:first').find("h4:contains('受伤') + span label").text() + ($("h4:contains('受伤') + span select:first").val()==undefined?"":$("h4:contains('受伤') + span select:first").val()) + ($("h4:contains('受伤') + span select:nth-child(2)").length > 0 ? $("h4:contains('受伤') + span select:nth-child(2)").val() : "");
+    cureSetting.heavy= inputItem.find('div:visible:first').find("h4:contains('重伤') + span label").text() + ($("h4:contains('重伤') + span select:first").val()==undefined?"":$("h4:contains('重伤') + span select:first").val()) + ($("h4:contains('重伤') + span select:nth-child(2)").length > 0 ? $("h4:contains('重伤') + span select:nth-child(2)").val() : "");
 
     return {
         layer: layer,
