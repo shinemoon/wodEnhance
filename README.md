@@ -36,8 +36,11 @@ Special thanks to these script authors!
 - BBcode export functionality for character sheets.
 
 ## Versions
+-1.2.6 
+  - 修正了一些问题 (SkillConfig)
+
 -1.2.5 
-  - 修正了一些问题
+  - 修正了一些问题 (SkillConfig)
   - 增加了黑暗模式
 
 -1.2 
