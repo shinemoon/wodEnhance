@@ -38,6 +38,7 @@ Special thanks to these script authors!
 ## Versions
 -1.2.6 
   - 修正了一些问题 (SkillConfig)
+  - UI update
 
 -1.2.5 
   - 修正了一些问题 (SkillConfig)
