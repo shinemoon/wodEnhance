@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Extension Popup</title>
   <link rel="stylesheet" href="/assets/css/popup.css">
+  <script src="/js/jquery-3.7.1.min.js"></script>
 </head>
+
 <body>
   <iframe src="sandbox.html" id="sandbox" style="display: none"></iframe>
   <div class="popup-container">
-    <label class="switch">
-      <input type="checkbox" id="toggleSwitch">
-      <span class="slider"></span>
-    </label>
-    <p id="status">扩展 OFF</p>
-    <label class="switch">
-      <input type="checkbox" id="toggleNight">
-      <span class="slider"></span>
-    </label>
-    <p id="night">黑暗模式 OFF</p>
+    <div class="popup-row">
+      <label class="switch">
+        <input type="checkbox" id="toggleSwitch">
+        <span class="slider"></span>
+      </label>
+      <p id="status">扩展</p>
+    </div>
+    <div class="popup-row">
+      <label class="switch">
+        <input type="checkbox" id="toggleNight">
+        <span class="slider"></span>
+      </label>
+      <p id="night">黑暗模式</p>
+    </div>
   </div>
   <script src="/js/popup.js"></script>
+
+  <div id="metainfo"></div>
 </body>
+
 </html>

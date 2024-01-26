@@ -1,4 +1,17 @@
 // popup.js
+// Fetch manifest.json
+let extVer = null;
+
+fetch('manifest.json')
+  .then(response => response.json())
+  .then(data => {
+    // Access the properties in the manifest.json file
+    console.log('Version:', data.version);
+    extVer = data.version;
+    // You can do more with other properties as needed
+    $('#metainfo').text("WoDEnhancement "+extVer);
+  })
+  .catch(error => console.error('Error fetching manifest.json:', error));
 
 document.addEventListener('DOMContentLoaded', function () {
   const toggleSwitch = document.getElementById('toggleSwitch');
@@ -21,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Update the switch state in the popup UI
       toggleSwitch.checked = data['onoff'];
       toggleNight.checked = data['night'];
-      updateStatusText();
+      //updateStatusText();
     } else if (action === 'extensionStateUpdated') {
       // Handle state update if needed
     }
@@ -69,14 +82,14 @@ document.addEventListener('DOMContentLoaded', function () {
       action: 'setSwitchState',
       data: { onoff: newState, night: nightState }
     });
-    updateStatusText();
+    //updateStatusText();
   };
 
 
   // Update status text based on the switch state
   function updateStatusText() {
     const stateText = toggleSwitch.checked ? 'ON' : 'OFF';
-    const nightStatus = toggleNight.checked ? 'ON' : 'OFF';
+    const nightStatus = toggleNight.checked ? 'ON ' : 'OFF';
     statusText.innerText = `扩展 ${stateText}`;
     nightText.innerText = `黑暗模式 ${nightStatus}`;
   }
