@@ -2,6 +2,9 @@
 针对[WoD](https://delta.world-of-dungeons.org/)的一个增强扩展，主要有如下特性：
 
 - 根据自己的喜好对界面进行了调整；
+- 增加了战斗设置的BBcode导出功能；
+- 优化了战报界面；
+- 角色卡的导出BBcode功能。
 - 整合了如下几个content script, 并对应修改使之适合Chrome Manifest V3 的规范要求等:
   - [WoD BBCode Generator](https://update.greasyfork.org/scripts/3800/BBCode%20Generator.user.js) @Tomy/Finargol
   - [Wod Display Skill Rolls](https://update.greasyfork.org/scripts/439870/%5BWoD%5D%20Display%20Skill%20Rolls_CN.meta.js) @Xaerodegreaz
@@ -12,11 +15,10 @@
 
 非常感谢这些脚本作者！
 
-- 增加了战斗设置的BBcode导出功能；
-- 优化了战报界面；
-- 角色卡的导出BBcode功能。
-
 ## Versions
+-1.2.7
+  - 修正了某些select中的空项无法选择的问题  
+
 -1.2.6 
   - 修正了一些问题 (SkillConfig)
   - UI Update

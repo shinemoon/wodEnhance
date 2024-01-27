@@ -214,12 +214,21 @@
 			}
 		}
 		// Refine select!
-		var selects = $('select');
+		var selects = $('#gadgettable-center select');
 		for (var i = 0; i < selects.length; i++) {
 			NiceSelect.bind(selects.eq(i)[0], {
 				searchable: true
 			});
 		};
+
+		var listItems = $('.nice-select-dropdown > .list > li[data-value=0]');
+		for (var i = 0; i < listItems.length; i++) {
+			listItems.eq(i).html("&nbsp;")
+		};
+
+
+
+
 	}
 
 	//-----------------------------------------------------------------------------
