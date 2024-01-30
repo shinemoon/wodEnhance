@@ -55,6 +55,7 @@ function injectLocalFileIntoCurrentPage(tid, url) {
 
     // Plugin Files:
     // NOTE: some plugin is important and reused in some other script. which will be moved to previous js array. i.e. bbcode_generate, skillrolls.
+    pluginscriptfileurl.push("/js/wodjs/wod_standard.js");
     pluginscriptfileurl.push("/js/wodjs/plugin_jumper.js");
     pluginscriptfileurl.push("/js/wodjs/plugin_price.js");
     pluginscriptfileurl.push("/js/wodjs/plugin_extra_statistics.js");

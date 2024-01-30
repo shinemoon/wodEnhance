@@ -41,8 +41,13 @@ if (jumpboxSpan) {
 	//create jumpboxSelect
 	var jumpboxSelect = document.createElement("select");
 	jumpboxSelect.id = "jumpboxSelect";
-	jumpboxSelect.style = "width: 100%; margin-top: 5px;";
+	jumpboxSelect.style = "width: 120px; margin-top: 5px;";
 	jumpboxSpan.appendChild(jumpboxSelect);
+	var jumpButton = document.createElement("div");
+	jumpButton.id = "jumpButton";
+	jumpboxSpan.appendChild(jumpButton);
+	$('#jumpButton').html('Go!');
+
 
 	//add select options
 	var jumpboxSelObj = document.getElementById("jumpboxSelect");
@@ -54,7 +59,10 @@ if (jumpboxSpan) {
 	var jumpbox = document.querySelector('#jumpbox_center>form>input[name="link"]');
 	jumpboxBtn[0].setAttribute("onclick", "return false;");
 
-	$("#jumpbox_center>form>span>input").click(function () {
+
+	$('#jumpbox_center>form>input[name="link"]').css('width','90px');
+	$("#jumpbox_center>form>span>input").hide();
+	$("#jumpButton").click(function () {
 		window.jumper();
 	});
 }

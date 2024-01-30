@@ -385,4 +385,14 @@ body {
     color:white!important;
     font-size:11px!important;
   }
+
+  #jumpButton {
+    border: 1px solid #7c7979;
+    width:120px; 
+    margin-top:5px;
+    cursor:pointer;
+    &:hover {
+      opacity:0.8;
+    }
+  }
 }

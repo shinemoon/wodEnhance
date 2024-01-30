@@ -310,4 +310,13 @@ body .happyhour {
   background-color: #aca9a9 !important;
   color: white !important;
   font-size: 11px !important;
+}
+body #jumpButton {
+  border: 1px solid #7c7979;
+  width: 120px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+body #jumpButton:hover {
+  opacity: 0.8;
 }/*# sourceMappingURL=wod.css.map */
