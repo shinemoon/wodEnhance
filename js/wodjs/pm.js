@@ -20,7 +20,7 @@ if (window.location.href.indexOf("pm.php") >= 0) {
                 tradelist.push({
                     name: itemName,
                     price: price,
-                    incoming: price*0.9,
+                    incoming: Math.round(price*0.9),
                     timestamp:'',
                     buyer: buyer
                 })
