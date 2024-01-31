@@ -5,4 +5,14 @@
 input.clickable[class*=folder_] {
   width: 80% !important;
   font-size: 12px;
+}
+
+span#calcValue {
+  border-style: none;
+  color: blue;
+  margin-left: 20px;
+  font-weight: bold;
+}
+span#calcValue:hover {
+  color: darkblue;
 }/*# sourceMappingURL=wodPM.css.map */

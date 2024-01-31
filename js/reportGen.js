@@ -31,5 +31,9 @@ function genPage(dat) {
     if (dat.action == 'libItemsPage') {
         genLibPage(dat.data);
     }
+    if (dat.action == 'tradeMsgPage') {
+        genTradePage(dat.data);
+    }
+
 }
 

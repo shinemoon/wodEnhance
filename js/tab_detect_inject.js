@@ -80,6 +80,7 @@ function injectLocalFileIntoCurrentPage(tid, url) {
     };
     // PM
     if (url.indexOf("pm") > 0) {
+        scriptfileurl.push("/js/wodjs/pm.js");
         cssfileurl.push("/assets/css/wodcss/wodPM.css");
     };
     // Item 
