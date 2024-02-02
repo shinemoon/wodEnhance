@@ -27,7 +27,8 @@ function loadLocalHeroAttributes() {
 
 function parseLocalHeroAttributes(data) {
     const jq = $(data);
-    var attributesTable = jq.find('table[class=content_table]').first();
+    //var attributesTable = jq.find('table[class=content_table]').first();
+    var attributesTable = jq.find('table[class=content_table]:contains("所需花费")').eq(0);
     if (!attributesTable.length) {
         console.error('NOPE.', attributesTable);
         return;
@@ -63,7 +64,8 @@ function parseLocalHeroAttributes(data) {
 
 
     // Table II
-    attributesTable = jq.find('table[class=content_table]').eq(1);
+    //attributesTable = jq.find('table[class=content_table]').eq(1);
+    attributesTable = jq.find('table[class=content_table]:contains("英雄等级")').eq(0);
     attributeRows = $(attributesTable).find('tr[class^=row]')
     // hp
     retAttrVal["体力"] = { type: 'attrII', value: attributeRows.eq(4).find('>td').eq(1).text().trim().replace(/[\n ]/g, '') };
@@ -182,7 +184,7 @@ function parseLocalHeroAttributes(data) {
     console.info(iloc);
     console.info(retHurtVal);
 
-    attributesTable = jq.find('table[class=content_table]').eq(0);
+    attributesTable = jq.find('table[class=content_table]:contains("团队")').eq(0);
     attributeRows = $(attributesTable).find('tr[class^=row]')
     retAttrVal["团队"] = { type: 'charattr', value: $('.content_table').eq(0).find('tr[class^=row]').eq(0).find('>td').eq(1).text().trim() };
     retAttrVal["联盟"] = { type: 'charattr', value: $('.content_table').eq(0).find('tr[class^=row]').eq(1).find('>td').eq(1).text().trim() };

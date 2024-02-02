@@ -47,5 +47,6 @@ function parseHeroSkills(data) {
     rawRows.forEach(function (x) {
         retVal[x.skillName] = x.valueCell;
     });
+    console.log(retVal)
     return retVal;
 }

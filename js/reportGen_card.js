@@ -180,45 +180,36 @@ function genCardPage(dat) {
     attrCard.find('.row2:last').after("<tr class='row2'>");
     attrCard.find('tr:last').append("<td colspan=3  class='header'><b>技能</b></td>");
     attrCard.find('.row2:last').after("<tr class='row2'>");
-    attrCard.find('tr:last').append("<td  style='vertical-align:top'><table id='skillTableI'></table></td>");
-    attrCard.find('tr:last').append("<td  style='vertical-align:top'><table id='skillTableII'></table></td>");
-    attrCard.find('tr:last').append("<td  style='vertical-align:top'><table id='skillTableIII'></table></td>");
+    attrCard.find('tr:last').append("<td  style='vertical-align:top'><table id='skillTable0'></table></td>");
+    attrCard.find('tr:last').append("<td  style='vertical-align:top'><table id='skillTable1'></table></td>");
+    attrCard.find('tr:last').append("<td  style='vertical-align:top'><table id='skillTable2'></table></td>");
     attrItem = dat[1];
     // Loop through the new object and display its elements
     curattr = Object.fromEntries(
         Object.entries(attrItem)
             .filter(([key, value]) => !value.includes('可学习'))
     );
-    var killSubLen = Math.ceil(Object.keys(curattr).length / 3);
-    console.log(killSubLen);
-    function breakObject(inputObject, killSubLen) {
-        var result = [];
-        var chunkSize = killSubLen;
-        var keys = Object.keys(inputObject);
-        for (var i = 0; i < keys.length; i += chunkSize) {
-            var chunkKeys = keys.slice(i, i + chunkSize);
-            var chunkObject = {};
 
-            for (var j = 0; j < chunkKeys.length; j++) {
-                var key = chunkKeys[j];
-                chunkObject[key] = inputObject[key];
-            }
-            result.push(chunkObject);
-        }
-        return result;
-    }
-    var brokenArrays = breakObject(curattr, killSubLen);
+    const resultArray = Object.entries(curattr)
+        .map(([name, value]) => {
+            const numValue = value === '-' ? 0 : parseFloat(value.match(/\[(\d+)\]/)?.[1] || value);
+            return { name, value, numValue };
+        })
+        .sort((a, b) => b.numValue - a.numValue);
+
+    // Split the array into three subarrays
+    const chunkSize = Math.ceil(resultArray.length / 3);
+    const brokenArrays = Array.from({ length: 3 }, (_, index) =>
+        resultArray.slice(index * chunkSize, (index + 1) * chunkSize)
+    );
+
     console.log(brokenArrays);
-    for (const key in brokenArrays[0]) {
-        attrCard.find('#skillTableI').append("<tr><td class='label'><a href='skill'>" + key + "</a>:</td><td style='text-align:right'>" + curattr[key] + "</td></tr>");
-    }
-    for (const key in brokenArrays[1]) {
-        attrCard.find('#skillTableII').append("<tr><td class='label'><a href='skill'>" + key + "</a>:</td><td style='text-align:right'>" + curattr[key] + "</td></tr>");
-    }
-    for (const key in brokenArrays[2]) {
-        attrCard.find('#skillTableIII').append("<tr><td class='label'><a href='skill'>" + key + "</a>:</td><td style='text-align:right'>" + curattr[key] + "</td></tr>");
-    }
 
+    for (var k in brokenArrays) {
+        brokenArrays[k].forEach(function (c, i) {
+            attrCard.find('#skillTable'+k).append("<tr><td class='label'><a href='skill'>" + c["name"] + "</a>:</td><td style='text-align:right'>" + c["value"] + "</td></tr>");
+        })
+    }
 
     //Gen
     //$('#charCard').append(attrCard);
