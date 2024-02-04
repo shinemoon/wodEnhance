@@ -1,6 +1,6 @@
 function genSkillSetPage(dat) {
     //Gen SkillSet Page
-//    <div id="themes" class="switch-button"> <input id="themecheck" type=checkbox></div><div>  适配暗色主题论坛</div> \
+    //    <div id="themes" class="switch-button"> <input id="themecheck" type=checkbox></div><div>  适配暗色主题论坛</div> \
     console.log(dat);
     var htmlHdl = $('<h1 id="pageTitle"> </h1> \
     <div id="buttonList"> \
@@ -25,8 +25,8 @@ function genSkillSetPage(dat) {
     lihdl.append("<li class='skillInfo'><label>法术:</label><span>" + dat[0].defSkills.magic + "</span></li>");
     lihdl.append("<li class='skillInfo'><label>心理:</label><span>" + dat[0].defSkills.mental + "</span></li>");
 
-    // Default & General
-    generalLayer(curSetting, dat[0]);
+
+    // General
     curSetting.append("<h3>缺省行动</h3>");
     if (dat[0].defaultAtt)
         curSetting.append("<span>若所设置行为无法进行，允许自动进行其他攻击动作(仅限于回合中攻击技能)</span>");
@@ -37,6 +37,9 @@ function genSkillSetPage(dat) {
     lihdl = curSetting.find('ol:last');
     lihdl.append("<li class='skillInfo'><label>攻击:</label><span>" + dat[0].attOrder + "</span></li>");
     lihdl.append("<li class='skillInfo'><label>辅助:</label><span>" + dat[0].sptOrder + "</span></li>");
+
+    // Default Layer
+    generalLayer(curSetting, dat[0], '默认层设置');
 
     htmlHdl.find('#defaultLayer').eq(0).append(curSetting);
 
@@ -50,7 +53,7 @@ function genSkillSetPage(dat) {
 
     for (var i = 1; i < dat.length; i++) {
         curSetting = $('<div class="setting-row"></div>');
-        generalLayer(curSetting, dat[i]);
+        generalLayer(curSetting, dat[i], "第" + i + "层设置");
         htmlHdl.find('.layers').eq(0).append("<h2 class='subLayerTitle'>L" + dat[i]['layer'] + "</h2>");
         htmlHdl.find('.layers').eq(0).append("<div class='single-layer'></div>");
         htmlHdl.find('.single-layer:last').eq(0).append(curSetting);
@@ -94,7 +97,7 @@ function genSkillSetPage(dat) {
         $(this).toggleClass('zap');
     })
 
-    $('#exportbutton').click(function () {
+    $('#exportbutton').click(function () {    // Default 
         var exportBB = "[h1]" + $('title').text() + " 战术设置[/h1]";
         exportBB = exportBB + "[hr]";
         if (!$('#defaultSection').hasClass('zap')) {
@@ -109,7 +112,7 @@ function genSkillSetPage(dat) {
             for (var i = 1; i < 11; i++) {
                 //if set in place and not zapped
                 if ($("h2.subLayerTitle:contains(L" + i + ")").length > 0 && !$("h2.subLayerTitle:contains(L" + i + ")").hasClass('zap')) {
-                    exportBB = exportBB + "[h3]第" + i + "层[/h3]";
+//                    exportBB = exportBB + "[h3]第" + i + "层[/h3]";
                     exportBB = exportBB + "[hr]";
                     exportBB = exportBB + bbcode_generate_CreateBB($("h2.subLayerTitle:contains(L" + i + ")~ div.single-layer")[0], "", "", "");
                 }
@@ -128,25 +131,28 @@ function refineBB(strin) {
     return resultString;
 }
 
-function generalLayer(curSetting, curDat) {
-    curSetting.append("<h3>先攻技能:</h3>");
-    curSetting.append("<div class='skillInfo'><span class='skillname'>" + curDat.preAction + "</span></div>");
-    curSetting.append("<h3>回合前</h3>");
-    curSetting.append("<ol>");
-    var lihdl = curSetting.find('ol:last');
+function generalLayer(curSetting, curDat, layerName) {
+    curLayer = $('<div spoiler="' + layerName + '">');
+    curLayer.append("<h3>先攻技能:</h3>");
+    curLayer.append("<div class='skillInfo'><span class='skillname'>" + curDat.preAction + "</span></div>");
+    curLayer.append("<h3>回合前</h3>");
+    curLayer.append("<ol>");
+    var lihdl = curLayer.find('ol:last');
     curDat.preSkills.forEach(function (cont) {
         lihdl.append("<li class='skillInfo'><span class='skillname'>" + cont.name + "</span><span class='skillitem'>" + cont.item + " </span><span class='skillammo'>" + cont.ammo + " </span><span class='skillpos'>" + cont.position + "</span></li>");
     })
-    curSetting.append("<h3>回合中</h3>");
-    curSetting.append("<ol>");
-    lihdl = curSetting.find('ol:last');
+    curLayer.append("<h3>回合中</h3>");
+    curLayer.append("<ol>");
+    lihdl = curLayer.find('ol:last');
     curDat.inSkills.forEach(function (cont) {
         lihdl.append("<li class='skillInfo'><span class='skillname'>" + cont.name + "</span><span class='skillitem'>" + cont.item + " </span><span class='skillammo'>" + cont.ammo + " </span><span class='skillpos'>" + cont.position + "</span></li>");
     })
-    curSetting.append("<h3>治疗设置</h3>");
-    curSetting.append("<ol>");
-    lihdl = curSetting.find('ol:last');
+    curLayer.append("<h3>治疗设置</h3>");
+    curLayer.append("<ol>");
+    lihdl = curLayer.find('ol:last');
     lihdl.append("<li class='skillInfo'><label>轻伤:</label><span>" + curDat.cureSetting.light + "</span></li>");
     lihdl.append("<li class='skillInfo'><label>受伤:</label><span>" + curDat.cureSetting.mid + "</span></li>");
     lihdl.append("<li class='skillInfo'><label>重伤:</label><span>" + curDat.cureSetting.heavy + "</span></li>");
+
+    curSetting.append(curLayer);
 };

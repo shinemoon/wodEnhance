@@ -76,7 +76,7 @@
 var bbcode_generate_CreateBB;
 
 (function () {
-    bbcode_generate_CreateBB = function (node,size,color,font) {
+    bbcode_generate_CreateBB = function (node, size, color, font) {
         return CreateBB(node, size, color, font);
     }
     //-----------------------------------------------------------------------------
@@ -664,6 +664,17 @@ var bbcode_generate_CreateBB;
 
         if (displayed) {
             text += (" [" + GetName(nodeName) + addStart + "]");
+        } else {
+            //Need Spoiler Hack here!!
+            // Div with Class spoiler we stil will create one spoiler for that!
+            // Check if the node is a div and has the 'spoiler' attribute
+            if (nodeName.toLowerCase() === 'div' && node.hasAttribute('spoiler')) {
+                // Get the value of the 'spoiler' attribute
+                const spoilerValue = node.getAttribute('spoiler');
+
+                // Create the spoiler string
+                text += `[spoiler title='${spoilerValue}']`;
+            }
         }
 
         var children = node.childNodes;
@@ -689,7 +700,17 @@ var bbcode_generate_CreateBB;
 
         if (displayed && NoEnd.indexOf(nodeName) == -1) {
             text += ("[/" + GetName(nodeName) + "] ");
+        } else {
+            //Need Spoiler Hack here!!
+            // Div with Class spoiler we stil will create one spoiler for that!
+            // Check if the node is a div and has the 'spoiler' attribute
+            if (nodeName.toLowerCase() === 'div' && node.hasAttribute('spoiler')) {
+                // Create the spoiler string
+                text += ("[/spoiler]"); 
+            }
         }
+
+
 
 
         if (NewLineAfter.indexOf(nodeName) != -1)
