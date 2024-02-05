@@ -184,18 +184,24 @@ function parseLocalHeroAttributes(data) {
     console.info(iloc);
     console.info(retHurtVal);
 
-    attributesTable = jq.find('table[class=content_table]:contains("团队")').eq(0);
+    attributesTable = $('table[class=content_table]:contains("团队")').eq(0);
     attributeRows = $(attributesTable).find('tr[class^=row]')
-    retAttrVal["团队"] = { type: 'charattr', value: $('.content_table').eq(0).find('tr[class^=row]').eq(0).find('>td').eq(1).text().trim() };
-    retAttrVal["联盟"] = { type: 'charattr', value: $('.content_table').eq(0).find('tr[class^=row]').eq(1).find('>td').eq(1).text().trim() };
+
+    retAttrVal["团队"] = { type: 'charattr', value: attributesTable.find('tr[class^=row]').eq(0).find('>td').eq(1).text().trim() };
+    retAttrVal["联盟"] = { type: 'charattr', value: attributesTable.find('tr[class^=row]').eq(1).find('>td').eq(1).text().trim() };
 
 
     // Additional item in profile page:
-    retAttrVal["名字"] = { type: 'charattr', value: $('span.font_Hero_Name').text().trim() };
-    retAttrVal["头衔"] = { type: 'charattr', value: $('div.hero_full .heroTitle').text().trim() };
-    retAttrVal["种族"] = { type: 'charattr', value: $('div.hero_full .heroRace').text().trim() };
-    retAttrVal["职业"] = { type: 'charattr', value: $('div.hero_full .heroClass').text().trim() };
-    retAttrVal["级别"] = { type: 'charattr', value: $('div.hero_full .heroLevel').text().trim() };
+    retAttrVal["名字"] = { type: 'charattr', value: $('span.font_Hero_Name').length>0?$('span.font_Hero_Name').text().trim():$('.changeHeroLink').text() };
+
+    retAttrVal["头衔"] = { type: 'charattr', value: $('div.hero_full .heroTitle').length>0?$('div.hero_full .heroTitle').text().trim():$('.changeHeroLink ~ .texttoken').eq(0).text().trim() };
+
+    retAttrVal["种族"] = { type: 'charattr', value: $('h3:contains("详情") ~ table.content_table > tbody > tr:nth-child(2) > td:nth-child(2)').text().trim() };
+
+    retAttrVal["职业"] = { type: 'charattr', value: $('h3:contains("详情") ~ table.content_table > tbody > tr:nth-child(3) > td:nth-child(2)').text().trim() };
+
+    retAttrVal["级别"] = { type: 'charattr', value: $('h3:contains("详情") ~ table.content_table > tbody > tr:nth-child(4) > td:nth-child(2)').text().trim() };
+
     retAttrVal["头像"] = { type: 'charattr', value: $('.boardavatar:first').attr('src') };
 
     return [retAttrVal, retAmorVal, retAttVal, retDefVal, retHurtVal];

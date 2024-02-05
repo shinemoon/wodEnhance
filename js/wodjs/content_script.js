@@ -61,6 +61,24 @@ function otherRefinement() {
   });
 
   $('span[style*=paleturquoise]').attr("style", "color:#147fcb!important");
+
+  // For Office Theme!
+  var themeID = null;
+  var links = document.head.querySelectorAll('link[rel="stylesheet"][href*="/wod/css//skins/skin-"]');
+
+  links.forEach(link => {
+    // Use a regular expression to extract the '1' from the URL
+    const match = link.href.match(/\/wod\/css\/\/skins\/skin-(\d+)\//);
+    // Check if there is a match and get the captured group (the '1')
+    themeID = match ? match[1] : themeID;
+  });
+
+  console.log(themeID);
+  if (themeID == '1') {//Office
+    $('tr>td>.worlds').parent().parent().css('background', 'white');
+    $('.ticker').parent().parent().css('background','rgb(132,132,132)');
+  }
+
 }
 
 // Function to extract value based on the label

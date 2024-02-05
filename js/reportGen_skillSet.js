@@ -53,7 +53,7 @@ function genSkillSetPage(dat) {
 
     for (var i = 1; i < dat.length; i++) {
         curSetting = $('<div class="setting-row"></div>');
-        generalLayer(curSetting, dat[i], "第" + i + "层设置");
+        generalLayer(curSetting, dat[i], "第" + dat[i]["layer"] + "层设置");
         htmlHdl.find('.layers').eq(0).append("<h2 class='subLayerTitle'>L" + dat[i]['layer'] + "</h2>");
         htmlHdl.find('.layers').eq(0).append("<div class='single-layer'></div>");
         htmlHdl.find('.single-layer:last').eq(0).append(curSetting);
