@@ -34,13 +34,53 @@ function parseLocalHeroAttributes(data) {
         return;
     }
     var attributeRows = $(attributesTable).find('tr[class^=row]')
+
+    function extractHTMLFromScript(scriptContent) {
+        // Use a regular expression to extract the HTML content
+        var match = /return wodToolTip\(this,\'(.*?)\'\);/.exec(scriptContent);
+
+        if (match && match[1]) {
+            var tmp = $(match[1]).html();
+            return tmp;
+        } else {
+            return null; // No match found
+        }
+    }
+
+    function splitStringIntoArray(inputString) {
+        if(inputString==null) return [];
+        // Split the input string into an array based on "<br>"
+        var items = inputString.split('<br>');
+
+        // Create an array of objects with the specified structure
+        var resultArray = items.map(function (item) {
+            var match = /([^<]+)\s\(([-+]?\d+)\)/.exec(item);
+            if (match && match[1] && match[2]) {
+                return { factor: match[1].trim(), dat: parseInt(match[2]) };
+            } else {
+                return null;
+            }
+        }).filter(Boolean); // Filter out null values
+
+        return resultArray;
+    }
     const rawRows = attributeRows
         .map(function () {
             const cells = $(this).find('> td');
+
             const attributeName = cells
                 .first()
                 .text()
                 .trim();
+
+            var deltaStr = cells
+                .first()
+                .find('>span')
+                .first()
+                .attr('onmouseover');
+
+            const attributeDelta = splitStringIntoArray(extractHTMLFromScript(deltaStr));
+
             const valueCell = cells
                 .find(':nth-child(2)')
                 .contents()
@@ -49,17 +89,20 @@ function parseLocalHeroAttributes(data) {
                 })
                 .text()
                 .trim();
+
             const effectiveValueCell = cells
                 .find(':nth-child(2) > span[class=effective_value]')
                 .text()
                 .trim()
                 .replace(/\D/g, '');
-            return { attributeName, valueCell, effectiveValueCell };
+
+            return { attributeName, valueCell, effectiveValueCell, attributeDelta };
         })
         .toArray();
+
     const retAttrVal = {};
     rawRows.forEach(function (x) {
-        retAttrVal[x.attributeName] = { type: 'attr', value: x.effectiveValueCell.length > 0 ? x.valueCell + "[" + x.effectiveValueCell + "]" : Number(x.valueCell) };
+        retAttrVal[x.attributeName] = { type: 'attr', value: x.effectiveValueCell.length > 0 ? x.valueCell + "[" + x.effectiveValueCell + "]" : Number(x.valueCell), valueDelta: x.attributeDelta };
     });
 
 
@@ -70,13 +113,13 @@ function parseLocalHeroAttributes(data) {
     // hp
     retAttrVal["体力"] = { type: 'attrII', value: attributeRows.eq(4).find('>td').eq(1).text().trim().replace(/[\n ]/g, '') };
     // hp-recover
-   // retAttrVal["体力恢复"] = { type: 'attrII', value: attributeRows.eq(4).find('>td').eq(2).find('.effective_value').text().trim() };
-    retAttrVal["体力恢复"] = { type: 'attrII', value: attributeRows.eq(4).find('>td').eq(2).text().replace(/\s+/g, '').replace(/[^0-9\[\]]+/g, '').trim()};
-    
+    // retAttrVal["体力恢复"] = { type: 'attrII', value: attributeRows.eq(4).find('>td').eq(2).find('.effective_value').text().trim() };
+    retAttrVal["体力恢复"] = { type: 'attrII', value: attributeRows.eq(4).find('>td').eq(2).text().replace(/\s+/g, '').replace(/[^0-9\[\]]+/g, '').trim() };
+
     // mp
     retAttrVal["法力"] = { type: 'attrII', value: attributeRows.eq(5).find('>td').eq(1).text().trim().replace(/[\n ]/g, '') };
     // mp-recover
-    retAttrVal["法力恢复"] = { type: 'attrII', value: attributeRows.eq(5).find('>td').eq(2).text().replace(/\s+/g, '').replace(/[^0-9\[\]]+/g, '').trim()};
+    retAttrVal["法力恢复"] = { type: 'attrII', value: attributeRows.eq(5).find('>td').eq(2).text().replace(/\s+/g, '').replace(/[^0-9\[\]]+/g, '').trim() };
 
     // rounds
     retAttrVal['每回合行动次数'] = { type: 'attrII', value: attributeRows.eq(6).find('>td').eq(1).text().trim().replace(/[\n ]/g, '') };
@@ -186,9 +229,9 @@ function parseLocalHeroAttributes(data) {
 
 
     // Additional item in profile page:
-    retAttrVal["名字"] = { type: 'charattr', value: $('span.font_Hero_Name').length>0?$('span.font_Hero_Name').text().trim():$('.changeHeroLink').text() };
+    retAttrVal["名字"] = { type: 'charattr', value: $('span.font_Hero_Name').length > 0 ? $('span.font_Hero_Name').text().trim() : $('.changeHeroLink').text() };
 
-    retAttrVal["头衔"] = { type: 'charattr', value: $('div.hero_full .heroTitle').length>0?$('div.hero_full .heroTitle').text().trim():$('.changeHeroLink ~ .texttoken').eq(0).text().trim() };
+    retAttrVal["头衔"] = { type: 'charattr', value: $('div.hero_full .heroTitle').length > 0 ? $('div.hero_full .heroTitle').text().trim() : $('.changeHeroLink ~ .texttoken').eq(0).text().trim() };
 
     retAttrVal["种族"] = { type: 'charattr', value: $('h3:contains("详情") ~ table.content_table > tbody > tr:nth-child(2) > td:nth-child(2)').text().trim() };
 
