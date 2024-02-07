@@ -73,7 +73,6 @@ function otherRefinement() {
     themeID = match ? match[1] : themeID;
   });
 
-  console.log(themeID);
   if (themeID == '1') {//Office
     $('tr>td>.worlds').parent().parent().css('background', 'white');
     $('.ticker').parent().parent().css('background','rgb(132,132,132)');

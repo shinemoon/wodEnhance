@@ -45,7 +45,8 @@ function parseHeroGear(data) {
             const cells = $(this).find('>td ');
             const equipPos = cells.eq(0).text().trim();
             const equipName = cells.eq(1).find('option[selected=selected]').text().trim();
-            return { equipName, equipPos };
+            let equipId = cells.eq(1).find('input[type="hidden"]').last().attr('value');
+            return { equipName, equipPos , equipId};
         })
         .toArray();
 
@@ -55,7 +56,8 @@ function parseHeroGear(data) {
             const cells = $(this).find('>td ');
             const medalPos = cells.eq(0).text().trim();
             const medalName = cells.eq(1).find('option[selected=selected]').text().trim();
-            return { medalName, medalPos };
+            let equipId = cells.eq(1).find('input[type="hidden"]').last().attr('value');
+            return { medalName, medalPos , equipId};
         })
         .toArray();
 
@@ -66,7 +68,8 @@ function parseHeroGear(data) {
             const cells = $(this).find('>td ');
             const bucketPos = cells.eq(0).text().trim();
             const bucketName = cells.eq(1).find('option[selected=selected]').text().trim();
-            return { bucketName, bucketPos };
+            let equipId= cells.eq(1).find('input[type="hidden"]').last().attr('value');
+            return { bucketName, bucketPos, equipId};
         })
         .toArray();
 
@@ -76,26 +79,18 @@ function parseHeroGear(data) {
             const cells = $(this).find('>td ');
             const ringPos = cells.eq(0).text().trim();
             const ringName = cells.eq(1).find('option[selected=selected]').text().trim();
-            return { ringName, ringPos };
+            let equipId = cells.eq(1).find('input[type="hidden"]').last().attr('value');
+
+            //Promise needed
+
+
+            return { ringName, ringPos, equipId};
         })
         .toArray();
 
 
     const retVal = [];
     retVal.push(equipRawRows, medalRawRows, bucketRawRows, ringRawRows);
-    /*
-    equipRawRows.forEach(function (x) {
-        retVal[x.equipPos] = x.equipName;
-    });
-    medalRawRows.forEach(function (x) {
-        retVal[x.medalPos] = x.medalName;
-    });
-    bucketRawRows.forEach(function (x) {
-        retVal[x.bucketPos] = x.bucketName;
-    });
-    ringRawRows.forEach(function (x) {
-        retVal[x.ringPos] = x.ringName;
-    });
-    */
     return retVal;
 }
+
