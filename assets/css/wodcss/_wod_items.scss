@@ -55,11 +55,23 @@ img[src*='gem_'] {
                     &[name*=attribute_name] {
                         &~div.nice-select {
                             width: 50% !important;
-                            margin-right:10px!important;
+                            margin-right: 10px !important;
                         }
                     }
                 }
             }
         }
+    }
+}
+
+#blockEmulator {
+    margin-left: 20px;
+    width: 80px;
+    font-weight: bold;
+    background: #ffc100;
+    cursor: pointer;
+
+    &:hover {
+        background: #f0d995;
     }
 }

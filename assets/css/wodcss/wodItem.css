@@ -43,4 +43,15 @@ img[src*=gem_] {
 .search_details.box_container > table tr > td select[name*=hero_class] ~ div.nice-select, .search_details.box_container > table tr > td select[name*=hero_race] ~ div.nice-select, .search_details.box_container > table tr > td select[name*=location] ~ div.nice-select, .search_details.box_container > table tr > td select[name*=unique] ~ div.nice-select, .search_details.box_container > table tr > td select[name*=attribute_name] ~ div.nice-select {
   width: 50% !important;
   margin-right: 10px !important;
+}
+
+#blockEmulator {
+  margin-left: 20px;
+  width: 80px;
+  font-weight: bold;
+  background: #ffc100;
+  cursor: pointer;
+}
+#blockEmulator:hover {
+  background: #f0d995;
 }/*# sourceMappingURL=wodItem.css.map */

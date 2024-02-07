@@ -108,7 +108,6 @@ function parseLocalHeroAttributes(data) {
     rawAmourRows.forEach(function (x) {
         retAmorVal[x.attributeName] = { type: 'armor', value: x.effectiveValueCell };
     });
-    console.info(retAmorVal);
 
     //Table IV
     iloc = jq.find('h3:contains("累计攻击奖励")').closest('td').index();
@@ -130,8 +129,6 @@ function parseLocalHeroAttributes(data) {
     rawAttRows.forEach(function (x) {
         retAttVal[x.attributeName] = { type: 'attack', value: x.effectiveValueCell };
     });
-    console.info(iloc);
-    console.info(retAttVal);
 
     //Table V
     iloc = jq.find('h3:contains("累计防御奖励")').closest('td').index();
@@ -155,7 +152,6 @@ function parseLocalHeroAttributes(data) {
     rawDefRows.forEach(function (x) {
         retDefVal[x.attributeName] = { type: 'defend', value: x.effectiveValueCell };
     });
-    console.info(retDefVal);
     //Table VI
     // Other table
     const retHurtVal = {};
@@ -181,8 +177,6 @@ function parseLocalHeroAttributes(data) {
         });
     }
 
-    console.info(iloc);
-    console.info(retHurtVal);
 
     attributesTable = $('table[class=content_table]:contains("团队")').eq(0);
     attributeRows = $(attributesTable).find('tr[class^=row]')

@@ -93,6 +93,9 @@ function injectLocalFileIntoCurrentPage(tid, url) {
     // Gear!
     // 搭积木！
     if (url.indexOf("hero/items.php?view=gear") > 0 ) {
+        scriptfileurl.push("/js/wodjs/profile_get_attribute.js");
+        scriptfileurl.push("/js/wodjs/profile_get_skills.js");
+        scriptfileurl.push("/js/wodjs/profile_get_gears.js");
         scriptfileurl.push("/js/wodjs/gear.js");
     };
 
