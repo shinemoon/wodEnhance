@@ -4,7 +4,7 @@ if (window.location.href.indexOf("report.php") >= 0) {
     //let user = $('.hero_short tr:nth-child(1) td:nth-child(1) a:nth-child(3)').text();
     let user  = $('span.font_Hero_Name').length>0?$('span.font_Hero_Name').text().trim():$('.changeHeroLink').text();
 
-    $('body').append("<div id='showOff'>S</div>")
+    $('body').append("<div id='showOff'>Me</div>")
     //高亮本人战报
     $('.content_table table').css('width', '100%');
     $('.rep_status_table tr:contains("' + user + '")').css('background', '#b8c35070');
