@@ -220,11 +220,14 @@
 				searchable: true
 			});
 		};
-
-		var listItems = $('.nice-select-dropdown > .list > li[data-value=0]');
+		var listItems = $('.nice-select-dropdown > .list > li[data-value]').filter(function () {
+			return $(this).html()=="";
+		});
 		for (var i = 0; i < listItems.length; i++) {
 			listItems.eq(i).html("&nbsp;")
 		};
+
+		$('span.current:contains("Select an option")').html("请选择");
 
 
 

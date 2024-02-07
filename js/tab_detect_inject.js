@@ -90,6 +90,12 @@ function injectLocalFileIntoCurrentPage(tid, url) {
         pluginscriptfileurl.push("/js/jqplugin/nice-select/nice-select2.js");
         pluginscriptfileurl.push("/js/wodjs/plugin_market.js");
     };
+    // Gear!
+    // 搭积木！
+    if (url.indexOf("hero/items.php?view=gear") > 0 ) {
+        scriptfileurl.push("/js/wodjs/gear.js");
+    };
+
     if (url.indexOf("csvexport.php") > 0) {
         pluginscriptfileurl.push("/js/wodjs/plugin_market.js");
     }
