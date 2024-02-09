@@ -1,0 +1,2507 @@
+[
+    [
+        {
+            "力量": {
+                "type": "attr",
+                "value": 5,
+                "valueDelta": []
+            },
+            "体质": {
+                "type": "attr",
+                "value": "6[9]",
+                "valueDelta": [
+                    {
+                        "factor": "优良强韧火蜥蜴皮手套",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "冬末",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "帕沙雷体质之戒",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "玛格-莫精灵",
+                        "dat": -1
+                    }
+                ]
+            },
+            "智力": {
+                "type": "attr",
+                "value": "8[19]",
+                "valueDelta": [
+                    {
+                        "factor": "诚实奖章",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "绣金线的学者衣服",
+                        "dat": 2
+                    },
+                    {
+                        "factor": "绣金线的学者披风",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "冬末",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "春雷",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "秘学士的闪雷剑",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "学者",
+                        "dat": 2
+                    },
+                    {
+                        "factor": "斯贝克托里尔的爱好",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "春夏秋冬",
+                        "dat": 1
+                    }
+                ]
+            },
+            "灵巧": {
+                "type": "attr",
+                "value": "7[11]",
+                "valueDelta": [
+                    {
+                        "factor": "绣金线的学者衣服",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "秘学士的闪雷剑",
+                        "dat": 2
+                    },
+                    {
+                        "factor": "强化闪光骨杖",
+                        "dat": 1
+                    }
+                ]
+            },
+            "魅力": {
+                "type": "attr",
+                "value": "8[14]",
+                "valueDelta": [
+                    {
+                        "factor": "赫沃克的烈焰面具",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "绣金线的学者披风",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "春雷",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "装饰的神庙拖鞋",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "圣诞小妖之鞋",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "春夏秋冬",
+                        "dat": 1
+                    }
+                ]
+            },
+            "敏捷": {
+                "type": "attr",
+                "value": "6[8]",
+                "valueDelta": [
+                    {
+                        "factor": "优良敏捷火蜥蜴皮帽",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "玛格-莫精灵",
+                        "dat": 1
+                    }
+                ]
+            },
+            "感知": {
+                "type": "attr",
+                "value": "6[11]",
+                "valueDelta": [
+                    {
+                        "factor": "夏语",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "强化闪光骨杖",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "感知火蜥蜴皮护腿",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "圣诞小妖之鞋",
+                        "dat": -1
+                    },
+                    {
+                        "factor": "学者",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "玛格-莫精灵",
+                        "dat": 1
+                    },
+                    {
+                        "factor": "春夏秋冬",
+                        "dat": 1
+                    }
+                ]
+            },
+            "意志": {
+                "type": "attr",
+                "value": "8[9]",
+                "valueDelta": [
+                    {
+                        "factor": "学者",
+                        "dat": 1
+                    }
+                ]
+            },
+            "体力": {
+                "type": "attrII",
+                "value": "28[38]"
+            },
+            "体力恢复": {
+                "type": "attrII",
+                "value": "0[1]"
+            },
+            "法力": {
+                "type": "attrII",
+                "value": "40[106]"
+            },
+            "法力恢复": {
+                "type": "attrII",
+                "value": "0[5]"
+            },
+            "每回合行动次数": {
+                "type": "attrII",
+                "value": "1[2]"
+            },
+            "先攻附加值": {
+                "type": "attrII",
+                "value": "0[16]"
+            },
+            "团队": {
+                "type": "charattr",
+                "value": ""
+            },
+            "联盟": {
+                "type": "charattr",
+                "value": ""
+            },
+            "名字": {
+                "type": "charattr",
+                "value": "楚白珩"
+            },
+            "头衔": {
+                "type": "charattr",
+                "value": "路旁的落叶"
+            },
+            "种族": {
+                "type": "charattr",
+                "value": ""
+            },
+            "职业": {
+                "type": "charattr",
+                "value": ""
+            },
+            "级别": {
+                "type": "charattr",
+                "value": ""
+            },
+            "头像": {
+                "type": "charattr"
+            }
+        },
+        {
+            "寒冰伤害": {
+                "type": "armor",
+                "value": "+1 / 0 / 0"
+            },
+            "粉碎伤害": {
+                "type": "armor",
+                "value": "+4 / +2 / 0"
+            },
+            "法力伤害": {
+                "type": "armor",
+                "value": "+2 / +2 / +2"
+            },
+            "火焰伤害": {
+                "type": "armor",
+                "value": "+9 / +6 / +3"
+            },
+            "切割伤害": {
+                "type": "armor",
+                "value": "+2 / +1 / 0"
+            },
+            "穿刺伤害": {
+                "type": "armor",
+                "value": "+2 / +1 / 0"
+            }
+        },
+        {
+            "解除陷阱": {
+                "type": "attack",
+                "value": "+1"
+            },
+            "远程": {
+                "type": "attack",
+                "value": "+5"
+            },
+            "魔法诅咒": {
+                "type": "attack",
+                "value": "+4"
+            },
+            "偷袭": {
+                "type": "attack",
+                "value": "+2"
+            },
+            "近战": {
+                "type": "attack",
+                "value": "+13"
+            },
+            "自然灾害": {
+                "type": "attack",
+                "value": "+1"
+            },
+            "心理攻击": {
+                "type": "attack",
+                "value": "+12"
+            },
+            "魔法": {
+                "type": "attack",
+                "value": "+33"
+            }
+        },
+        {
+            "偷袭": {
+                "type": "defend",
+                "value": "+3"
+            },
+            "自然灾害": {
+                "type": "defend",
+                "value": "+2"
+            },
+            "魔法": {
+                "type": "defend",
+                "value": "+11"
+            },
+            "触动陷阱": {
+                "type": "defend",
+                "value": "+1"
+            },
+            "远程": {
+                "type": "defend",
+                "value": "+4"
+            },
+            "魔法弹": {
+                "type": "defend",
+                "value": "+1"
+            },
+            "近战": {
+                "type": "defend",
+                "value": "+4"
+            },
+            "心理攻击": {
+                "type": "defend",
+                "value": "+7"
+            }
+        },
+        {
+            "闪电伤害": {
+                "type": "hurt",
+                "value": "+1 / +1 / +2"
+            },
+            "寒冰伤害": {
+                "type": "hurt",
+                "value": "+1 / +1 / +2"
+            },
+            "火焰伤害": {
+                "type": "hurt",
+                "value": "+1 / +1 / +2"
+            },
+            "穿刺伤害": {
+                "type": "hurt",
+                "value": "+1 / +2 / +2"
+            }
+        }
+    ],
+    {
+        "战技：交击斩": {
+            "type": "skill",
+            "value": "15[21]",
+            "valueDelta": [
+                {
+                    "factor": "绣金线的学者衣服",
+                    "dat": 2
+                },
+                {
+                    "factor": "绣金线的学者披风",
+                    "dat": 2
+                },
+                {
+                    "factor": "秘学士的闪雷剑",
+                    "dat": 1
+                },
+                {
+                    "factor": "秘学士的闪雷剑",
+                    "dat": 1
+                }
+            ]
+        },
+        "法术：力量之语": {
+            "type": "skill",
+            "value": "13[18]",
+            "valueDelta": [
+                {
+                    "factor": "绣金线的学者衣服",
+                    "dat": 2
+                },
+                {
+                    "factor": "绣金线的学者披风",
+                    "dat": 2
+                },
+                {
+                    "factor": "秘学士的闪雷剑",
+                    "dat": 1
+                }
+            ]
+        },
+        "秘术：秘剑学士": {
+            "type": "skill",
+            "value": "11[20]",
+            "valueDelta": [
+                {
+                    "factor": "绣金线的学者衣服",
+                    "dat": 4
+                },
+                {
+                    "factor": "绣金线的学者披风",
+                    "dat": 4
+                },
+                {
+                    "factor": "秘学士的闪雷剑",
+                    "dat": 1
+                }
+            ]
+        },
+        "生活：阅读": {
+            "type": "skill",
+            "value": "10[9]",
+            "valueDelta": [
+                {
+                    "factor": "诚实奖章",
+                    "dat": 1
+                },
+                {
+                    "factor": "绣金线的学者衣服",
+                    "dat": -2
+                },
+                {
+                    "factor": "绣金线的学者披风",
+                    "dat": -2
+                },
+                {
+                    "factor": "秘学士的闪雷剑",
+                    "dat": 1
+                },
+                {
+                    "factor": "写着矮人符文的纸条",
+                    "dat": 1
+                }
+            ]
+        },
+        "仪式：冥想": {
+            "type": "skill",
+            "value": "10",
+            "valueDelta": []
+        },
+        "法术：魔法触摸": {
+            "type": "skill",
+            "value": "9[14]",
+            "valueDelta": [
+                {
+                    "factor": "绣金线的学者衣服",
+                    "dat": 2
+                },
+                {
+                    "factor": "绣金线的学者披风",
+                    "dat": 2
+                },
+                {
+                    "factor": "秘学士的闪雷剑",
+                    "dat": 1
+                }
+            ]
+        },
+        "基础：击剑": {
+            "type": "skill",
+            "value": "7[8]",
+            "valueDelta": [
+                {
+                    "factor": "决斗剑手臂章",
+                    "dat": 1
+                }
+            ]
+        },
+        "强化：迅捷": {
+            "type": "skill",
+            "value": "6[10]",
+            "valueDelta": [
+                {
+                    "factor": "秘学士的闪雷剑",
+                    "dat": 8
+                },
+                {
+                    "factor": "学者",
+                    "dat": -2
+                }
+            ]
+        },
+        "法术：魔法盾": {
+            "type": "skill",
+            "value": "5[7]",
+            "valueDelta": [
+                {
+                    "factor": "绣金线的学者衣服",
+                    "dat": 1
+                },
+                {
+                    "factor": "绣金线的学者披风",
+                    "dat": 1
+                }
+            ]
+        },
+        "技巧：解除陷阱": {
+            "type": "skill",
+            "value": "5",
+            "valueDelta": []
+        },
+        "血脉：幸运": {
+            "type": "skill",
+            "value": "4[8]",
+            "valueDelta": [
+                {
+                    "factor": "圣诞小妖之鞋",
+                    "dat": 2
+                },
+                {
+                    "factor": "圣诞老人的神奇背包",
+                    "dat": 2
+                }
+            ]
+        },
+        "生活：大吃一顿": {
+            "type": "skill",
+            "value": "4",
+            "valueDelta": []
+        },
+        "血脉：无声行动": {
+            "type": "skill",
+            "value": "4",
+            "valueDelta": []
+        },
+        "行动：极速思维": {
+            "type": "skill",
+            "value": "4",
+            "valueDelta": []
+        },
+        "血脉：神秘学": {
+            "type": "skill",
+            "value": "3[5]",
+            "valueDelta": [
+                {
+                    "factor": "金丝龙纹袖章",
+                    "dat": 2
+                }
+            ]
+        },
+        "血脉：闪电反射": {
+            "type": "skill",
+            "value": "1",
+            "valueDelta": []
+        },
+        "血脉：行动敏捷": {
+            "type": "skill",
+            "value": "1",
+            "valueDelta": []
+        },
+        "血脉：第六感": {
+            "type": "skill",
+            "value": "1",
+            "valueDelta": []
+        },
+        "战斗：饮用法力药剂": {
+            "type": "skill",
+            "value": "1",
+            "valueDelta": []
+        },
+        "战斗：饮用治疗药剂": {
+            "type": "skill",
+            "value": "1",
+            "valueDelta": []
+        },
+        "基础：投石攻击": {
+            "type": "skill",
+            "value": "1",
+            "valueDelta": []
+        },
+        "生活：豪饮": {
+            "type": "skill",
+            "value": "1",
+            "valueDelta": []
+        },
+        "派生：预先饮用法力药剂": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "派生：预先饮用治疗药剂": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "强化：法力再生": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "基础：肉搏": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "基础：杖击": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "启发：智慧之语": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "血脉：抵抗闪电": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "战斗：抗魔": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "论证：逻辑论述": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "精神：钢铁意志": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "附魔：腐蚀": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "技巧：侦测陷阱": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "战斗：远程回避": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "法术：卷轴加持": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "法术：卷轴防护": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "战斗：近程闪避": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "战斗：护符强化": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "法术：传送法力": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "战斗：力量激活": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "法术：魔法防护": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "战斗：进阶护符强化": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "战技：精准投石": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "仪式：心灵护盾": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "论证：语言陷阱": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "法术：魔法标记": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "技艺：削制": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "战斗：护符削弱": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "战技：一石二鸟": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "行动：运筹帷幄": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "技巧：侦测埋伏": {
+            "type": "skill",
+            "value": "-",
+            "valueDelta": []
+        },
+        "战技：深红交错": {
+            "type": "skill",
+            "value": "14级后可学习",
+            "valueDelta": []
+        },
+        "血脉：最佳视野": {
+            "type": "skill",
+            "value": "15级后可学习",
+            "valueDelta": []
+        },
+        "精通：秘剑精通": {
+            "type": "skill",
+            "value": "15级后可学习",
+            "valueDelta": []
+        },
+        "启发：科学演讲": {
+            "type": "skill",
+            "value": "15级后可学习",
+            "valueDelta": []
+        },
+        "精通：书虫": {
+            "type": "skill",
+            "value": "16级后可学习",
+            "valueDelta": []
+        },
+        "法术：法力抽取": {
+            "type": "skill",
+            "value": "16级后可学习",
+            "valueDelta": []
+        },
+        "战技：回旋投石": {
+            "type": "skill",
+            "value": "16级后可学习",
+            "valueDelta": []
+        },
+        "启发：魔法学识": {
+            "type": "skill",
+            "value": "16级后可学习",
+            "valueDelta": []
+        },
+        "战斗：进阶护符削弱": {
+            "type": "skill",
+            "value": "17级后可学习",
+            "valueDelta": []
+        },
+        "强化：坚定不移": {
+            "type": "skill",
+            "value": "17级后可学习",
+            "valueDelta": []
+        },
+        "血脉：海洋之道": {
+            "type": "skill",
+            "value": "18级后可学习",
+            "valueDelta": []
+        },
+        "战技：富摩尔之石": {
+            "type": "skill",
+            "value": "18级后可学习",
+            "valueDelta": []
+        },
+        "强化：非凡魅力": {
+            "type": "skill",
+            "value": "18级后可学习",
+            "valueDelta": []
+        },
+        "派生：酸弹投掷": {
+            "type": "skill",
+            "value": "19级后可学习",
+            "valueDelta": []
+        },
+        "强化：智慧": {
+            "type": "skill",
+            "value": "19级后可学习",
+            "valueDelta": []
+        },
+        "生活：草药运用": {
+            "type": "skill",
+            "value": "20级后可学习",
+            "valueDelta": []
+        },
+        "生活：草药知识": {
+            "type": "skill",
+            "value": "21级后可学习",
+            "valueDelta": []
+        },
+        "强化：疾影": {
+            "type": "skill",
+            "value": "22级后可学习",
+            "valueDelta": []
+        },
+        "典型的玛格—莫精灵": {
+            "type": "skill",
+            "value": "22级后可学习",
+            "valueDelta": [
+                {
+                    "factor": "金丝龙纹袖章",
+                    "dat": 2
+                }
+            ]
+        },
+        "技艺：削制（大师级）": {
+            "type": "skill",
+            "value": "24级后可学习",
+            "valueDelta": []
+        },
+        "启迪：异数猜想": {
+            "type": "skill",
+            "value": "24级后可学习",
+            "valueDelta": []
+        },
+        "战技：凝神射击": {
+            "type": "skill",
+            "value": "26级后可学习",
+            "valueDelta": []
+        },
+        "派生：巨石投掷": {
+            "type": "skill",
+            "value": "27级后可学习",
+            "valueDelta": []
+        },
+        "远古智慧（防御）": {
+            "type": "skill",
+            "value": "28级后可学习",
+            "valueDelta": []
+        },
+        "远古智慧（被动）": {
+            "type": "skill",
+            "value": "28级后可学习",
+            "valueDelta": []
+        },
+        "远古智慧（攻击）": {
+            "type": "skill",
+            "value": "28级后可学习",
+            "valueDelta": []
+        },
+        "派生：赤红回响": {
+            "type": "skill",
+            "value": "28级后可学习",
+            "valueDelta": []
+        },
+        "远古召唤": {
+            "type": "skill",
+            "value": "30级后可学习",
+            "valueDelta": []
+        },
+        "圣歌舞台：闪耀星光": {
+            "type": "skill",
+            "value": "38级后可学习",
+            "valueDelta": []
+        }
+    },
+    [
+        [
+            {
+                "equipName": "优良敏捷火蜥蜴皮帽!",
+                "equipPos": "头",
+                "equipId": "179713518",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "力量",
+                        "rule": ">=",
+                        "threshold": 2
+                    },
+                    {
+                        "type": "attr",
+                        "name": "体质",
+                        "rule": ">=",
+                        "threshold": 2
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 6
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "敏捷",
+                        "type": "attr",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "equipName": "简易镶嵌紫水晶碎片的珍珠耳环",
+                "equipPos": "耳",
+                "equipId": "166888402",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 3
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "法力回复",
+                        "type": "attr",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "equipName": "赫沃克的烈焰面具!",
+                "equipPos": "眼镜",
+                "equipId": "176648912",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 2750
+                    },
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 6
+                    },
+                    {
+                        "type": "attr",
+                        "name": "意志",
+                        "rule": ">=",
+                        "threshold": 6
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 6
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "魅力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "智力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "法力",
+                        "type": "attr",
+                        "value": "-1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "equipName": "诚实奖章",
+                "equipPos": "颈",
+                "equipId": "170885097",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 4
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 750
+                    },
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 5
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "智力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "先攻权",
+                        "type": "attr",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "生活：阅读",
+                        "type": "skill",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "equipName": "绣金线的学者衣服",
+                "equipPos": "身体",
+                "equipId": "140672959",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 14
+                    },
+                    {
+                        "type": "attr",
+                        "name": "感知",
+                        "rule": ">=",
+                        "threshold": 10
+                    },
+                    {
+                        "type": "attr",
+                        "name": "魅力",
+                        "rule": ">=",
+                        "threshold": 12
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 12
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 8000
+                    },
+                    {
+                        "type": "skill",
+                        "name": "魔法触摸",
+                        "rule": ">=",
+                        "threshold": 12
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "灵巧",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "智力",
+                        "type": "attr",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "先攻权",
+                        "type": "attr",
+                        "value": "+2+10%×英雄等级"
+                    },
+                    {
+                        "name": "防御魔法类别的所有技能",
+                        "type": "skill",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "攻击法术类别的所有技能",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "教育类别的所有技能",
+                        "type": "skill",
+                        "value": "-2"
+                    },
+                    {
+                        "name": "天赋：秘语大师",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "秘术：秘剑学士",
+                        "type": "skill",
+                        "value": "+4"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "equipName": "符文剑手的腰带!",
+                "equipPos": "腰带",
+                "equipId": "174680931",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "体质",
+                        "rule": ">=",
+                        "threshold": 4
+                    },
+                    {
+                        "type": "attr",
+                        "name": "意志",
+                        "rule": ">=",
+                        "threshold": 4
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 10
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 1800
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "equipName": "绣金线的学者披风",
+                "equipPos": "披风",
+                "equipId": "140757427",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 12
+                    },
+                    {
+                        "type": "attr",
+                        "name": "感知",
+                        "rule": ">=",
+                        "threshold": 10
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 4000
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 12
+                    },
+                    {
+                        "type": "attr",
+                        "name": "魅力",
+                        "rule": ">=",
+                        "threshold": 12
+                    },
+                    {
+                        "type": "skill",
+                        "name": "魔法触摸",
+                        "rule": ">=",
+                        "threshold": 12
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "魅力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "智力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "先攻权",
+                        "type": "attr",
+                        "value": "+2+20%×英雄等级"
+                    },
+                    {
+                        "name": "体力",
+                        "type": "attr",
+                        "value": "-5%"
+                    },
+                    {
+                        "name": "防御魔法类别的所有技能",
+                        "type": "skill",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "攻击法术类别的所有技能",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "教育类别的所有技能",
+                        "type": "skill",
+                        "value": "-2"
+                    },
+                    {
+                        "name": "天赋：秘语大师",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "秘术：秘剑学士",
+                        "type": "skill",
+                        "value": "+4"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "equipName": "圣诞老人的神奇背包",
+                "equipPos": "肩膀",
+                "equipId": "175006380",
+                "req": [
+                    null
+                ],
+                "attrAdd": [
+                    {
+                        "name": "#口袋位",
+                        "type": "attr",
+                        "value": "+1+12%×英雄等级"
+                    },
+                    {
+                        "name": "血脉：幸运",
+                        "type": "skill",
+                        "value": "+2"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "equipName": "决斗剑手臂章!",
+                "equipPos": "臂",
+                "equipId": "179742543",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 3
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 1000
+                    },
+                    {
+                        "type": "attr",
+                        "name": "灵巧",
+                        "rule": ">=",
+                        "threshold": 7
+                    },
+                    {
+                        "type": "attr",
+                        "name": "敏捷",
+                        "rule": ">=",
+                        "threshold": 8
+                    },
+                    {
+                        "type": "skill",
+                        "name": "击剑",
+                        "rule": ">=",
+                        "threshold": 6
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "体力",
+                        "type": "attr",
+                        "value": "-5%"
+                    },
+                    {
+                        "name": "基础：击剑",
+                        "type": "skill",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "equipName": "优良强韧火蜥蜴皮手套",
+                "equipPos": "手",
+                "equipId": "153537803",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "力量",
+                        "rule": ">=",
+                        "threshold": 2
+                    },
+                    {
+                        "type": "attr",
+                        "name": "体质",
+                        "rule": ">=",
+                        "threshold": 2
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 6
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "体质",
+                        "type": "attr",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "equipName": "",
+                "equipPos": "双手"
+            },
+            {
+                "equipName": "秘学士的闪雷剑!",
+                "equipPos": "右手",
+                "equipId": "179085025",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 10
+                    },
+                    {
+                        "type": "attr",
+                        "name": "灵巧",
+                        "rule": ">=",
+                        "threshold": 8
+                    },
+                    {
+                        "type": "attr",
+                        "name": "感知",
+                        "rule": ">=",
+                        "threshold": 8
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 11
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 6000
+                    },
+                    {
+                        "type": "skill",
+                        "name": "击剑",
+                        "rule": ">=",
+                        "threshold": 8
+                    },
+                    {
+                        "type": "skill",
+                        "name": "交击斩",
+                        "rule": ">=",
+                        "threshold": 15
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "灵巧",
+                        "type": "attr",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "智力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "法力回复",
+                        "type": "attr",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "先攻权",
+                        "type": "attr",
+                        "value": "+3"
+                    },
+                    {
+                        "name": "攻击法术类别的所有技能",
+                        "type": "skill",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "教育类别的所有技能",
+                        "type": "skill",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "强化：迅捷",
+                        "type": "skill",
+                        "value": "+8"
+                    },
+                    {
+                        "name": "战技：交击斩",
+                        "type": "skill",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "秘术：秘剑学士",
+                        "type": "skill",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "equipName": "强化闪光骨杖",
+                "equipPos": "左手",
+                "equipId": "150958047",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "感知",
+                        "rule": ">=",
+                        "threshold": 9
+                    },
+                    {
+                        "type": "attr",
+                        "name": "意志",
+                        "rule": ">=",
+                        "threshold": 9
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 11
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 10000
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "灵巧",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "智力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "法力",
+                        "type": "attr",
+                        "value": "+5%"
+                    },
+                    {
+                        "name": "感知",
+                        "type": "attr",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "equipName": "感知火蜥蜴皮护腿",
+                "equipPos": "腿",
+                "equipId": "180576890",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "力量",
+                        "rule": ">=",
+                        "threshold": 2
+                    },
+                    {
+                        "type": "attr",
+                        "name": "体质",
+                        "rule": ">=",
+                        "threshold": 2
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 5
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "感知",
+                        "type": "attr",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "equipName": "装饰的神庙拖鞋!",
+                "equipPos": "脚",
+                "equipId": "178743391",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "魅力",
+                        "rule": ">=",
+                        "threshold": 8
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 9
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "魅力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "法力回复",
+                        "type": "attr",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "法力",
+                        "type": "attr",
+                        "value": "+3"
+                    },
+                    {
+                        "name": "行动：圣恩",
+                        "type": "skill",
+                        "value": "+3"
+                    }
+                ],
+                "skillAdd": []
+            }
+        ],
+        [
+            {
+                "medalName": "大三叶草勋章",
+                "medalPos": "勋章 #1",
+                "equipId": "174318242",
+                "req": [
+                    null
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "medalName": "大别针彩带勋章",
+                "medalPos": "勋章 #2",
+                "equipId": "179724998",
+                "req": [
+                    null
+                ],
+                "attrAdd": [
+                    {
+                        "name": "法力",
+                        "type": "attr",
+                        "value": "+9"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "medalName": "大胜利勋章",
+                "medalPos": "勋章 #3",
+                "equipId": "176779630",
+                "req": [
+                    null
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "medalName": "水晶如意兔",
+                "medalPos": "勋章 #4",
+                "equipId": "170346400",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 5
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "联盟荣誉",
+                        "type": "attr",
+                        "value": "+500"
+                    },
+                    {
+                        "name": "荣誉",
+                        "type": "attr",
+                        "value": "+500"
+                    },
+                    {
+                        "name": "#勋章位",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "血脉：强健体魄",
+                        "type": "skill",
+                        "value": "+5%×英雄等级"
+                    },
+                    {
+                        "name": "血脉：神秘学",
+                        "type": "skill",
+                        "value": "+5%×英雄等级"
+                    },
+                    {
+                        "name": "生活：豪饮",
+                        "type": "skill",
+                        "value": "+5%×英雄等级"
+                    },
+                    {
+                        "name": "生活：大吃一顿",
+                        "type": "skill",
+                        "value": "+5%×英雄等级"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "medalName": "泽瑞希尔战斗学院的毕业奖章",
+                "medalPos": "勋章 #5",
+                "equipId": "172410803",
+                "req": [
+                    null
+                ],
+                "attrAdd": [
+                    {
+                        "name": "荣誉",
+                        "type": "attr",
+                        "value": "+100"
+                    },
+                    {
+                        "name": "#勋章位",
+                        "type": "attr",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "medalName": "金丝龙纹袖章",
+                "medalPos": "勋章 #6",
+                "equipId": "179252823",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 5
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "联盟荣誉",
+                        "type": "attr",
+                        "value": "+500"
+                    },
+                    {
+                        "name": "荣誉",
+                        "type": "attr",
+                        "value": "+500"
+                    },
+                    {
+                        "name": "#勋章位",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "血脉：强健体魄",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "血脉：神秘学",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "典型的高山矮人！",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "典型的丁图安蛮族！",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "典型的侏儒！",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "典型的边塞人！",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "典型的半身人！",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "典型的丘陵矮人！",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "典型的玛格—莫精灵",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "典型的提伦-埃精灵！",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "典型的林地人！",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "典型的拉沙尼人！",
+                        "type": "skill",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "典型的卡拉希人！",
+                        "type": "skill",
+                        "value": "+2"
+                    }
+                ],
+                "skillAdd": []
+            }
+        ],
+        [
+            {
+                "bucketName": "一块鞣制过的皮革",
+                "bucketPos": "口袋 #1",
+                "equipId": "152433571",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 4
+                    },
+                    {
+                        "type": "attr",
+                        "name": "意志",
+                        "rule": ">=",
+                        "threshold": 4
+                    },
+                    {
+                        "type": "skill",
+                        "name": "魔法盾",
+                        "rule": ">=",
+                        "threshold": 5
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "一小瓶水 (3/12)",
+                "bucketPos": "口袋 #2",
+                "equipId": "170761091",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "灵巧",
+                        "rule": ">=",
+                        "threshold": 2
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "写着矮人符文的纸条",
+                "bucketPos": "口袋 #3",
+                "equipId": "150906210",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 3
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 3
+                    },
+                    {
+                        "type": "skill",
+                        "name": "阅读",
+                        "rule": ">=",
+                        "threshold": 4
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "生活：阅读",
+                        "type": "skill",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "华丽的书卷：历法魔法!",
+                "bucketPos": "口袋 #4",
+                "equipId": "151376198",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 5
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 12
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 6500
+                    },
+                    {
+                        "type": "skill",
+                        "name": "阅读",
+                        "rule": ">=",
+                        "threshold": 9
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "卡洛斯反抗军印记!",
+                "bucketPos": "口袋 #5",
+                "equipId": "179618176",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 5000
+                    },
+                    {
+                        "type": "attr",
+                        "name": "灵巧",
+                        "rule": ">=",
+                        "threshold": 4
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "荣誉",
+                        "type": "attr",
+                        "value": "-500"
+                    },
+                    {
+                        "name": "#口袋位",
+                        "type": "attr",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "哈戎的火焰卷轴!",
+                "bucketPos": "口袋 #6",
+                "equipId": "178027027",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 12
+                    },
+                    {
+                        "type": "attr",
+                        "name": "魅力",
+                        "rule": ">=",
+                        "threshold": 6
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 8
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 4400
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "体力回复",
+                        "type": "attr",
+                        "value": "-2-25%×技能等级"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "圣诞小妖之鞋!",
+                "bucketPos": "口袋 #7",
+                "equipId": "175463999",
+                "req": [
+                    null
+                ],
+                "attrAdd": [
+                    {
+                        "name": "魅力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "法力",
+                        "type": "attr",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "感知",
+                        "type": "attr",
+                        "value": "-1"
+                    },
+                    {
+                        "name": "血脉：幸运",
+                        "type": "skill",
+                        "value": "+2"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "新人冒险家徽章!",
+                "bucketPos": "口袋 #8",
+                "equipId": "169450972",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 4
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "体力回复",
+                        "type": "attr",
+                        "value": "+3"
+                    },
+                    {
+                        "name": "法力回复",
+                        "type": "attr",
+                        "value": "+3"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "湖蓝的小纸条",
+                "bucketPos": "口袋 #9",
+                "equipId": "148891781",
+                "req": [
+                    null
+                ],
+                "attrAdd": [
+                    {
+                        "name": "法力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "#口袋位",
+                        "type": "attr",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "火腿三明治 (2/3)",
+                "bucketPos": "口袋 #10",
+                "equipId": "177438941",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "灵巧",
+                        "rule": ">=",
+                        "threshold": 4
+                    },
+                    {
+                        "type": "attr",
+                        "name": "魅力",
+                        "rule": ">=",
+                        "threshold": 4
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 3
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "芳香精油 (6/15)",
+                "bucketPos": "口袋 #11",
+                "equipId": "179888813",
+                "req": [
+                    {
+                        "type": "skill",
+                        "name": "冥想",
+                        "rule": ">=",
+                        "threshold": 8
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "被魔法修改的招聘告示!",
+                "bucketPos": "口袋 #12",
+                "equipId": "176770666",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 7
+                    },
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 7
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "#口袋位",
+                        "type": "attr",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "霜冻吐息卷轴 (4/25)",
+                "bucketPos": "口袋 #13",
+                "equipId": "178010262",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "感知",
+                        "rule": ">=",
+                        "threshold": 3
+                    },
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 2
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "风化的书卷：平民攻击指南",
+                "bucketPos": "口袋 #14",
+                "equipId": "139203249",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 3
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 9
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 4000
+                    },
+                    {
+                        "type": "skill",
+                        "name": "阅读",
+                        "rule": ">=",
+                        "threshold": 2
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "风化的书卷：意志力优势",
+                "bucketPos": "口袋 #15",
+                "equipId": "142198932",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 5
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 9
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 4000
+                    },
+                    {
+                        "type": "skill",
+                        "name": "阅读",
+                        "rule": ">=",
+                        "threshold": 5
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "风化的书卷：新手躲避",
+                "bucketPos": "口袋 #16",
+                "equipId": "139323511",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 3
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 9
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 4000
+                    },
+                    {
+                        "type": "skill",
+                        "name": "阅读",
+                        "rule": ">=",
+                        "threshold": 3
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "风化的书卷：法力之风",
+                "bucketPos": "口袋 #17",
+                "equipId": "172161003",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 5
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 9
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 4000
+                    },
+                    {
+                        "type": "skill",
+                        "name": "阅读",
+                        "rule": ">=",
+                        "threshold": 6
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "风化的书卷：高级闪避技巧",
+                "bucketPos": "口袋 #18",
+                "equipId": "160074207",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 2
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 9
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 4000
+                    },
+                    {
+                        "type": "skill",
+                        "name": "阅读",
+                        "rule": ">=",
+                        "threshold": 1
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "黑色蛇纹玉!",
+                "bucketPos": "口袋 #19",
+                "equipId": "178112485",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 8
+                    },
+                    {
+                        "type": "attr",
+                        "name": "魅力",
+                        "rule": ">=",
+                        "threshold": 5
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "#口袋位",
+                        "type": "attr",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "",
+                "bucketPos": "口袋 #20",
+                "equipId": "",
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "",
+                "bucketPos": "口袋 #21",
+                "equipId": "",
+                "attrAdd": [],
+                "skillAdd": []
+            }
+        ],
+        [
+            {
+                "ringName": "冬末",
+                "ringPos": "戒指 #1",
+                "equipId": "132066470",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 8
+                    },
+                    {
+                        "type": "attr",
+                        "name": "体质",
+                        "rule": ">=",
+                        "threshold": 8
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 10
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 5000
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "魅力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "智力",
+                        "type": "attr",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "体质",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "先攻权",
+                        "type": "attr",
+                        "value": "-5+20%×英雄等级"
+                    },
+                    {
+                        "name": "感知",
+                        "type": "attr",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "ringName": "夏语",
+                "ringPos": "戒指 #2",
+                "equipId": "134783392",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "感知",
+                        "rule": ">=",
+                        "threshold": 10
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 10
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 5000
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "魅力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "智力",
+                        "type": "attr",
+                        "value": "+1"
+                    },
+                    {
+                        "name": "先攻权",
+                        "type": "attr",
+                        "value": "+20%×英雄等级"
+                    },
+                    {
+                        "name": "感知",
+                        "type": "attr",
+                        "value": "+2"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "ringName": "帕沙雷体质之戒!",
+                "ringPos": "戒指 #3",
+                "equipId": "168636328",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 3
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "体质",
+                        "type": "attr",
+                        "value": "+1+10%×英雄等级"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "ringName": "春雷",
+                "ringPos": "戒指 #4",
+                "equipId": "141482258",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "魅力",
+                        "rule": ">=",
+                        "threshold": 11
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 12
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 7000
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "魅力",
+                        "type": "attr",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "智力",
+                        "type": "attr",
+                        "value": "+2"
+                    },
+                    {
+                        "name": "先攻权",
+                        "type": "attr",
+                        "value": "+25%×英雄等级"
+                    },
+                    {
+                        "name": "感知",
+                        "type": "attr",
+                        "value": "+1"
+                    }
+                ],
+                "skillAdd": []
+            }
+        ]
+    ]
+]

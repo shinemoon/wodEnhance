@@ -27,7 +27,10 @@ if (gearSwtich) {
                     }
                 }
                 Promise.all(equipQueryList).then((dat) => {
-                    console.log(datInfo);
+                    chrome.runtime.sendMessage({ action: 'equipSimulatorPage', data: datInfo}, response => {
+                        //            console.log(response);
+                    });
+
                     $('.blockEmulator').removeClass('disabled');
                     $('.blockEmulator').attr('value', '模拟');
                 });

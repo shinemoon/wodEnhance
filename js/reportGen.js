@@ -34,6 +34,10 @@ function genPage(dat) {
     if (dat.action == 'tradeMsgPage') {
         genTradePage(dat.data);
     }
+    if (dat.action == 'equipSimulatorPage') {
+        genEquipSimulator(dat.data);
+    }
+
 
 }
 
