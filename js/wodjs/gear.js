@@ -10,6 +10,7 @@ if (gearSwtich) {
         $('.blockEmulator').attr('value', '数据生成中');
         Promise.all([loadLocalHeroAttributes(), loadHeroSkills(), loadHeroGear()])
             .then((dat) => {
+                const datInfo = dat;
                 // 遍历
                 eList = dat[2];
                 //Equip
@@ -26,7 +27,7 @@ if (gearSwtich) {
                     }
                 }
                 Promise.all(equipQueryList).then((dat) => {
-                    console.log(eList);
+                    console.log(datInfo);
                     $('.blockEmulator').removeClass('disabled');
                     $('.blockEmulator').attr('value', '模拟');
                 });

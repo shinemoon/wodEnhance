@@ -40,12 +40,53 @@ function parseHeroSkills(data) {
             const cells = $(this).find('>td ');
             const skillName = cells.eq(1).text().trim();
             const valueCell = cells.eq(2).text().replace(/[\t\n ]/g, '').trim();
-            return { skillName, valueCell };
+
+            var deltaStr = cells.eq(1)
+                .first()
+                .find('>a')
+                .first()
+                .attr('onmouseover');
+
+            const skillDelta = splitStringIntoArray(extractHTMLFromScript(deltaStr));
+            function extractHTMLFromScript(scriptContent) {
+                // Use a regular expression to extract the HTML content
+                var match = /return wodToolTip\(this,\'(.*?)\'\);/.exec(scriptContent);
+
+                if (match && match[1]) {
+                    var tmp = $(match[1]).html();
+                    return tmp;
+                } else {
+                    return null; // No match found
+                }
+            }
+
+
+            function splitStringIntoArray(inputString) {
+                if (inputString == null) return [];
+                // Split the input string into an array based on "<br>"
+                var items = inputString.split('<br>');
+
+                // Create an array of objects with the specified structure
+                var resultArray = items.map(function (item) {
+                    var match = /([^<]+)\s\(([-+]?\d+)\)/.exec(item);
+                    if (match && match[1] && match[2]) {
+                        return { factor: match[1].trim(), dat: parseInt(match[2]) };
+                    } else {
+                        return null;
+                    }
+                }).filter(Boolean); // Filter out null values
+
+                return resultArray;
+            }
+
+
+
+            return { skillName, valueCell, skillDelta };
         })
         .toArray();
     const retVal = {};
     rawRows.forEach(function (x) {
-        retVal[x.skillName] = x.valueCell;
+        retVal[x.skillName] = {type:'skill', value:x.valueCell, valueDelta: x.skillDelta};
     });
     return retVal;
 }
