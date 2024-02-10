@@ -1,4 +1,7 @@
 var eList = null;
+var attList = null;
+var skillList = null;
+
 function genEquipSimulator(dat) {
     console.log('//To Start create the fancy table!!');
     var datInfo = dat;
@@ -9,6 +12,8 @@ function genEquipSimulator(dat) {
 
 
     eList = dat[2];
+    attList = dat[0][0];
+    skillList = dat[1];
 
     function getFirstKeyEndingWithName(obj) {
         for (const key in obj) {
@@ -23,7 +28,28 @@ function genEquipSimulator(dat) {
         if (objArray === undefined) return "";
         return objArray.map(item => {
             if (item == null) return "";
-            return "<div>" + item.name + item.rule + item.threshold + "</div>";
+            //ToDO: judge risk level here!!
+            // ==: red
+            // +1-+2: yellow
+            // >2: green
+            // And add current actual value behind
+            let gap =0;
+            let risk ='normal';
+            let realNumber = 0;
+
+            if (attList.hasOwnProperty(item.name)) {
+                let inputString = String(attList[item.name].value);
+                realNumber = (inputString.match(/\[(\d+)\]/) || [])[1] || parseInt(inputString, 10) || 0;
+            } else if (skillList.hasOwnProperty(item.name)) {
+                let inputString = String(skillList[item.name].value);
+                realNumber = (inputString.match(/\[(\d+)\]/) || [])[1] || parseInt(inputString, 10) || 0;
+            } else
+                return "<div>" + item.name + item.rule + item.threshold + "</div>";
+
+            gap = parseInt(realNumber - item.threshold);
+            risk = (gap == 0) ? 'high' : (gap <= 2) ? 'medium' : 'low';
+            return "<div class='" + risk + "'>" + item.name + item.rule + item.threshold + " (" + realNumber + ")</div>";
+
         }).join("");
     }
 
@@ -61,16 +87,6 @@ function genEquipSimulator(dat) {
             }
         })
     });
-
-    $('td.name').hover(function () {
-        if ($(this).hasClass('selected')) return;
-        //mouseover
-        $(this).css('background-color', '#e0e0e0');
-    }, function () {
-        if ($(this).hasClass('selected')) return;
-        //mouseout
-        $(this).css('background-color', '#f0f0f0');
-    })
 
 
     $('td.name').click(function () {

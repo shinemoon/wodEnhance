@@ -265,7 +265,7 @@ h3 {
 .equipEmulator {
     tr {
         &.fade {
-            color:#ccc;
+            opacity:0.3;
         }
         td {
             vertical-align: top;
@@ -275,10 +275,27 @@ h3 {
 
             &.name {
                 background-color: #f0f0f0;
+                &:not(.selected) {
+                    &:hover{
+                    background-color: #e0e0e0;
+                    }
+                }
 
                 &.selected {
                     background-color: #5f5d5d!important;
                     color: white;
+                }
+            }
+
+            div {
+                &.high {
+                    color:red;
+                }
+                &.medium {
+                    color: darkorange;
+                }
+                &.low {
+                    color:#3498db;
                 }
             }
         }

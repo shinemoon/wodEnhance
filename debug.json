@@ -1056,7 +1056,7 @@
                     },
                     {
                         "type": "skill",
-                        "name": "魔法触摸",
+                        "name": "法术：魔法触摸",
                         "rule": ">=",
                         "threshold": 12
                     }
@@ -1175,7 +1175,7 @@
                     },
                     {
                         "type": "skill",
-                        "name": "魔法触摸",
+                        "name": "法术：魔法触摸",
                         "rule": ">=",
                         "threshold": 12
                     }
@@ -1281,7 +1281,7 @@
                     },
                     {
                         "type": "skill",
-                        "name": "击剑",
+                        "name": "基础：击剑",
                         "rule": ">=",
                         "threshold": 6
                     }
@@ -1374,13 +1374,13 @@
                     },
                     {
                         "type": "skill",
-                        "name": "击剑",
+                        "name": "基础：击剑",
                         "rule": ">=",
                         "threshold": 8
                     },
                     {
                         "type": "skill",
-                        "name": "交击斩",
+                        "name": "战技：交击斩",
                         "rule": ">=",
                         "threshold": 15
                     }
@@ -1790,7 +1790,7 @@
                     },
                     {
                         "type": "skill",
-                        "name": "魔法盾",
+                        "name": "法术：魔法盾",
                         "rule": ">=",
                         "threshold": 5
                     }
@@ -1799,7 +1799,7 @@
                 "skillAdd": []
             },
             {
-                "bucketName": "一小瓶水 (3/12)",
+                "bucketName": "一小瓶水 (1/12)",
                 "bucketPos": "口袋 #2",
                 "equipId": "170761091",
                 "req": [
@@ -1832,7 +1832,7 @@
                     },
                     {
                         "type": "skill",
-                        "name": "阅读",
+                        "name": "生活：阅读",
                         "rule": ">=",
                         "threshold": 4
                     }
@@ -1871,7 +1871,7 @@
                     },
                     {
                         "type": "skill",
-                        "name": "阅读",
+                        "name": "生活：阅读",
                         "rule": ">=",
                         "threshold": 9
                     }
@@ -1982,8 +1982,57 @@
                 "skillAdd": []
             },
             {
-                "bucketName": "新人冒险家徽章!",
+                "bucketName": "常夏突刺卷轴",
                 "bucketPos": "口袋 #8",
+                "equipId": "130155065",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 12
+                    },
+                    {
+                        "type": "attr",
+                        "name": "魅力",
+                        "rule": ">=",
+                        "threshold": 7
+                    },
+                    {
+                        "type": "attr",
+                        "name": "等级",
+                        "rule": ">=",
+                        "threshold": 10
+                    },
+                    {
+                        "type": "attr",
+                        "name": "荣誉",
+                        "rule": ">=",
+                        "threshold": 3000
+                    }
+                ],
+                "attrAdd": [
+                    {
+                        "name": "力量",
+                        "type": "attr",
+                        "value": "-34%×技能等级"
+                    },
+                    {
+                        "name": "体力回复",
+                        "type": "attr",
+                        "value": "-50%×技能等级"
+                    },
+                    {
+                        "name": "感知",
+                        "type": "attr",
+                        "value": "-34%×技能等级"
+                    }
+                ],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "新人冒险家徽章!",
+                "bucketPos": "口袋 #9",
                 "equipId": "169450972",
                 "req": [
                     {
@@ -2009,7 +2058,7 @@
             },
             {
                 "bucketName": "湖蓝的小纸条",
-                "bucketPos": "口袋 #9",
+                "bucketPos": "口袋 #10",
                 "equipId": "148891781",
                 "req": [
                     null
@@ -2029,8 +2078,50 @@
                 "skillAdd": []
             },
             {
-                "bucketName": "火腿三明治 (2/3)",
-                "bucketPos": "口袋 #10",
+                "bucketName": "火焰喷射卷轴 (1/25)",
+                "bucketPos": "口袋 #11",
+                "equipId": "152442198",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "感知",
+                        "rule": ">=",
+                        "threshold": 2
+                    },
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 2
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "火焰喷射卷轴 (9/25)",
+                "bucketPos": "口袋 #12",
+                "equipId": "158585973",
+                "req": [
+                    {
+                        "type": "attr",
+                        "name": "感知",
+                        "rule": ">=",
+                        "threshold": 2
+                    },
+                    {
+                        "type": "attr",
+                        "name": "智力",
+                        "rule": ">=",
+                        "threshold": 2
+                    }
+                ],
+                "attrAdd": [],
+                "skillAdd": []
+            },
+            {
+                "bucketName": "火腿三明治 (1/3)",
+                "bucketPos": "口袋 #13",
                 "equipId": "177438941",
                 "req": [
                     {
@@ -2056,13 +2147,13 @@
                 "skillAdd": []
             },
             {
-                "bucketName": "芳香精油 (6/15)",
-                "bucketPos": "口袋 #11",
+                "bucketName": "芳香精油 (2/15)",
+                "bucketPos": "口袋 #14",
                 "equipId": "179888813",
                 "req": [
                     {
                         "type": "skill",
-                        "name": "冥想",
+                        "name": "仪式：冥想",
                         "rule": ">=",
                         "threshold": 8
                     }
@@ -2072,7 +2163,7 @@
             },
             {
                 "bucketName": "被魔法修改的招聘告示!",
-                "bucketPos": "口袋 #12",
+                "bucketPos": "口袋 #15",
                 "equipId": "176770666",
                 "req": [
                     {
@@ -2098,29 +2189,8 @@
                 "skillAdd": []
             },
             {
-                "bucketName": "霜冻吐息卷轴 (4/25)",
-                "bucketPos": "口袋 #13",
-                "equipId": "178010262",
-                "req": [
-                    {
-                        "type": "attr",
-                        "name": "感知",
-                        "rule": ">=",
-                        "threshold": 3
-                    },
-                    {
-                        "type": "attr",
-                        "name": "智力",
-                        "rule": ">=",
-                        "threshold": 2
-                    }
-                ],
-                "attrAdd": [],
-                "skillAdd": []
-            },
-            {
                 "bucketName": "风化的书卷：平民攻击指南",
-                "bucketPos": "口袋 #14",
+                "bucketPos": "口袋 #16",
                 "equipId": "139203249",
                 "req": [
                     {
@@ -2143,7 +2213,7 @@
                     },
                     {
                         "type": "skill",
-                        "name": "阅读",
+                        "name": "生活：阅读",
                         "rule": ">=",
                         "threshold": 2
                     }
@@ -2153,7 +2223,7 @@
             },
             {
                 "bucketName": "风化的书卷：意志力优势",
-                "bucketPos": "口袋 #15",
+                "bucketPos": "口袋 #17",
                 "equipId": "142198932",
                 "req": [
                     {
@@ -2176,7 +2246,7 @@
                     },
                     {
                         "type": "skill",
-                        "name": "阅读",
+                        "name": "生活：阅读",
                         "rule": ">=",
                         "threshold": 5
                     }
@@ -2186,7 +2256,7 @@
             },
             {
                 "bucketName": "风化的书卷：新手躲避",
-                "bucketPos": "口袋 #16",
+                "bucketPos": "口袋 #18",
                 "equipId": "139323511",
                 "req": [
                     {
@@ -2209,7 +2279,7 @@
                     },
                     {
                         "type": "skill",
-                        "name": "阅读",
+                        "name": "生活：阅读",
                         "rule": ">=",
                         "threshold": 3
                     }
@@ -2219,7 +2289,7 @@
             },
             {
                 "bucketName": "风化的书卷：法力之风",
-                "bucketPos": "口袋 #17",
+                "bucketPos": "口袋 #19",
                 "equipId": "172161003",
                 "req": [
                     {
@@ -2242,7 +2312,7 @@
                     },
                     {
                         "type": "skill",
-                        "name": "阅读",
+                        "name": "生活：阅读",
                         "rule": ">=",
                         "threshold": 6
                     }
@@ -2252,7 +2322,7 @@
             },
             {
                 "bucketName": "风化的书卷：高级闪避技巧",
-                "bucketPos": "口袋 #18",
+                "bucketPos": "口袋 #20",
                 "equipId": "160074207",
                 "req": [
                     {
@@ -2275,7 +2345,7 @@
                     },
                     {
                         "type": "skill",
-                        "name": "阅读",
+                        "name": "生活：阅读",
                         "rule": ">=",
                         "threshold": 1
                     }
@@ -2285,7 +2355,7 @@
             },
             {
                 "bucketName": "黑色蛇纹玉!",
-                "bucketPos": "口袋 #19",
+                "bucketPos": "口袋 #21",
                 "equipId": "178112485",
                 "req": [
                     {
@@ -2308,20 +2378,6 @@
                         "value": "+1"
                     }
                 ],
-                "skillAdd": []
-            },
-            {
-                "bucketName": "",
-                "bucketPos": "口袋 #20",
-                "equipId": "",
-                "attrAdd": [],
-                "skillAdd": []
-            },
-            {
-                "bucketName": "",
-                "bucketPos": "口袋 #21",
-                "equipId": "",
-                "attrAdd": [],
                 "skillAdd": []
             }
         ],

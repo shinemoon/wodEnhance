@@ -77,7 +77,7 @@ if (gearSwtich) {
             //Remove tag
             inputString = inputString.replace(/<[^>]*>/g, '');
             // Extract the name, rule, and threshold from the string
-            const match = inputString.match(/([\u4e00-\u9fa5]+)(至少为|最高到)(\d+)/);
+            const match = inputString.match(/(.+)(至少为|最高到)(\d+)/);
 
             if (match) {
                 const [, name, rule, threshold] = match;

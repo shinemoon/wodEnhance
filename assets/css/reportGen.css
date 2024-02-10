@@ -237,7 +237,7 @@ h3 {
   font-size: 11px !important;
 }
 .equipEmulator tr.fade {
-  color: #ccc;
+  opacity: 0.3;
 }
 .equipEmulator tr td {
   vertical-align: top;
@@ -248,7 +248,19 @@ h3 {
 .equipEmulator tr td.name {
   background-color: #f0f0f0;
 }
+.equipEmulator tr td.name:not(.selected):hover {
+  background-color: #e0e0e0;
+}
 .equipEmulator tr td.name.selected {
   background-color: #5f5d5d !important;
   color: white;
+}
+.equipEmulator tr td div.high {
+  color: red;
+}
+.equipEmulator tr td div.medium {
+  color: darkorange;
+}
+.equipEmulator tr td div.low {
+  color: #3498db;
 }/*# sourceMappingURL=reportGen.css.map */
