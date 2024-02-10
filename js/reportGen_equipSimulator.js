@@ -15,6 +15,12 @@ function genEquipSimulator(dat) {
     attList = dat[0][0];
     skillList = dat[1];
 
+    //ToDo
+    // Build the network! 
+    // Find the req att/skill => to read the 'contributors' from each att/skill => build the impacted batch by that info!
+    // But pls remember , we just need one 'being impacted by' list for each equipment in first round, and 
+    // after this net work done, to backward scan and create 'being impacing to ' list again for every eList item
+
     function getFirstKeyEndingWithName(obj) {
         for (const key in obj) {
             if (obj.hasOwnProperty(key) && key.endsWith('Name')) {
@@ -28,7 +34,7 @@ function genEquipSimulator(dat) {
         if (objArray === undefined) return "";
         return objArray.map(item => {
             if (item == null) return "";
-            //ToDO: judge risk level here!!
+            //Done: judge risk level here!!
             // ==: red
             // +1-+2: yellow
             // >2: green
