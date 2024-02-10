@@ -223,4 +223,32 @@ h3 {
 #inventory a {
   text-decoration: none !important;
   color: cadetblue !important;
+}
+
+#tableMatrix {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  /* align-content: center; */
+  justify-content: flex-start;
+}
+
+.equipEmulator {
+  font-size: 11px !important;
+}
+.equipEmulator tr.fade {
+  color: #ccc;
+}
+.equipEmulator tr td {
+  vertical-align: top;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 0.3px dotted #aaa;
+}
+.equipEmulator tr td.name {
+  background-color: #f0f0f0;
+}
+.equipEmulator tr td.name.selected {
+  background-color: #5f5d5d !important;
+  color: white;
 }/*# sourceMappingURL=reportGen.css.map */

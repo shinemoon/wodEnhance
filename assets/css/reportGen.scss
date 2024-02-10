@@ -1,5 +1,6 @@
 #reportPage {
-    background: #eeeeeeaa;;
+    background: #eeeeeeaa;
+    ;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -116,7 +117,7 @@ h3 {
     background: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    z-index:999;
+    z-index: 999;
 }
 
 /* Styles for the popup */
@@ -169,23 +170,24 @@ h3 {
 }
 
 #charCard {
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     border: 1px solid black;
 
-    td.label{
+    td.label {
         font-weight: bold;
     }
+
     td.header {
         color: #333;
         font-weight: bold;
-        background:#aaa;
+        background: #aaa;
     }
 
     div {
         color: #333;
         font-weight: bold;
-        background:#aaa;
+        background: #aaa;
     }
 
     .row2 table {
@@ -199,7 +201,7 @@ h3 {
 
                 a {
                     text-decoration: none;
-                    color:#3498db;
+                    color: #3498db;
                 }
             }
         }
@@ -213,15 +215,16 @@ h3 {
         td.header {
             color: #fff;
         }
-    td.header {
-        font-weight: bold;
-        background:#555;
-    }
+
+        td.header {
+            font-weight: bold;
+            background: #555;
+        }
 
 
         div {
             color: #fff;
-            background:#555;
+            background: #555;
         }
 
 
@@ -246,7 +249,40 @@ h3 {
 
 #inventory {
     a {
-        text-decoration:none!important; 
-        color:cadetblue!important;
+        text-decoration: none !important;
+        color: cadetblue !important;
     }
+}
+
+#tableMatrix {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    /* align-content: center; */
+    justify-content: flex-start;
+}
+
+.equipEmulator {
+    tr {
+        &.fade {
+            color:#ccc;
+        }
+        td {
+            vertical-align: top;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-bottom: 0.3px dotted #aaa;
+
+            &.name {
+                background-color: #f0f0f0;
+
+                &.selected {
+                    background-color: #5f5d5d!important;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    font-size:11px !important;
 }
