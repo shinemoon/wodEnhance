@@ -272,17 +272,56 @@ h3 {
 
         &.impactedBy {
             td.name {
-                background-color: rgba(170, 214, 255, 0.7);
+                opacity: 1;
+                //                background-color: rgba(170, 214, 255, 0.7);
             }
+
             td:nth-child(2) {
-                opacity:0.3;
-                background-color: rgba(170, 214, 255, 0.5);
+                opacity: 0.3;
+                background-color: rgba(170, 214, 255, 0.0);
             }
-            td:nth-child(3){
-                background-color: rgba(170, 214, 255, 0.3);
+
+            td:nth-child(3) {
+                opacity: 1;
+                background-color: rgba(170, 214, 255, 0.5);
             }
 
         }
+
+        &.impacting {
+            td.name {
+                opacity: 1;
+                //               background-color: rgba(255, 232, 170, 0.7);
+            }
+
+            td:nth-child(3) {
+                opacity: 0.3;
+                background-color: rgba(255, 232, 170, 0.0);
+            }
+
+            td:nth-child(2) {
+                opacity: 1;
+                background-color: rgba(255, 232, 170, 0.5);
+            }
+        }
+
+        &.impacting.impactedBy {
+            td.name {
+                opacity: 1;
+                //              background-color: rgba(255, 170, 170, 0.5);
+            }
+
+            td:nth-child(3) {
+                opacity: 1;
+                background-color: rgba(255, 170, 170, 0.3);
+            }
+
+            td:nth-child(2) {
+                opacity: 1;
+                background-color: rgba(255, 170, 170, 0.3);
+            }
+        }
+
 
         td {
             vertical-align: top;
@@ -322,4 +361,33 @@ h3 {
     }
 
     font-size:11px !important;
+}
+
+table#legend {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    tr {
+        td {
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size:11px;
+        }
+
+        &.high-risk {
+            background-color: rgba(255, 170, 170, 0.5);
+        }
+
+        &.medium-risk {
+            background-color: rgba(255, 232, 170, 0.5);
+        }
+
+        &.low-risk {
+            background-color: rgba(170, 214, 255, 0.5);
+        }
+
+    }
 }

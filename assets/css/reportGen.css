@@ -240,14 +240,37 @@ h3 {
   opacity: 0.3;
 }
 .equipEmulator tr.impactedBy td.name {
-  background-color: rgba(170, 214, 255, 0.7);
+  opacity: 1;
 }
 .equipEmulator tr.impactedBy td:nth-child(2) {
   opacity: 0.3;
-  background-color: rgba(170, 214, 255, 0.5);
+  background-color: rgba(170, 214, 255, 0);
 }
 .equipEmulator tr.impactedBy td:nth-child(3) {
-  background-color: rgba(170, 214, 255, 0.3);
+  opacity: 1;
+  background-color: rgba(170, 214, 255, 0.5);
+}
+.equipEmulator tr.impacting td.name {
+  opacity: 1;
+}
+.equipEmulator tr.impacting td:nth-child(3) {
+  opacity: 0.3;
+  background-color: rgba(255, 232, 170, 0);
+}
+.equipEmulator tr.impacting td:nth-child(2) {
+  opacity: 1;
+  background-color: rgba(255, 232, 170, 0.5);
+}
+.equipEmulator tr.impacting.impactedBy td.name {
+  opacity: 1;
+}
+.equipEmulator tr.impacting.impactedBy td:nth-child(3) {
+  opacity: 1;
+  background-color: rgba(255, 170, 170, 0.3);
+}
+.equipEmulator tr.impacting.impactedBy td:nth-child(2) {
+  opacity: 1;
+  background-color: rgba(255, 170, 170, 0.3);
 }
 .equipEmulator tr td {
   vertical-align: top;
@@ -273,4 +296,26 @@ h3 {
 }
 .equipEmulator tr td div.low {
   color: #3498db;
+}
+
+table#legend {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+table#legend tr td {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 11px;
+}
+table#legend tr.high-risk {
+  background-color: rgba(255, 170, 170, 0.5);
+}
+table#legend tr.medium-risk {
+  background-color: rgba(255, 232, 170, 0.5);
+}
+table#legend tr.low-risk {
+  background-color: rgba(170, 214, 255, 0.5);
 }/*# sourceMappingURL=reportGen.css.map */

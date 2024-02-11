@@ -1,5 +1,5 @@
 //document.addEventListener('DOMContentLoaded', function () {
-var debug = true;
+var debug = false;
 $(document).ready(function () {
     console.log('Load ReportGen');
     if (debug) {
@@ -62,3 +62,27 @@ function loadLocalJSON(callback) {
             console.error('Error loading JSON file:', error);
         });
 }
+
+function cleanItemName(inputString) {
+    const cleanedString = (inputString.match(/([^!()]*)/) || [])[1];
+    return cleanedString;
+};
+
+function getRealNum(inputS) {
+    let realNum = (inputS.match(/\[(\d+)\]/) || [])[1] || parseInt(inputS, 10) || 0;
+    return realNum;
+}
+
+function getItemName(scanItem) {
+    let nameStr = scanItem.hasOwnProperty('equipName') ? scanItem['equipName'] :
+        scanItem.hasOwnProperty('medalName') ? scanItem['medalName'] :
+            scanItem.hasOwnProperty('ringName') ? scanItem['ringName'] :
+                scanItem.hasOwnProperty('bucketName') ? scanItem['bucketName'] : "";
+    return nameStr;
+}
+
+const uniquePush = (inputString, stringArray) => {
+    if (!stringArray.includes(inputString)) {
+        stringArray.push(inputString);
+    }
+};

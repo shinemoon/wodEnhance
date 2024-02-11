@@ -9,6 +9,11 @@ function genEquipSimulator(dat) {
 
     var matrixHtml = '<div id="tableMatrix">';
     $('body').append(matrixHtml);
+    $('body').append("<table id='legend'>\
+                                  <tr class='high-risk'><td>互有影响</td></tr>\
+                                  <tr class='medium-risk'><td>受本装备影响</td></tr>\
+                                  <tr class='low-risk'><td>本装备依赖</td></tr>\
+                                  </table>");
 
 
     eList = dat[2];
@@ -28,11 +33,11 @@ function genEquipSimulator(dat) {
                     if (curReq != null) {
                         //To find att list item
                         if (attList.hasOwnProperty(curReq.name)) {
-                            curItem['impactedBy']= curItem['impactedBy'].concat(attList[curReq.name].valueDelta);
+                            curItem['impactedBy'] = curItem['impactedBy'].concat(attList[curReq.name].valueDelta);
                         }
                         //To find att list item
                         if (skillList.hasOwnProperty(curReq.name)) {
-                            curItem['impactedBy']= curItem['impactedBy'].concat(skillList[curReq.name].valueDelta);
+                            curItem['impactedBy'] = curItem['impactedBy'].concat(skillList[curReq.name].valueDelta);
                         }
 
                     }
@@ -41,7 +46,26 @@ function genEquipSimulator(dat) {
         })
     })
     // Now backwards 
-    
+    eList.forEach(element => {
+        element.forEach(curItem => {
+            if (curItem['impactedBy'] != undefined) {
+                //Scan and backwardc:w
+                curItem['impactedBy'].forEach(curImpact => {
+                    // to find and register every item back
+                    eList.forEach(scanArr => {
+                        scanArr.forEach(scanItem => {
+                            if (!scanItem.hasOwnProperty('impacting')) scanItem['impacting'] = [];
+                            let nameStr = getItemName(scanItem);
+                            //console.log(cleanItemName(nameStr));
+                            //console.log(curImpact.factor);
+                            if (cleanItemName(nameStr) == curImpact.factor) uniquePush(getItemName(curItem), scanItem['impacting']);
+                        })
+                    })
+                })
+            }
+        })
+    });
+
 
     function getFirstKeyEndingWithName(obj) {
         for (const key in obj) {
@@ -120,6 +144,8 @@ function genEquipSimulator(dat) {
     $('td.name').click(function () {
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
+            $('tr').removeClass('impactedBy');
+            $('tr').removeClass('impacting');
             $('tr').removeClass('fade');
         } else {
             $('td.name.selected').removeClass('selected');
@@ -128,18 +154,27 @@ function genEquipSimulator(dat) {
             $('tr').addClass('fade');
             $(this).parent().removeClass('fade');
             $(this).parent().removeClass('impactedBy');
+            $(this).parent().removeClass('impacting');
         }
     });
 
     function calculateRelations(ti, ii) {
         console.log(eList[ti][ii]);
         $('.impactedBy').removeClass("impactedBy");
+        $('.impacting').removeClass("impacting");
         let impactedBy = eList[ti][ii]['impactedBy'];
-        if(impactedBy!=undefined) {
-            impactedBy.forEach(element=>{
-                $('td.name:contains('+element.factor+')').parent().addClass('impactedBy');
+        let impacting = eList[ti][ii]['impacting'];
+        if (impactedBy != undefined) {
+            impactedBy.forEach(element => {
+                $('td.name:contains(' + element.factor + ')').parent().addClass('impactedBy');
             })
         }
+        if (impacting!= undefined) {
+            impacting.forEach(element => {
+                $('td.name:contains(' + element + ')').parent().addClass('impacting');
+            })
+        }
+
     }
 
 };

@@ -2,7 +2,7 @@
 var gearSwtich = true;
 
 if (gearSwtich) {
-    $('input[name="ok"').after('<input type="button" value="模拟" id="blockEmulator" class="button clickable blockEmulator">');
+    $('input[name="ok"').after('<input type="button" value="计算" id="blockEmulator" class="button clickable blockEmulator">');
     var eList = null;
 
     $('.blockEmulator').click(function () {
@@ -32,7 +32,7 @@ if (gearSwtich) {
                     });
 
                     $('.blockEmulator').removeClass('disabled');
-                    $('.blockEmulator').attr('value', '模拟');
+                    $('.blockEmulator').attr('value', '计算');
                 });
 
             });
