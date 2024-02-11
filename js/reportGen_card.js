@@ -186,14 +186,17 @@ function genCardPage(dat) {
     attrItem = dat[1];
     // Loop through the new object and display its elements
     curattr = Object.fromEntries(
-        Object.entries(attrItem)
-            .filter(([key, value]) => !value.includes('可学习'))
+        Object.entries(attrItem).filter(([key, value]) => {
+            console.log(value);
+            return !value.value.includes('可学习')
+        })
     );
 
     const resultArray = Object.entries(curattr)
         .map(([name, value]) => {
-            const numValue = value === '-' ? 0 : parseFloat(value.match(/\[(\d+)\]/)?.[1] || value);
-            return { name, value, numValue };
+            const numValue = value.value === '-' ? 0 : parseFloat(value.value.match(/\[(\d+)\]/)?.[1] || value.value);
+            const displayValue = value.value;
+            return { name, displayValue, numValue };
         })
         .sort((a, b) => b.numValue - a.numValue);
 
@@ -207,7 +210,7 @@ function genCardPage(dat) {
 
     for (var k in brokenArrays) {
         brokenArrays[k].forEach(function (c, i) {
-            attrCard.find('#skillTable'+k).append("<tr><td class='label'><a href='skill'>" + c["name"] + "</a>:</td><td style='text-align:right'>" + c["value"] + "</td></tr>");
+            attrCard.find('#skillTable'+k).append("<tr><td class='label'><a href='skill'>" + c["name"] + "</a>:</td><td style='text-align:right'>" + c["displayValue"] + "</td></tr>");
         })
     }
 
