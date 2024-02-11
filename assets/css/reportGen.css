@@ -318,4 +318,24 @@ table#legend tr.medium-risk {
 }
 table#legend tr.low-risk {
   background-color: rgba(170, 214, 255, 0.5);
+}
+
+#addInfo {
+  background-color: #636060;
+  color: white;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  text-align: right;
+}
+#addInfo span {
+  font-size: 11px;
+  font-weight: bold;
+  color: lightblue;
+  padding-right: 10px;
+}
+
+body {
+  padding-bottom: 20px;
 }/*# sourceMappingURL=reportGen.css.map */

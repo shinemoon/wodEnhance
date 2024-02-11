@@ -147,6 +147,7 @@ function genEquipSimulator(dat) {
             $('tr').removeClass('impactedBy');
             $('tr').removeClass('impacting');
             $('tr').removeClass('fade');
+            $('#addInfo').remove();
         } else {
             $('td.name.selected').removeClass('selected');
             calculateRelations($(this).attr('tabind'), $(this).attr('itemind'));
@@ -159,22 +160,35 @@ function genEquipSimulator(dat) {
     });
 
     function calculateRelations(ti, ii) {
-        console.log(eList[ti][ii]);
+        //console.log(eList[ti][ii]);
+        $('body').append("<div id='addInfo'>");
+
         $('.impactedBy').removeClass("impactedBy");
         $('.impacting').removeClass("impacting");
         let impactedBy = eList[ti][ii]['impactedBy'];
         let impacting = eList[ti][ii]['impacting'];
         if (impactedBy != undefined) {
+            let otherItems = [];
             impactedBy.forEach(element => {
-                $('td.name:contains(' + element.factor + ')').parent().addClass('impactedBy');
+                if ($('td.name:contains(' + element.factor + ')').length > 0)
+                    $('td.name:contains(' + element.factor + ')').parent().addClass('impactedBy');
+                else {
+                    uniquePush(element.factor, otherItems);
+                }
             })
+            console.log(otherItems);
+            $('#addInfo').html("<div id='itemlist'> 此外，还有其他对本装备生效的因素包括：</div>");
+            otherItems.forEach(oi => {
+                $('#addInfo div#itemlist').append("<span>" + oi + "</span>");
+            })
+
         }
-        if (impacting!= undefined) {
+        if (impacting != undefined) {
             impacting.forEach(element => {
                 $('td.name:contains(' + element + ')').parent().addClass('impacting');
+
             })
         }
-
     }
 
 };

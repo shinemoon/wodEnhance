@@ -1,5 +1,5 @@
 //document.addEventListener('DOMContentLoaded', function () {
-var debug = false;
+var debug = true;
 $(document).ready(function () {
     console.log('Load ReportGen');
     if (debug) {
