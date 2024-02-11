@@ -265,8 +265,25 @@ h3 {
 .equipEmulator {
     tr {
         &.fade {
-            opacity:0.3;
+            &:not(.impactedBy):not(.impacting) {
+                opacity: 0.3;
+            }
         }
+
+        &.impactedBy {
+            td.name {
+                background-color: rgba(170, 214, 255, 0.7);
+            }
+            td:nth-child(2) {
+                opacity:0.3;
+                background-color: rgba(170, 214, 255, 0.5);
+            }
+            td:nth-child(3){
+                background-color: rgba(170, 214, 255, 0.3);
+            }
+
+        }
+
         td {
             vertical-align: top;
             padding-left: 10px;
@@ -275,27 +292,30 @@ h3 {
 
             &.name {
                 background-color: #f0f0f0;
+
                 &:not(.selected) {
-                    &:hover{
-                    background-color: #e0e0e0;
+                    &:hover {
+                        background-color: #e0e0e0;
                     }
                 }
 
                 &.selected {
-                    background-color: #5f5d5d!important;
+                    background-color: #5f5d5d !important;
                     color: white;
                 }
             }
 
             div {
                 &.high {
-                    color:red;
+                    color: red;
                 }
+
                 &.medium {
                     color: darkorange;
                 }
+
                 &.low {
-                    color:#3498db;
+                    color: #3498db;
                 }
             }
         }

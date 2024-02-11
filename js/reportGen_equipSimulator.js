@@ -20,6 +20,28 @@ function genEquipSimulator(dat) {
     // Find the req att/skill => to read the 'contributors' from each att/skill => build the impacted batch by that info!
     // But pls remember , we just need one 'being impacted by' list for each equipment in first round, and 
     // after this net work done, to backward scan and create 'being impacing to ' list again for every eList item
+    eList.forEach(element => {
+        element.forEach(curItem => {
+            if (curItem.req != undefined) {
+                curItem['impactedBy'] = [];
+                curItem.req.forEach(curReq => {
+                    if (curReq != null) {
+                        //To find att list item
+                        if (attList.hasOwnProperty(curReq.name)) {
+                            curItem['impactedBy']= curItem['impactedBy'].concat(attList[curReq.name].valueDelta);
+                        }
+                        //To find att list item
+                        if (skillList.hasOwnProperty(curReq.name)) {
+                            curItem['impactedBy']= curItem['impactedBy'].concat(skillList[curReq.name].valueDelta);
+                        }
+
+                    }
+                })
+            }
+        })
+    })
+    // Now backwards 
+    
 
     function getFirstKeyEndingWithName(obj) {
         for (const key in obj) {
@@ -39,8 +61,8 @@ function genEquipSimulator(dat) {
             // +1-+2: yellow
             // >2: green
             // And add current actual value behind
-            let gap =0;
-            let risk ='normal';
+            let gap = 0;
+            let risk = 'normal';
             let realNumber = 0;
 
             if (attList.hasOwnProperty(item.name)) {
@@ -105,12 +127,19 @@ function genEquipSimulator(dat) {
             $(this).addClass('selected');
             $('tr').addClass('fade');
             $(this).parent().removeClass('fade');
+            $(this).parent().removeClass('impactedBy');
         }
     });
 
     function calculateRelations(ti, ii) {
-        console.log(ti + ":" + ii);
         console.log(eList[ti][ii]);
+        $('.impactedBy').removeClass("impactedBy");
+        let impactedBy = eList[ti][ii]['impactedBy'];
+        if(impactedBy!=undefined) {
+            impactedBy.forEach(element=>{
+                $('td.name:contains('+element.factor+')').parent().addClass('impactedBy');
+            })
+        }
     }
 
 };

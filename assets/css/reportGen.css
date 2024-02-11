@@ -236,8 +236,18 @@ h3 {
 .equipEmulator {
   font-size: 11px !important;
 }
-.equipEmulator tr.fade {
+.equipEmulator tr.fade:not(.impactedBy):not(.impacting) {
   opacity: 0.3;
+}
+.equipEmulator tr.impactedBy td.name {
+  background-color: rgba(170, 214, 255, 0.7);
+}
+.equipEmulator tr.impactedBy td:nth-child(2) {
+  opacity: 0.3;
+  background-color: rgba(170, 214, 255, 0.5);
+}
+.equipEmulator tr.impactedBy td:nth-child(3) {
+  background-color: rgba(170, 214, 255, 0.3);
 }
 .equipEmulator tr td {
   vertical-align: top;
