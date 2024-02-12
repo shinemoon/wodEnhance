@@ -167,7 +167,6 @@ body .paginator_selected {
   border-radius: 2px !important;
   background-color: rgba(228, 233, 238, 0.1254901961) !important;
   transition: background-color 0.3s ease, color 0.3s ease !important;
-  height: 28px !important;
 }
 body .pagi_but:hover,
 body .paginator:hover,

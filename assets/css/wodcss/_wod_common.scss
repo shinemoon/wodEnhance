@@ -204,13 +204,11 @@ body {
     border-radius: 2px !important;
     background-color: #e4e9ee20 !important;
     transition: background-color 0.3s ease, color 0.3s ease !important;
-    height: 28px !important;
-
     &:hover {
       background-color: #333 !important;
       color: #fff !important;
     }
-  }
+  } 
 
   .paginator_selected {
     background-color: #e4e9ee !important;
