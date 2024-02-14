@@ -28,10 +28,20 @@ function genSkillSetPage(dat) {
 
     // General
     curSetting.append("<h3>缺省行动</h3>");
+    curSetting.append("<ol>");
+    lihdl = curSetting.find('ol:last');
+
     if (dat[0].defaultAtt)
-        curSetting.append("<span>若所设置行为无法进行，允许自动进行其他攻击动作(仅限于回合中攻击技能)</span>");
+        curSetting.append("<li class='skillInfo'><span>若所设置行为无法进行，允许自动进行其他攻击动作(仅限于回合中攻击技能)</span></li>");
     else
-        curSetting.append("<span>禁止自动攻击</span>");
+        curSetting.append("<li class='skillInfo'><span>禁止自动攻击</span></li>");
+
+    if (dat[0].escNum!='')
+        curSetting.append("<li class='skillInfo'><span>少于<u><b>"+dat[0].escNum+"</u></b>人则逃跑</span></li>");
+    else
+        curSetting.append("<li class='skillInfo'><span>无人数逃跑设置</span></li>");
+
+
     curSetting.append("<h3>行为顺序</h3>");
     curSetting.append("<ol>");
     lihdl = curSetting.find('ol:last');

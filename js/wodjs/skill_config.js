@@ -56,13 +56,16 @@ if (window.location.href.indexOf("skillconfig.php") >= 0 || window.location.href
         sorder.each(function (ind, cont) {
             sptOrder = sptOrder + ">" + $(cont).text();
         });
+        //Escape
+        var escNum = $('h3:contains("撤退")').parent().find('input').eq(2).val()
+
         // Other
         var defaultAtt = $('h3:contains("杂项")+span input[type=checkbox]').is(":checked");
 
         // Title
         var setTitle = $('h1').eq(1).text();
 
-        otherSetting = { defSkills: defSkills, attOrder: attOrder, sptOrder: sptOrder, defaultAtt: defaultAtt, setTitle: setTitle };
+        otherSetting = { defSkills: defSkills, attOrder: attOrder, sptOrder: sptOrder, defaultAtt: defaultAtt, setTitle: setTitle, escNum:escNum };
 
         for (let key in otherSetting) {
             setList[0][key] = otherSetting[key];
