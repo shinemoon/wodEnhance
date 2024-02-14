@@ -51,7 +51,7 @@ if (window.location.href.indexOf("trade.php") >= 0) {
 		itemCountStr = itemCountStr + '';
 		if (itemCountStr != 'null') {
 			var itemCounts = itemCountStr.match(/\d+/);
-			var itemPrice = col_price.textContent.match(/\d+/);
+			var itemPrice = col_price.textContent.replace(/,/g, '').match(/\d+/);
 			if (!itemPrice) {
 				return PRICE_UNAVAILABLE;
 			}
