@@ -172,10 +172,12 @@ function genEquipSimulator(dat) {
         if (impactedBy != undefined) {
             let otherItems = [];
             impactedBy.forEach(element => {
-                if ($('td.name:contains(' + element.factor + ')').length > 0)
-                    $('td.name:contains(' + element.factor + ')').parent().addClass('impactedBy');
-                else {
-                    uniquePush(element.factor, otherItems);
+                if (element != null) {
+                    if ($('td.name:contains(' + element.factor + ')').length > 0)
+                        $('td.name:contains(' + element.factor + ')').parent().addClass('impactedBy');
+                    else {
+                        uniquePush(element.factor, otherItems);
+                    }
                 }
             })
             console.log(otherItems);
