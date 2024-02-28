@@ -34,12 +34,11 @@ function genEquipSimulator(dat) {
                         //To find att list item
                         if (attList.hasOwnProperty(curReq.name)) {
                             curItem['impactedBy'] = curItem['impactedBy'].concat(attList[curReq.name].valueDelta);
-                        }
-                        //To find att list item
-                        if (skillList.hasOwnProperty(curReq.name)) {
+                        } else if (skillList.hasOwnProperty(curReq.name)) {
                             curItem['impactedBy'] = curItem['impactedBy'].concat(skillList[curReq.name].valueDelta);
+                        } else {
+                            curItem['impactedBy'] = curItem['impactedBy'].concat([null]);
                         }
-
                     }
                 })
             }
@@ -51,16 +50,19 @@ function genEquipSimulator(dat) {
             if (curItem['impactedBy'] != undefined) {
                 //Scan and backwardc:w
                 curItem['impactedBy'].forEach(curImpact => {
-                    // to find and register every item back
-                    eList.forEach(scanArr => {
-                        scanArr.forEach(scanItem => {
-                            if (!scanItem.hasOwnProperty('impacting')) scanItem['impacting'] = [];
-                            let nameStr = getItemName(scanItem);
-                            //console.log(cleanItemName(nameStr));
-                            //console.log(curImpact.factor);
-                            if (cleanItemName(nameStr) == curImpact.factor) uniquePush(getItemName(curItem), scanItem['impacting']);
+                    console.log(curImpact);
+                    if (curImpact != null) {
+                        // to find and register every item back
+                        eList.forEach(scanArr => {
+                            scanArr.forEach(scanItem => {
+                                if (!scanItem.hasOwnProperty('impacting')) scanItem['impacting'] = [];
+                                let nameStr = getItemName(scanItem);
+                                //                            console.log(cleanItemName(nameStr));
+                                //                           console.log(curImpact);
+                                if (cleanItemName(nameStr) == curImpact.factor) uniquePush(getItemName(curItem), scanItem['impacting']);
+                            })
                         })
-                    })
+                    }
                 })
             }
         })
