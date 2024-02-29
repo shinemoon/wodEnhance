@@ -140,7 +140,7 @@ function genCardPage(dat) {
             if (element['equipName'] == "")
                 attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['equipPos'] + "</u>:</td><td>" + element['equipName'] + "</td></tr>");
             else
-                attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['equipPos'] + "</u>:</td><td><a href='item'>" + element['equipName'] + "</a></td></tr>");
+                attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['equipPos'] + "</u>:</td><td><a class='link'  href='item' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name="+cleanItemName(element['equipName'])+"'>" + element['equipName'] + "</a></td></tr>");
         }
     }
     curattr = dat[2][1];
@@ -151,7 +151,7 @@ function genCardPage(dat) {
             if (element['medalName'] == "")
                 attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['medalPos'] + "</u>:</td><td>" + element['medalName'] + "</td></tr>");
             else
-                attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['medalPos'] + "</u>:</td><td><a href='item'>" + element['medalName'] + "</a></td></tr>");
+                attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['medalPos'] + "</u>:</td><td><a class='link' href='item' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name="+cleanItemName(element['medalName'])+"'>" + element['medalName'] + "</a></td></tr>");
         }
     }
     curattr = dat[2][3];
@@ -159,7 +159,7 @@ function genCardPage(dat) {
     for (const key in curattr) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
-            attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['ringPos'] + "</u>:</td><td><a href='item'>" + element['ringName'] + "</a></td></tr>");
+            attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['ringPos'] + "</u>:</td><td><a class='link' href='item' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name="+cleanItemName(element['ringName'])+"' >" + element['ringName'] + "</a></td></tr>");
         }
     }
 
@@ -171,7 +171,7 @@ function genCardPage(dat) {
             if (element['bucketName'] == "")
                 attrCard.find('#bucketTable table').append("<tr><td class='label'><u>" + element['bucketPos'] + "</u>:</td><td>" + element['bucketName'] + "</td></tr>");
             else
-                attrCard.find('#bucketTable table').append("<tr><td class='label'><u>" + element['bucketPos'] + "</u>:</td><td><a href='item'>" + element['bucketName'] + "</a></td></tr>");
+                attrCard.find('#bucketTable table').append("<tr><td class='label'><u>" + element['bucketPos'] + "</u>:</td><td><a class='link' href='item' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name="+cleanItemName(element['bucketName'])+"' >" + element['bucketName'] + "</a></td></tr>");
 
         }
     }
@@ -210,7 +210,7 @@ function genCardPage(dat) {
 
     for (var k in brokenArrays) {
         brokenArrays[k].forEach(function (c, i) {
-            attrCard.find('#skillTable'+k).append("<tr><td class='label'><a href='skill'>" + c["name"] + "</a>:</td><td style='text-align:right'>" + c["displayValue"] + "</td></tr>");
+            attrCard.find('#skillTable' + k).append("<tr><td class='label'><a class='link' href='skill' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/skill.php?name="+cleanItemName(c["name"])+"' >" + c["name"] + "</a>:</td><td style='text-align:right'>" + c["displayValue"] + "</td></tr>");
         })
     }
 
@@ -220,6 +220,18 @@ function genCardPage(dat) {
                                                 <div id="exportbutton" class="elegant-button"> 导出BBCODE</div> \
                                                 <div id="themes" class="switch-button"> <input id="themecheck" type=checkbox></div><div> 预览暗色(论坛效果)</div> \
                                          </div > ');
+
+
+
+    $('.link').on('click', function (e) {
+        // Prevent the default behavior of the anchor tag
+        e.preventDefault();
+        // Get the 'bbb' attribute value
+        var newWindowAddress = $(this).attr('addr');
+        // Open a new pop-up window with the specified address
+        window.open(newWindowAddress, '_blank');
+    });
+
 
     $('#exportbutton').click(function () {
         if (!isDarkTheme)
