@@ -50,7 +50,7 @@ function genEquipSimulator(dat) {
             if (curItem['impactedBy'] != undefined) {
                 //Scan and backwardc:w
                 curItem['impactedBy'].forEach(curImpact => {
-                    console.log(curImpact);
+                    //console.log(curImpact);
                     if (curImpact != null) {
                         // to find and register every item back
                         eList.forEach(scanArr => {
@@ -180,7 +180,7 @@ function genEquipSimulator(dat) {
                     }
                 }
             })
-            console.log(otherItems);
+            //console.log(otherItems);
             $('#addInfo').html("<div id='itemlist'> 此外，还有其他对本装备生效的因素包括：</div>");
             otherItems.forEach(oi => {
                 $('#addInfo div#itemlist').append("<span>" + oi + "</span>");

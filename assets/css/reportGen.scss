@@ -394,11 +394,13 @@ table#legend {
 
 #addInfo {
     background-color: #636060;
-    color:white;
+    color: white;
+
     span {
         font-size: 11px;
         font-weight: bold;
-        color: lightblue;;
+        color: lightblue;
+        ;
         padding-right: 10px;
     }
 
@@ -410,6 +412,18 @@ table#legend {
 
 }
 
-body{
-    padding-bottom:20px;
+body {
+    padding-bottom: 20px;
 }
+
+//For the table element
+
+.dataTables_paginate {
+    margin-bottom: 10px;
+}
+
+#inventory_filter{
+    margin-top:5px!important;
+    margin-right:20px!important;
+}
+

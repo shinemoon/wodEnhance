@@ -9,6 +9,7 @@ function genLibPage(dat) {
     $('body').append(tableHtml);
 
     $('#inventory').DataTable({
+        dom:"lpftrip",
         "oLanguage": {
             "sLengthMenu": 'Display <select>' +
                 '<option value="10">10</option>' +
