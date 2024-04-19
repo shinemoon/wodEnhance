@@ -1,6 +1,9 @@
 function genCardPage(dat) {
     console.log('Generate for Character Card')
     console.log(dat);
+    // Check if the dark theme preference is stored in localStorage
+    var isDarkTheme = localStorage.getItem('darktheme') === 'true';
+    var isFullSkill = localStorage.getItem('fullskill') === 'true';
 
     var tableHtml = '<table id="charCard" class="dark">';
     $('body').append(tableHtml);
@@ -140,7 +143,7 @@ function genCardPage(dat) {
             if (element['equipName'] == "")
                 attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['equipPos'] + "</u>:</td><td>" + element['equipName'] + "</td></tr>");
             else
-                attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['equipPos'] + "</u>:</td><td><a class='link'  href='item' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name="+cleanItemName(element['equipName'])+"'>" + element['equipName'] + "</a></td></tr>");
+                attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['equipPos'] + "</u>:</td><td><a class='link'  href='item' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name=" + cleanItemName(element['equipName']) + "'>" + element['equipName'] + "</a></td></tr>");
         }
     }
     curattr = dat[2][1];
@@ -151,7 +154,7 @@ function genCardPage(dat) {
             if (element['medalName'] == "")
                 attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['medalPos'] + "</u>:</td><td>" + element['medalName'] + "</td></tr>");
             else
-                attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['medalPos'] + "</u>:</td><td><a class='link' href='item' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name="+cleanItemName(element['medalName'])+"'>" + element['medalName'] + "</a></td></tr>");
+                attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['medalPos'] + "</u>:</td><td><a class='link' href='item' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name=" + cleanItemName(element['medalName']) + "'>" + element['medalName'] + "</a></td></tr>");
         }
     }
     curattr = dat[2][3];
@@ -159,7 +162,7 @@ function genCardPage(dat) {
     for (const key in curattr) {
         if (curattr.hasOwnProperty(key)) {
             const element = curattr[key];
-            attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['ringPos'] + "</u>:</td><td><a class='link' href='item' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name="+cleanItemName(element['ringName'])+"' >" + element['ringName'] + "</a></td></tr>");
+            attrCard.find('#equipTable table').append("<tr><td class='label'><u>" + element['ringPos'] + "</u>:</td><td><a class='link' href='item' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name=" + cleanItemName(element['ringName']) + "' >" + element['ringName'] + "</a></td></tr>");
         }
     }
 
@@ -171,7 +174,7 @@ function genCardPage(dat) {
             if (element['bucketName'] == "")
                 attrCard.find('#bucketTable table').append("<tr><td class='label'><u>" + element['bucketPos'] + "</u>:</td><td>" + element['bucketName'] + "</td></tr>");
             else
-                attrCard.find('#bucketTable table').append("<tr><td class='label'><u>" + element['bucketPos'] + "</u>:</td><td><a class='link' href='item' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name="+cleanItemName(element['bucketName'])+"' >" + element['bucketName'] + "</a></td></tr>");
+                attrCard.find('#bucketTable table').append("<tr><td class='label'><u>" + element['bucketPos'] + "</u>:</td><td><a class='link' href='item' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/item.php?name=" + cleanItemName(element['bucketName']) + "' >" + element['bucketName'] + "</a></td></tr>");
 
         }
     }
@@ -192,7 +195,7 @@ function genCardPage(dat) {
         })
     );
 
-    const resultArray = Object.entries(curattr)
+    var resultArray = Object.entries(curattr)
         .map(([name, value]) => {
             const numValue = value.value === '-' ? 0 : parseFloat(value.value.match(/\[(\d+)\]/)?.[1] || value.value);
             const displayValue = value.value;
@@ -200,6 +203,14 @@ function genCardPage(dat) {
         })
         .sort((a, b) => b.numValue - a.numValue);
 
+
+    // To remove '-' from skill list
+    if (!isFullSkill) {
+        resultArray = resultArray.filter(function (element) {
+            console.log(element);
+            return element.numValue !== 0;
+        });
+    }
     // Split the array into three subarrays
     const chunkSize = Math.ceil(resultArray.length / 3);
     const brokenArrays = Array.from({ length: 3 }, (_, index) =>
@@ -210,7 +221,7 @@ function genCardPage(dat) {
 
     for (var k in brokenArrays) {
         brokenArrays[k].forEach(function (c, i) {
-            attrCard.find('#skillTable' + k).append("<tr><td class='label'><a class='link' href='skill' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/skill.php?name="+cleanItemName(c["name"])+"' >" + c["name"] + "</a>:</td><td style='text-align:right'>" + c["displayValue"] + "</td></tr>");
+            attrCard.find('#skillTable' + k).append("<tr><td class='label'><a class='link' href='skill' addr='http://delta.world-of-dungeons.org/wod/spiel/hero/skill.php?name=" + cleanItemName(c["name"]) + "' >" + c["name"] + "</a>:</td><td style='text-align:right'>" + c["displayValue"] + "</td></tr>");
         })
     }
 
@@ -219,6 +230,7 @@ function genCardPage(dat) {
     $('body').append(' <div id="buttonList" style="margin-top:20px;margin-bottom:20px;padding-top:10px;padding-bottom:10px;background:rgba(0,0,0,0.1);"> \
                                                 <div id="exportbutton" class="elegant-button"> 导出BBCODE</div> \
                                                 <div id="themes" class="switch-button"> <input id="themecheck" type=checkbox></div><div> 预览暗色(论坛效果)</div> \
+                                                <div id="themes" class="switch-button"> <input id="fullskillcheck" type=checkbox></div><div> 显示未点技能(需要重新加载)</div> \
                                          </div > ');
 
 
@@ -256,14 +268,19 @@ function genCardPage(dat) {
 
     //Theme select
     const darkThemeToggle = $('#themecheck');
-    // Check if the dark theme preference is stored in localStorage
-    var isDarkTheme = localStorage.getItem('darktheme') === 'true';
+    const fullSkillCheck = $('#fullskillcheck');
+
     if (isDarkTheme)
         $('#charCard').addClass('dark');
     else
         $('#charCard').removeClass('dark');
+
+
     // Set the initial state based on localStorage
     darkThemeToggle.prop('checked', isDarkTheme);
+    fullSkillCheck.prop('checked', isFullSkill);
+
+
     // Handle changes to the checkbox
     darkThemeToggle.on('change', function () {
         // Update localStorage with the new state
@@ -275,6 +292,12 @@ function genCardPage(dat) {
             $('#charCard').removeClass('dark');
     });
 
+    // Handle changes to the checkbox
+    fullSkillCheck.on('change', function () {
+        // Update localStorage with the new state
+        isFullSkill = fullSkillCheck.prop('checked');
+        localStorage.setItem('fullskill', isFullSkill);
+    });
 
 }
 

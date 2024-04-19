@@ -221,7 +221,7 @@
 			});
 		};
 		var listItems = $('.nice-select-dropdown > .list > li[data-value]').filter(function () {
-			return $(this).html()=="";
+			return $(this).html() == "";
 		});
 		for (var i = 0; i < listItems.length; i++) {
 			listItems.eq(i).html("&nbsp;")

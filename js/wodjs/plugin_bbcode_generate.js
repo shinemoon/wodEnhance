@@ -76,8 +76,14 @@
 var bbcode_generate_CreateBB;
 
 (function () {
-    bbcode_generate_CreateBB = function (node, size, color, font) {
-        return CreateBB(node, size, color, font);
+    bbcode_generate_CreateBB = function (node, size, color, font, preCB=null) {
+        var newnode = null;
+        if(preCB!=null) {
+            newnode = preCB(node)[0];
+        } else {
+            newnode = node;
+        }
+        return CreateBB(newnode, size, color, font);
     }
     //-----------------------------------------------------------------------------
     // auxiliary functions

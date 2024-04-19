@@ -48,7 +48,7 @@ function parseLocalHeroAttributes(data) {
     }
 
     function splitStringIntoArray(inputString) {
-        if(inputString==null) return [];
+        if (inputString == null) return [];
         // Split the input string into an array based on "<br>"
         var items = inputString.split('<br>');
 
@@ -114,13 +114,26 @@ function parseLocalHeroAttributes(data) {
     retAttrVal["体力"] = { type: 'attrII', value: attributeRows.eq(4).find('>td').eq(1).text().trim().replace(/[\n ]/g, '') };
     // hp-recover
     // retAttrVal["体力恢复"] = { type: 'attrII', value: attributeRows.eq(4).find('>td').eq(2).find('.effective_value').text().trim() };
-    retAttrVal["体力恢复"] = { type: 'attrII', value: attributeRows.eq(4).find('>td').eq(2).text().replace(/\s+/g, '').replace(/[^0-9\[\]]+/g, '').trim() };
+    //retAttrVal["体力恢复"] = { type: 'attrII', value: attributeRows.eq(4).find('>td').eq(2).text().replace(/\s+/g, '').replace(/[^0-9\[\]]+/g, '').trim() };
+    retAttrVal["体力恢复"] = {
+        type: 'attrII',
+        value: attributeRows.eq(4).find('>td').eq(2).text()
+            .replace(/\s+/g, '') // 移除空白字符
+            .replace(/[^\-\d\[\]]+/g, '') // 保留负数、数字和其他字符
+            .trim() // 移除首尾空白
+    };
 
     // mp
     retAttrVal["法力"] = { type: 'attrII', value: attributeRows.eq(5).find('>td').eq(1).text().trim().replace(/[\n ]/g, '') };
     // mp-recover
-    retAttrVal["法力恢复"] = { type: 'attrII', value: attributeRows.eq(5).find('>td').eq(2).text().replace(/\s+/g, '').replace(/[^0-9\[\]]+/g, '').trim() };
-
+    //retAttrVal["法力恢复"] = { type: 'attrII', value: attributeRows.eq(5).find('>td').eq(2).text().replace(/\s+/g, '').replace(/[^0-9\[\]]+/g, '').trim() };
+    retAttrVal["法力恢复"] = {
+        type: 'attrII',
+        value: attributeRows.eq(5).find('>td').eq(2).text()
+            .replace(/\s+/g, '') // 移除空白字符
+            .replace(/[^\-\d\[\]]+/g, '') // 保留负数、数字和其他字符
+            .trim() // 移除首尾空白
+    };
     // rounds
     retAttrVal['每回合行动次数'] = { type: 'attrII', value: attributeRows.eq(6).find('>td').eq(1).text().trim().replace(/[\n ]/g, '') };
     // pre-act

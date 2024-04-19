@@ -9,7 +9,7 @@ function genLibPage(dat) {
     $('body').append(tableHtml);
 
     $('#inventory').DataTable({
-        dom:"lpftrip",
+        dom: "lpftrip",
         "oLanguage": {
             "sLengthMenu": 'Display <select>' +
                 '<option value="10">10</option>' +
@@ -23,7 +23,7 @@ function genLibPage(dat) {
                 '<option value="-1">All</option>' +
                 '</select> records'
         },
-        "iDisplayLength": 200, 
+        "iDisplayLength": 200,
         fixedHeader: {
             header: true,
             footer: true
@@ -59,21 +59,35 @@ function genLibPage(dat) {
     });
 
     $('#exportbutton').click(function () {
-        var exportBB = bbcode_generate_CreateBB($('#inventory')[0], "", "", "")
+        var exportBB = bbcode_generate_CreateBB($('#inventory')[0], "", "", "", simplifyTable)
             .replace(/^ \[table\]/, '[table border=1]')         //Set border
             .replace(/\[\/?(font|color|size)[^\]]*\]/g, '');        // Remove color size font
-        //Handle the url
-        // Regex to match the specified BBCode pattern
-        //var regex = /\[url=([^[\]]+)\]([^\]]+?)\s*(?:\!\s*)?(?:\(\d+\/\d+\)\s*)?\[\/url\]/g;
-        // Replace with the desired format
-//        exportBB = exportBB.replace(regex, '[$1:$2]');
-           exportBB = exportBB.replace(/\[url=(.*?)\](.*?)\[\/url\]/g, '[item:$2]');
+        exportBB = exportBB.replace(/\[url=(.*?)\](.*?)\[\/url\]/g, '[item:$2]');
 
         exportBB = exportBB.replace(/\[tr\]((?:(?!\[\/tr\]).|\n)*)\[td rowspan=1\]((?:(?!\[\/td\]).|\n)*)\[\/td\]((?:(?!\[\/tr\]).|\n)*)\[\/tr\]/g, '');
 
         $('#popupOverlay textarea').eq(0).val(exportBB);
         $("#popupOverlay").fadeIn();
     })
+
+    function simplifyTable(node) {
+        var newnode = $(node.cloneNode(true));
+        newnode.find('tr').each(function () {
+            $(this).find('th:eq(8)').remove(); // Remove '次数'
+            $(this).find('td:eq(8)').remove(); // 
+
+            $(this).find('th:eq(7)').remove(); // Remove '最大次数'
+            $(this).find('td:eq(7)').remove(); // 
+
+            $(this).find('th:eq(5)').remove(); // Remove '唯一性'
+            $(this).find('td:eq(5)').remove(); // 
+
+            $(this).find('th:eq(0)').remove(); // Remove '耗材'
+            $(this).find('td:eq(0)').remove(); // 
+
+        });
+        return newnode;
+    }
 
 }
 

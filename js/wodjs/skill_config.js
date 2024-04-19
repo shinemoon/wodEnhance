@@ -45,13 +45,14 @@ if (window.location.href.indexOf("skillconfig.php") >= 0 || window.location.href
         defSkills.mental= $("h4:contains('心理') + span label").text() + ($("h4:contains('心理') + span select:first").val()==undefined?"": $("h4:contains('心理') + span select:first").val()) + ($("h4:contains('心理') + span select:nth-child(2)").length > 0 ? $("h4:contains('心理') + span select:nth-child(2)").val() : "");
 
         // Attack Order
-        var aorder = $('.wod-list').eq(9).find('.wod-list-items').find('.wod-list-item');
+        var aorder = $('.wod-list').eq(9).find('.wod-list-items').find('.wod-list-item span:not(.disabled)');
+        console.log()
         var attOrder = "";
         aorder.each(function (ind, cont) {
             attOrder = attOrder + ">" + $(cont).text();
         })
         // Support Order
-        var sorder = $('.wod-list').eq(8).find('.wod-list-items').find('.wod-list-item');
+        var sorder = $('.wod-list').eq(8).find('.wod-list-items').find('.wod-list-item span:not(.disabled)');
         var sptOrder = "";
         sorder.each(function (ind, cont) {
             sptOrder = sptOrder + ">" + $(cont).text();
