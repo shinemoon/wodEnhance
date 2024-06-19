@@ -82,8 +82,15 @@ function genLibPage(dat) {
             $(this).find('th:eq(5)').remove(); // Remove '唯一性'
             $(this).find('td:eq(5)').remove(); // 
 
+            $(this).find('th:eq(4)').remove(); // Remove '类型'
+            $(this).find('td:eq(4)').remove(); // 
+
+            $(this).find('th:eq(1)').remove(); // Remove '位置'
+            $(this).find('td:eq(1)').remove(); // 
+
             $(this).find('th:eq(0)').remove(); // Remove '耗材'
             $(this).find('td:eq(0)').remove(); // 
+
 
         });
         return newnode;
